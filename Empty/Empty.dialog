@@ -1,0 +1,185 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "Empty",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item",
+            "comment": "For each member added to the conversation."
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else",
+                "comment": "Checks that that member added ID does not match the bot ID. This prevents the greeting message from being sent when the bot is added to a conversation."
+              },
+              "condition": "=string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "J5d5Id"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "SkillsDialog"
+                }
+              ]
+            }
+          ],
+          "value": "dialog.foreach.value"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "mb2n1u",
+        "comment": "This trigger fires when an incoming activity is not handled by any other trigger."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "AUb4Uu"
+          },
+          "activityProcessed": true,
+          "dialog": "SkillsDialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "EdhP7X",
+        "name": "echoskill"
+      },
+      "intent": "echoskil",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "SLWWE2"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": false,
+          "skillEndpoint": "=settings.skill['echoSkill'].endpointUrl",
+          "skillAppId": "=settings.skill['echoSkill'].msAppId",
+          "activity": "${BeginSkill_Activity_SLWWE2()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "d3cslE",
+        "name": "newqna"
+      },
+      "intent": "newqna",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "VIKtTg"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": false,
+          "skillEndpoint": "=settings.skill['newqnabot01'].endpointUrl",
+          "skillAppId": "=settings.skill['newqnabot01'].msAppId"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "fgG5nQ",
+        "name": "chatgptskill"
+      },
+      "intent": "chatgptskill",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "WExIKf"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": false,
+          "skillEndpoint": "=settings.skill['chatGptSkill'].endpointUrl",
+          "skillAppId": "=settings.skill['chatGptSkill'].msAppId",
+          "activity": "${BeginSkill_Activity_WExIKf()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "KJFhUh",
+        "name": "DALLESkill"
+      },
+      "intent": "DALL-E",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "Nmgq5n"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "connectionName": "=settings.connectionName",
+          "allowInterruptions": false,
+          "skillEndpoint": "=settings.skill['dalleSkill'].endpointUrl",
+          "skillAppId": "=settings.skill['dalleSkill'].msAppId",
+          "activity": "${BeginSkill_Activity_Nmgq5n()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "riHYea",
+        "name": "SayHi"
+      },
+      "intent": "SayHi",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "CYUVQH"
+          },
+          "activityProcessed": true,
+          "dialog": "SkillsDialog"
+        }
+      ]
+    }
+  ],
+  "generator": "Empty.lg",
+  "id": "Empty",
+  "recognizer": "Empty.lu.qna"
+}

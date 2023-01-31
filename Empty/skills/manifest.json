@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.botframework.com/schemas/skills/v2.2/skill-manifest.json",
+    "$id": "newqnabot01",
+    "name": "newqnabot01",
+    "version": "2022-01-14T08:54:40.2310775Z",
+    "description": "newqnabot01 manifest",
+    "publisherName": "newqnabot01",
+    "endpoints": [
+        {
+            "name": "newqnabot01 PROD",
+            "protocol": "BotFrameworkV4",
+            "description": "PROD",
+            "endpointUrl": "https://newqna01-bot.azurewebsites.net/api/messages",
+            "msAppId": "aa6fab21-5325-4d6c-9908-22ecab78b2c3"
+        }
+    ]
+}

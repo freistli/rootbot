@@ -1,0 +1,78 @@
+[import](common.lg)
+
+# BeginSkill_Activity_SLWWE2()
+[Activity
+  type = event
+  name = startSkill
+]
+# BeginSkill_Activity_WExIKf()
+[Activity
+  type = event
+  name = ChatGPTSKill
+]
+# Ask_Activity_HM8Q47()
+[Activity
+    Attachments = ${json(Ask_Activity_HM8Q47_attachment_DNjNaE())}
+]
+
+# Ask_Activity_HM8Q47_attachment_DNjNaE()
+- ```{
+    "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Welcome ${turn.activity.from.name}, you can use below skills"
+        }],
+"actions":[
+        {
+  "type": "Action.Submit",
+  "title": "ChatGPT",
+  "data": {
+    "msteams": {
+        "type": "imBack",
+        "value": "ChatGPT"
+    },
+    "action": "ChatGPT"
+    }
+  }
+,       
+{
+  "type": "Action.Submit",
+  "title": "Echo",
+  "value": "Echo",
+  "data": {
+    "msteams": {
+        "type": "imBack",
+        "value": "Echo"
+    },
+    "action": "Echo"
+  }
+},
+{
+  "type": "Action.Submit",
+  "title": "Custom Question Answering",
+  "value": "Custom Question Answering",
+  "data": {
+    "msteams": {
+        "type": "imBack",
+        "value": "Custom Question Answering"
+    },
+    "action": "Echo"
+  }
+}
+       
+    ]
+}
+```
+# BeginSkill_Activity_Nmgq5n()
+[Activity
+  type = event
+  name = ChatGPTSKill
+]
+# BeginSkill_Activity_Nmgq5n_text()
+- ```[Activity
+  type = event
+  name = DALLESkill
+]```

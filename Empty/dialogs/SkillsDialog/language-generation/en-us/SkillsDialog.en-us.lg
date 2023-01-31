@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# SendActivity_tRzNOk()
+[Activity
+    Attachments = ${SendActivity_tRzNOk_attachment_wHREcV()}
+]
+
+# SendActivity_tRzNOk_attachment_wHREcV()
+
+[ThumbnailCard
+    title = Root Bot 01
+    text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are
+    image = https://fllivesharepoc.azurewebsites.net/logo.png
+    buttons = ChatGPT | DALL-E | ECHO
+]

@@ -1,0 +1,17 @@
+{
+  "Empty.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "": [
+        "SkillsDialog.en-us"
+      ],
+      "echoskil": "",
+      "newqna": "",
+      "chatgptskill": "",
+      "DALL-E": "",
+      "SayHi": [
+        "SkillsDialog.en-us"
+      ]
+    }
+  }
+}

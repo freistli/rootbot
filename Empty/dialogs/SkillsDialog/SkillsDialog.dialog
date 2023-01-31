@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qNVhfP",
+    "name": "SkillsDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "Icdt1O"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "tRzNOk"
+          },
+          "activity": "${SendActivity_tRzNOk()}"
+        }
+      ]
+    }
+  ],
+  "generator": "SkillsDialog.lg",
+  "recognizer": "SkillsDialog.lu.qna",
+  "id": "SkillsDialog"
+}

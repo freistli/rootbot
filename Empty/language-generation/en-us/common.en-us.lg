@@ -1,0 +1,20 @@
+> !# @Namespace = DALLE
+> !# @Exports = ImageAdaptiveCardDetails
+
+#CardHeader
+- ```
+{
+    "type": "AdaptiveCard",
+    "body": [
+      
+    ]
+}```
+
+#ImageItem (imageUrl,prompt)
+- ```
+{
+    "type": "AdaptiveCard",
+    "body": [
+      
+    ]
+}```
