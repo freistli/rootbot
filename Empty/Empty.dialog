@@ -56,12 +56,20 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Ou4QQF"
+          },
+          "property": "turn.prompt",
+          "value": "=turn.activity.text"
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "AUb4Uu"
           },
           "activityProcessed": true,
-          "dialog": "SkillsDialog"
+          "dialog": "GPT3Dialog"
         }
       ]
     },
@@ -87,7 +95,8 @@
           "skillAppId": "=settings.skill['echoSkill'].msAppId",
           "activity": "${BeginSkill_Activity_SLWWE2()}"
         }
-      ]
+      ],
+      "condition": "=turn.recognized.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -110,13 +119,14 @@
           "skillEndpoint": "=settings.skill['newqnabot01'].endpointUrl",
           "skillAppId": "=settings.skill['newqnabot01'].msAppId"
         }
-      ]
+      ],
+      "condition": "=turn.recognized.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "fgG5nQ",
-        "name": "chatgptskill"
+        "name": "ChatGPTSkill"
       },
       "intent": "chatgptskill",
       "actions": [
@@ -134,7 +144,8 @@
           "skillAppId": "=settings.skill['chatGptSkill'].msAppId",
           "activity": "${BeginSkill_Activity_WExIKf()}"
         }
-      ]
+      ],
+      "condition": "=turn.recognized.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -158,7 +169,8 @@
           "skillAppId": "=settings.skill['dalleSkill'].msAppId",
           "activity": "${BeginSkill_Activity_Nmgq5n()}"
         }
-      ]
+      ],
+      "condition": "=turn.recognized.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -175,6 +187,267 @@
           },
           "activityProcessed": true,
           "dialog": "SkillsDialog"
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.9"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "csbOh5",
+        "name": "GPT3"
+      },
+      "intent": "GPT3",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "WRA5M6"
+          },
+          "activityProcessed": true,
+          "dialog": "GPT3Dialog"
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "uEtW8l",
+        "name": "stop"
+      },
+      "intent": "stop",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "CJS3sK"
+          },
+          "activity": "${SendActivity_CJS3sK()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "63Ahs6"
+          }
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.7"
+    },
+    {
+      "$kind": "Teams.OnMESubmitAction",
+      "$designer": {
+        "id": "QOSPsP",
+        "name": "ME - ASKGPT3 - on submit action"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "c1o12H"
+          },
+          "property": "turn.prompt",
+          "value": "=turn.activity.value.data.prompt"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "ws7nC3"
+          },
+          "property": "turn.command",
+          "value": "=\"true\""
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "2YAZyN"
+          },
+          "activityProcessed": true,
+          "dialog": "GPT3Dialog"
+        }
+      ],
+      "commandId": "AskGPT3"
+    },
+    {
+      "$kind": "Teams.OnMESubmitAction",
+      "$designer": {
+        "id": "ZVaayQ",
+        "name": "ME - ASKCHATGPT- on submit action",
+        "comment": "Now this one uses GPT3 Dialog for demo purpose. 02/08/2023"
+      },
+      "commandId": "AskChatGPT",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "EySMKa"
+          },
+          "property": "turn.command",
+          "value": "=\"true\""
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Ndlhog"
+          },
+          "property": "turn.prompt",
+          "value": "=turn.activity.value.data.prompt"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "7EaAzU"
+          },
+          "activityProcessed": true,
+          "dialog": "ChatGPTMEDiag",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "UavjpG"
+          },
+          "activityProcessed": true,
+          "dialog": "GPT3Dialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Teams.OnMEFetchTask",
+      "$designer": {
+        "id": "yAwIfD",
+        "name": "ME - ASKGPT3Message - on fetch task",
+        "comment": "Should be AskGPT3Message command id only. Use it to handle AskChatGPTMessage for demo purpose as well."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Kd4lKK"
+          },
+          "condition": "=turn.activity.value.MessagePayload!=null",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Mh7j2P"
+              },
+              "activity": "${SendActivity_Mh7j2P()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Teams.SendMEActionResponse",
+              "$designer": {
+                "id": "GdHxMW"
+              },
+              "card": "${TeamsSendMEActionResponse_Card_GdHxMW()}"
+            }
+          ]
+        }
+      ],
+      "condition": true
+    },
+    {
+      "$kind": "Teams.OnMESubmitAction",
+      "$designer": {
+        "id": "W5WbjG",
+        "name": "ME - ASKGPT3Message - on submit action",
+        "comment": "Should be AskGPT3Message command id only. Use it to handle AskChatGPTMessage for demo purpose as well."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Mmo7pg"
+          },
+          "value": "=turn.activity.value.data.prompt",
+          "property": "turn.prompt"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "WXKYUn"
+          },
+          "property": "turn.command",
+          "value": "=\"true\""
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "00wwUq"
+          },
+          "activity": "${SendActivity_00wwUq()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "XQZ6jX"
+          },
+          "activityProcessed": true,
+          "dialog": "GPT3Dialog"
+        }
+      ],
+      "condition": true
+    },
+    {
+      "$kind": "Microsoft.OnError",
+      "$designer": {
+        "id": "MAikaG",
+        "name": "Error occurred (Error event)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "gkiDe0"
+          },
+          "activity": "${SendActivity_gkiDe0()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "9JEVni"
+          },
+          "activityProcessed": true,
+          "dialog": "SkillsDialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Teams.OnMEFetchTask",
+      "$designer": {
+        "id": "mprqUK",
+        "name": "ME - ASKDALLE - on fetch task"
+      },
+      "commandId": "AskDALLE",
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "O6xiE5"
+          },
+          "condition": "=turn.activity.value.MessagePayload!=null",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "aTOvtu"
+              },
+              "activityProcessed": true,
+              "dialog": "DALLEDialog"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "Kf4ihj"
+              },
+              "activityProcessed": true,
+              "dialog": "DALLEDialog"
+            }
+          ]
         }
       ]
     }

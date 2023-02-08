@@ -1,0 +1,88 @@
+[import](common.lg)
+
+# TextInput_Prompt_SMRYFg()
+[Activity
+    Text = ${TextInput_Prompt_SMRYFg_text()}
+]
+
+# TextInput_Prompt_SMRYFg_text()
+- Please input your prompt to GPT-3
+# SendActivity_tZwqmS()
+[Activity
+    Text = ${SendActivity_tZwqmS_text()}
+]
+
+# SendActivity_tZwqmS_text()
+- ${replace(turn.results.content.choices[0].text, '\n', '\n\n')}
+# TeamsSendMEBotMessagePreviewResponse_Card_LcYhTQ()
+[Activity
+    Attachments = ${json(TeamsSendMEBotMessagePreviewResponse_Card_LcYhTQ_attachment_u5jPga())}
+]
+
+# TeamsSendMEBotMessagePreviewResponse_Card_LcYhTQ_attachment_u5jPga()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "value": "${replace(turn.results.content.choices[0].text, '\n', '\n\n')}",
+      "isSubtle": false,
+      "wrap": true
+    }
+  ]
+}```
+# TeamsSendMEAttachmentsResponse_Attachments_WMBpKF()
+[Activity
+    Attachments = ${json(TeamsSendMEAttachmentsResponse_Attachments_WMBpKF_attachment_X8RCmN())}
+]
+
+# TeamsSendMEAttachmentsResponse_Attachments_WMBpKF_attachment_X8RCmN()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${replace(turn.results.content.choices[0].text, '\n', '\n\n')}",
+      "isSubtle": false,
+      "wrap": true
+    }
+  ]
+}```
+# TeamsSendMEActionResponse_Card_5r3KLG()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_5r3KLG_attachment_RIX8Np())}
+]
+
+# TeamsSendMEActionResponse_Card_5r3KLG_attachment_RIX8Np()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${SendActivity_K7CbeC_text()}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    }
+  ]
+}```
+# SendActivity_K7CbeC()
+[Activity
+    Text = ${SendActivity_K7CbeC_text()}
+]
+
+# SendActivity_K7CbeC_text()
+- Q: \n\n${turn.prompt} \n\nA: ${turn.results.content.choices[0].text}

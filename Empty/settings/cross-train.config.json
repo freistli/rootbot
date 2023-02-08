@@ -3,7 +3,10 @@
     "rootDialog": true,
     "triggers": {
       "": [
-        "SkillsDialog.en-us"
+        "SkillsDialog.en-us",
+        "GPT3Dialog.en-us",
+        "ChatGPTMEDiag.en-us",
+        "DALLEDialog.en-us"
       ],
       "echoskil": "",
       "newqna": "",
@@ -11,7 +14,11 @@
       "DALL-E": "",
       "SayHi": [
         "SkillsDialog.en-us"
-      ]
+      ],
+      "GPT3": [
+        "GPT3Dialog.en-us"
+      ],
+      "stop": ""
     }
   }
 }

@@ -1,0 +1,88 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "U1tWq7",
+    "name": "ChatGPTMEDiag",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "rowWvg"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "sy4PAa"
+          },
+          "property": "dialog.chatGPTUrl",
+          "value": "http://flwin11host.westus.cloudapp.azure.com:31010/openai"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "iI3cm3"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${dialog.chatGPTUrl}",
+          "headers": {},
+          "contentType": "application/json",
+          "responseType": "json",
+          "body": {
+            "prompt": "${turn.prompt}",
+            "messageId": "${dialog.mid}",
+            "conversationId": "${dialog.cid}"
+          }
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "beCc15"
+          },
+          "property": "dialog.mid",
+          "value": "=turn.results.content.id"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "hQaKfm"
+          },
+          "property": "dialog.cid",
+          "value": "=turn.results.content.conversationId"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "AtOpWI"
+          },
+          "activity": "${SendActivity_AtOpWI()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Teams.SendMEActionResponse",
+          "$designer": {
+            "id": "EHa8hD"
+          },
+          "card": "${TeamsSendMEActionResponse_Card_EHa8hD()}"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "aU6zW7"
+          },
+          "property": "turn.command"
+        }
+      ]
+    }
+  ],
+  "generator": "ChatGPTMEDiag.lg",
+  "recognizer": "ChatGPTMEDiag.lu.qna",
+  "id": "ChatGPTMEDiag"
+}

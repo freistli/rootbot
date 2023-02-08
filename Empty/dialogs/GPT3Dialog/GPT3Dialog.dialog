@@ -1,0 +1,100 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "O9ZDTx",
+    "name": "GPT3Dialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "KwmKgj"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "SMRYFg"
+          },
+          "disabled": false,
+          "maxTurnCount": 1,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_SMRYFg()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "property": "turn.prompt"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "jtJzL6"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "https://newopenai.openai.azure.com/openai/deployments/newtextmodel/completions?api-version=2022-12-01",
+          "body": "{   \"prompt\": \"${turn.prompt}\",   \"max_tokens\": 1448,   \"temperature\": 1,   \"frequency_penalty\": 0.26,   \"presence_penalty\": 0.25,   \"top_p\": 0.5 }",
+          "headers": {
+            "api-key": "=settings.GPT3Key"
+          }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "P3vBsA"
+          },
+          "condition": "=turn.command==\"true\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tZwqmS"
+              },
+              "activity": "${SendActivity_tZwqmS()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Teams.SendMEAttachmentsResponse",
+              "$designer": {
+                "id": "WMBpKF"
+              },
+              "attachments": "${TeamsSendMEAttachmentsResponse_Attachments_WMBpKF()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "K7CbeC"
+              },
+              "activity": "${SendActivity_K7CbeC()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Teams.SendMEActionResponse",
+              "$designer": {
+                "id": "5r3KLG"
+              },
+              "card": "${TeamsSendMEActionResponse_Card_5r3KLG()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "kZst4z"
+          },
+          "property": "turn.command"
+        }
+      ]
+    }
+  ],
+  "generator": "GPT3Dialog.lg",
+  "recognizer": "GPT3Dialog.lu.qna",
+  "id": "GPT3Dialog"
+}

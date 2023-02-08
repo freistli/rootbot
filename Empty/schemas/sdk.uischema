@@ -1709,5 +1709,666 @@
         "Manage properties"
       ]
     }
+  },
+  "Teams.GetMeetingInfo": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetMeetingParticipant": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetMember": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetPagedMembers": {
+    "form": {
+      "label": "Get paged members",
+      "order": [
+        "property",
+        "pageSize",
+        "continuationToken",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetPagedTeamMembers": {
+    "form": {
+      "label": "Get paged team members",
+      "order": [
+        "property",
+        "teamId",
+        "pageSize",
+        "continuationToken",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetTeamChannels": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetTeamDetails": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.GetTeamMember": {
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Get Teams Info"
+      ]
+    }
+  },
+  "Teams.OnAppBasedLinkQuery": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams app based link query",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "submenu": {
+        "label": "Microsoft Teams",
+        "placeholder": "Select a Teams event type",
+        "prompt": "Which Teams event?"
+      }
+    }
+  },
+  "Teams.OnCardAction": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams card action invoke",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "On card action",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnChannelCreated": {
+    "trigger": {
+      "label": "On channel created",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnChannelDeleted": {
+    "trigger": {
+      "label": "On channel deleted",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnChannelRenamed": {
+    "trigger": {
+      "label": "On channel renamed",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnChannelRestored": {
+    "trigger": {
+      "label": "On channel restored",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnFileConsent": {
+    "trigger": {
+      "label": "On file consent",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEBotMessagePreviewEdit": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension preview edit submit action",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - BotMessagePreviewEdit",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEBotMessagePreviewSend": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension preview send submit action",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - BotMessagePreviewSend",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMECardButtonClicked": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension card button clicked",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - card button clicked",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEConfigQuerySettingUrl": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension configuration query setting url",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on config query setting url",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEConfigSetting": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension configuration setting",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on config setting",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMeetingEnd": {
+    "trigger": {
+      "label": "On meeting end",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMeetingStart": {
+    "trigger": {
+      "label": "On meeting start",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEFetchTask": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension fetch task",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on fetch task",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMEQuery": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension query",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on query",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMESelectItem": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension select item",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on select item",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnMESubmitAction": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams messaging extension submit action",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "Messaging extension - on submit action",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnO365ConnectorCardAction": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams O365 connector card action",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "On O365 connector card action",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTabFetch": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams tab fetch",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "On Tab Fetch",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTabSubmit": {
+    "trigger": {
+      "label": "On Tab Submit",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTaskModuleFetch": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams task module fetch",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "On task module fetch",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTaskModuleSubmit": {
+    "form": {
+      "hidden": [
+        "actions"
+      ],
+      "label": "Teams task module submit",
+      "order": [
+        "condition",
+        "*"
+      ]
+    },
+    "trigger": {
+      "label": "On task module submit",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamArchived": {
+    "trigger": {
+      "label": "On team archived",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamDeleted": {
+    "trigger": {
+      "label": "On team deleted",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamHardDeleted": {
+    "trigger": {
+      "label": "On team hard deleted",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamRenamed": {
+    "trigger": {
+      "label": "On team renamed",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamRestored": {
+    "trigger": {
+      "label": "On team restored",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.OnTeamUnarchived": {
+    "trigger": {
+      "label": "On team unarchived",
+      "submenu": "Microsoft Teams"
+    }
+  },
+  "Teams.SendAppBasedLinkQueryResponse": {
+    "form": {
+      "label": "Send a query link response",
+      "order": [
+        "card",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEActionResponse": {
+    "form": {
+      "label": "Messaging extension action response",
+      "order": [
+        "card",
+        "title",
+        "height",
+        "width",
+        "cacheType",
+        "cacheDuration",
+        "completionBotId",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEAttachmentsResponse": {
+    "form": {
+      "label": "Send messaging extensions attachment(s) response",
+      "order": [
+        "attachments",
+        "attachmentLayout",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEAuthResponse": {
+    "form": {
+      "label": "Messaging Extension auth response",
+      "order": [
+        "connectionName",
+        "title",
+        "resultProperty",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEBotMessagePreviewResponse": {
+    "form": {
+      "label": "Send a bot message preview response",
+      "order": [
+        "card",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEConfigQuerySettingUrlResponse": {
+    "form": {
+      "label": "Send a configuration query setting response",
+      "order": [
+        "configUrl",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMEMessageResponse": {
+    "form": {
+      "label": "Send messaging extension message response",
+      "order": [
+        "message",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMESelectItemResponse": {
+    "form": {
+      "label": "Send a card response on item selection",
+      "order": [
+        "card",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Messaging Extensions"
+      ]
+    }
+  },
+  "Teams.SendMessageToTeamsChannel": {
+    "form": {
+      "label": "Send a message to a teams channel",
+      "order": [
+        "activity",
+        "teamsChannelId",
+        "activityIdProperty",
+        "conversationReferenceProperty",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Send messages"
+      ]
+    }
+  },
+  "Teams.SendTabAuthResponse": {
+    "form": {
+      "label": "Tab auth response",
+      "order": [
+        "connectionName",
+        "title",
+        "resultProperty",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Task Modules and Tabs"
+      ]
+    }
+  },
+  "Teams.SendTabCardResponse": {
+    "form": {
+      "label": "Send tab card response",
+      "order": [
+        "cards",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Task Modules and Tabs"
+      ]
+    }
+  },
+  "Teams.SendTaskModuleCardResponse": {
+    "form": {
+      "label": "Send task module card response",
+      "order": [
+        "card",
+        "title",
+        "height",
+        "width",
+        "cacheType",
+        "cacheDuration",
+        "completionBotId",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Task Modules and Tabs"
+      ]
+    }
+  },
+  "Teams.SendTaskModuleMessageResponse": {
+    "form": {
+      "label": "Send task module message response",
+      "order": [
+        "message",
+        "cacheType",
+        "cacheDuration",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Task Modules and Tabs"
+      ]
+    }
+  },
+  "Teams.SendTaskModuleUrlResponse": {
+    "form": {
+      "label": "Send task module url response",
+      "order": [
+        "title",
+        "url",
+        "fallbackUrl",
+        "height",
+        "width",
+        "cacheType",
+        "cacheDuration",
+        "completionBotId",
+        "*"
+      ]
+    },
+    "menu": {
+      "submenu": [
+        "Microsoft Teams",
+        "Task Modules and Tabs"
+      ]
+    }
   }
 }

@@ -76,3 +76,183 @@
   type = event
   name = DALLESkill
 ]```
+# SendActivity_CJS3sK()
+[Activity
+    Text = ${SendActivity_CJS3sK_text()}
+]
+
+# SendActivity_CJS3sK_text()
+- Good Bye ${turn.activity.from.name} ! Say **Hi** to start root menu again.
+# SendActivity_Mh7j2P()
+[Activity
+    Text = ${SendActivity_Mh7j2P_text()}
+    Attachments = ${json(SendActivity_Mh7j2P_attachment_yJQpV8())}
+]
+
+# SendActivity_Mh7j2P_text()
+- ${turn.activity.value.MessagePayload.body.content}
+# SendActivity_Mh7j2P_attachment_yJQpV8()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${turn.activity.value.MessagePayload.body.content}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    }
+  ]
+}```
+# TeamsSendMEActionResponse_Card_GdHxMW()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_GdHxMW_attachment_ZVM4H2())}
+]
+
+# TeamsSendMEActionResponse_Card_GdHxMW_attachment_ZVM4H2()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"prompt",
+      "type": "Input.Text",
+      "value": "${replace(replace(turn.activity.value.MessagePayload.body.content,'<p>',''),'</p>','')}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit",
+                    "id": "GPT3Message"
+                }
+            ]
+        }
+  ]
+}```
+# SendActivity_00wwUq()
+[Activity
+    Text = ${SendActivity_00wwUq_text()}
+]
+
+# SendActivity_00wwUq_text()
+- ${turn.activity.value}
+# SendActivity_gkiDe0()
+[Activity
+    Text = ${SendActivity_gkiDe0_text()}
+]
+
+# SendActivity_gkiDe0_text()
+- Request failed, please try again.
+# TeamsSendMEActionResponse_Card_v1ygV8()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_v1ygV8_attachment_DWOFcU())}
+]
+
+# TeamsSendMEActionResponse_Card_v1ygV8_attachment_DWOFcU()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "ColumnSet",
+                            "columns": [
+                                {
+                                    "type": "Column",
+                                    "width": "stretch",
+                                    "bleed": true,
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": "Just select the image properties",
+                                            "weight": "Bolder",
+                                            "size": "Medium",
+                                            "wrap": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "bleed": true
+                        }
+                    ],
+                    "bleed": true
+                }
+            ],
+            "bleed": true
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": "512x512",
+            "choices": [
+                {
+                    "title": "1024x1024",
+                    "value": "1024x1024"
+                },
+                {
+                    "title": "512x512",
+                    "value": "512x512"
+                }
+            ],
+            "placeholder": "512x512",
+            "id": "imageResolution"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": ". Full of reality details",
+            "choices": [
+                {
+                    "title": "Film",
+                    "value": ". Film quality"
+                },
+                {
+                    "title": "Cartoon",
+                    "value": ". Cartoon style"
+                },
+                {
+                    "title": "Reality",
+                    "value": ". Full of reality details"
+                },
+                {
+                    "title": "Disney",
+                    "value": ". Disney Style"
+                }
+            ],
+            "placeholder": "Reality",
+            "id": "imageStyle"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "a robot walks on an ice covered river",
+            "id": "imagePrompt",
+            "value": "a robot walks on an ice covered river"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Submit"
+        }
+    ]
+}
+```

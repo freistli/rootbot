@@ -1,0 +1,102 @@
+[import](common.lg)
+
+# TeamsSendMEActionResponse_Card_oAp9Ym()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_oAp9Ym_attachment_ZwbBXg())}
+]
+
+# TeamsSendMEActionResponse_Card_oAp9Ym_attachment_ZwbBXg()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "ColumnSet",
+                            "columns": [
+                                {
+                                    "type": "Column",
+                                    "width": "stretch",
+                                    "bleed": true,
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": "Just select the image properties",
+                                            "weight": "Bolder",
+                                            "size": "Medium",
+                                            "wrap": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "bleed": true
+                        }
+                    ],
+                    "bleed": true
+                }
+            ],
+            "bleed": true
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": "512x512",
+            "choices": [
+                {
+                    "title": "1024x1024",
+                    "value": "1024x1024"
+                },
+                {
+                    "title": "512x512",
+                    "value": "512x512"
+                }
+            ],
+            "placeholder": "512x512",
+            "id": "imageResolution"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": ". Full of reality details",
+            "choices": [
+                {
+                    "title": "Film",
+                    "value": ". Film quality"
+                },
+                {
+                    "title": "Cartoon",
+                    "value": ". Cartoon style"
+                },
+                {
+                    "title": "Reality",
+                    "value": ". Full of reality details"
+                },
+                {
+                    "title": "Disney",
+                    "value": ". Disney Style"
+                }
+            ],
+            "placeholder": "Reality",
+            "id": "imageStyle"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "a robot walks on an ice covered river",
+            "id": "imagePrompt",
+            "value": "a robot walks on an ice covered river"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Submit"
+        }
+    ]
+}
+```

@@ -9,7 +9,7 @@
 
 [ThumbnailCard
     title = Root Bot 01
-    text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are
+    text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to start this menu again. Say bye to end conversation.
     image = https://fllivesharepoc.azurewebsites.net/logo.png
-    buttons = ChatGPT | DALL-E | ECHO
+    buttons = ChatGPT | DALL-E | GPT-3
 ]

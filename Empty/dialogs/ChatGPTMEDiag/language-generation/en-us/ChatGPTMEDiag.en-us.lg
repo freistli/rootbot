@@ -1,0 +1,99 @@
+[import](common.lg)
+
+# TeamsSendMEAttachmentsResponse_Attachments_xaJ6yA()
+[Activity
+    Attachments = ${json(TeamsSendMEAttachmentsResponse_Attachments_xaJ6yA_attachment_DsLRds())}
+]
+
+# TeamsSendMEAttachmentsResponse_Attachments_xaJ6yA_attachment_DsLRds()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${turn.results.content.text}",
+      "isSubtle": false,
+      "wrap": true
+    }
+  ]
+}```
+# TeamsSendMEActionResponse_Card_EHa8hD()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_EHa8hD_attachment_kLwOo0())}
+]
+
+# TeamsSendMEActionResponse_Card_EHa8hD_attachment_kLwOo0()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${SendActivity_AtOpWI_text()}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    }
+  ]
+}```
+# TeamsSendMEAttachmentsResponse_Attachments_0TBR2F()
+[Activity
+    Attachments = ${json(TeamsSendMEAttachmentsResponse_Attachments_0TBR2F_attachment_J4B0if())}
+]
+
+# TeamsSendMEAttachmentsResponse_Attachments_0TBR2F_attachment_J4B0if()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${replace(turn.results.content.text, '\n', '\r\n')}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    }
+  ]
+}```
+# TeamsSendMEAttachmentsResponse_Attachments_SSNVIZ()
+[Activity
+    Attachments = ${json(TeamsSendMEAttachmentsResponse_Attachments_SSNVIZ_attachment_gYfeuW())}
+]
+
+# TeamsSendMEAttachmentsResponse_Attachments_SSNVIZ_attachment_gYfeuW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(string(turn.results.content.text), 'á','&aacute;'),'é','&eacute;'),'í','&iacute;'),'ó','&oacute;'),'ú','&uacute;'),'ñ','&ntilde;'),'à','&agrave;'), 'è','&egrave;'),'ò','&ograve;'),'\n','\r\n')}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    }
+  ]
+}```
+# SendActivity_AtOpWI()
+[Activity
+    Text = ${SendActivity_AtOpWI_text()}
+]
+
+# SendActivity_AtOpWI_text()
+- Q: ${turn.prompt} \n\n A: ${if(turn.results.content.text!=null,turn.results.content.text,turn.results.content.statusText)}

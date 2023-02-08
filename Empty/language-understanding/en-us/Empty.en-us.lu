@@ -41,3 +41,21 @@
 - Hi Robot
 > entity definitions:
 > @ ml city
+
+# GPT3
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+- GPT-3
+- GPT3
+> entity definitions:
+> @ ml city
+
+# stop
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+- stop
+- bye
+> entity definitions:
+> @ ml city
