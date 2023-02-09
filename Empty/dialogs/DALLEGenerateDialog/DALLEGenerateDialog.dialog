@@ -1,0 +1,148 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "vHIK1Y",
+    "name": "DALLEGenerateDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "tejKzR"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "vPIj76"
+          },
+          "activity": "${SendActivity_vPIj76()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "t2xuv3",
+            "comment": "Handle Image SelectAction if this is true"
+          },
+          "actions": [
+            {
+              "$kind": "Teams.SendMEActionResponse",
+              "$designer": {
+                "id": "ZYhnPX"
+              },
+              "card": "${TeamsSendMEActionResponse_Card_ZYhnPX()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "mtGCUz"
+              }
+            }
+          ],
+          "condition": "=turn.activity.value.data.data.prompt!=null"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "LdIO91"
+          },
+          "property": "dialog.imageResolution",
+          "value": "=turn.activity.value.imageResolution"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "kGE79l"
+          },
+          "assignments": [
+            {
+              "property": "dialog.imageStyle",
+              "value": "=turn.activity.value.data.imageStyle"
+            },
+            {
+              "property": "dialog.imageResolution",
+              "value": "=turn.activity.value.data.imageResolution"
+            },
+            {
+              "property": "dialog.imagePrompt",
+              "value": "=turn.activity.value.data.imagePrompt"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "46N5Vz"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "https://api.openai.com/v1/images/generations",
+          "body": "{   \"prompt\": \"${dialog.imagePrompt} ${dialog.imageStyle}\",   \"n\": 3,   \"size\": \"${dialog.imageResolution}\" }",
+          "headers": {
+            "Authorization": "=settings.openAIKey"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "oISfUV"
+          },
+          "activity": "${SendActivity_oISfUV()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "LkNLM8"
+          },
+          "property": "dialog.imageData",
+          "value": "=turn.results.content.data"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "7kMYbx"
+          },
+          "assignments": [
+            {
+              "property": "dialog.image0",
+              "value": "=turn.results.content.data[0].url"
+            },
+            {
+              "property": "dialog.image1",
+              "value": "=turn.results.content.data[1].url"
+            },
+            {
+              "property": "dialog.image2",
+              "value": "=turn.results.content.data[2].url"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "M7jqyF"
+          },
+          "activity": "${SendActivity_M7jqyF()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Teams.SendMEActionResponse",
+          "$designer": {
+            "id": "sVbYaK"
+          },
+          "card": "${TeamsSendMEActionResponse_Card_sVbYaK()}"
+        }
+      ]
+    }
+  ],
+  "generator": "DALLEGenerateDialog.lg",
+  "recognizer": "DALLEGenerateDialog.lu.qna",
+  "id": "DALLEGenerateDialog"
+}

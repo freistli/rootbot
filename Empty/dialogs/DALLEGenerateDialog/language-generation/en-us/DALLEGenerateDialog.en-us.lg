@@ -1,0 +1,235 @@
+[import](common.lg)
+
+# SendActivity_m8dipG()
+[Activity
+    Text = ${SendActivity_m8dipG_text()}
+]
+
+# SendActivity_m8dipG_text()
+- Good Bye!
+# TeamsSendTaskModuleCardResponse_Card_XcEZ9H()
+[Activity
+    Text = ${TeamsSendTaskModuleCardResponse_Card_XcEZ9H_text()}
+]
+
+# TeamsSendTaskModuleCardResponse_Card_XcEZ9H_text()
+- ${turn.activity.value.data}
+# TeamsSendTaskModuleCardResponse_Card_WRg6b2()
+[Activity
+    Attachments = ${json(TeamsSendTaskModuleCardResponse_Card_WRg6b2_attachment_4XFPvT())}
+]
+
+# TeamsSendTaskModuleCardResponse_Card_WRg6b2_attachment_4XFPvT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${turn.activity.value.data.prompt}",
+      "weight": "bolder",
+      "isSubtle": false      
+    },
+    {
+        "type": "Image",
+        "url": "${turn.activity.value.data.url}",
+        "size": "Large"
+     }
+  ]
+}```
+# TeamsSendTaskModuleCardResponse_Card_GaOhw3()
+[Activity
+    Attachments = ${json(TeamsSendTaskModuleCardResponse_Card_GaOhw3_attachment_wXFhxb())}
+]
+
+# TeamsSendTaskModuleCardResponse_Card_GaOhw3_attachment_wXFhxb()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${turn.activity.value.imagedata.prompt}",
+      "size": "Large",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```
+# SendActivity_M7jqyF()
+[Activity
+    Attachments = ${json(SendActivity_M7jqyF_attachment_SenLFF())}
+]
+
+# SendActivity_M7jqyF_attachment_SenLFF()
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "ImageSet",
+            "imageSize": "Large",
+            "images": [
+                {
+                    "type": "Image",
+                    "id": "thumb-0",
+                    "url": "${dialog.image0}",
+                    "size": "Large",
+                    "horizontalAlignment": "center"
+                },
+                {
+                    "type": "Image",
+                    "id": "thumb-1",
+                    "url": "${dialog.image1}",
+                    "size": "Large",
+                    "horizontalAlignment": "center"
+                },
+                {
+                    "type": "Image",
+                    "id": "thumb-2",
+                    "url": "${dialog.image2}",
+                    "size": "Large",
+                    "horizontalAlignment": "center"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Open Url",
+                    "url": "${dialog.image0}",
+                    "iconUrl": "${dialog.image0}",
+                    "horizontalAlignment": "center"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Open Url",
+                    "url": "${dialog.image1}",
+                    "iconUrl": "${dialog.image1}",
+                    "horizontalAlignment": "center"
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "Open Url",
+                    "url": "${dialog.image2}",
+                    "iconUrl": "${dialog.image2}",
+                    "horizontalAlignment": "center"
+                }
+            ]
+        }
+    ]
+} 
+
+```
+
+
+# LogAction_Text_qMwMIf()
+[Activity
+    Text = ${LogAction_Text_qMwMIf_text()}
+]
+
+# LogAction_Text_qMwMIf_text()
+- ${turn.activity.value}
+# TeamsSendTaskModuleCardResponse_Card_PCracj()
+[Activity
+    Attachments = ${json(TeamsSendTaskModuleCardResponse_Card_PCracj_attachment_DDZwvo())}
+]
+
+# TeamsSendTaskModuleCardResponse_Card_PCracj_attachment_DDZwvo()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Hello Bot!!"
+    },
+    {
+      "type": "TextBlock",
+      "text": "1"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${turn.activity.value.data.prompt}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "2" 
+    },
+    {
+      "type": "TextBlock",
+      "text": "${turn.activity.value.data.data.prompt}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "3"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${turn.activity.value}",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_oISfUV()
+[Activity
+    Text = ${SendActivity_oISfUV_text()}
+]
+
+# SendActivity_oISfUV_text()
+- ${turn.results}
+# TeamsSendMEActionResponse_Card_sVbYaK()
+[Activity
+    Attachments = ${json(SendActivity_M7jqyF_attachment_SenLFF())}
+]
+
+# TeamsSendMEActionResponse_Card_sVbYaK_attachment_daEGHe()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "default text",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```
+# SendActivity_vPIj76()
+[Activity
+    Text = ${SendActivity_vPIj76_text()}
+]
+
+# SendActivity_vPIj76_text()
+- ${turn.activity.value}
+
+
+# TeamsSendMEActionResponse_Card_ZYhnPX()
+[Activity
+    Attachments = ${TeamsSendMEActionResponse_Card_ZYhnPX_attachment_x60XYN()}
+]
+
+# TeamsSendMEActionResponse_Card_ZYhnPX_attachment_x60XYN()
+[HeroCard
+    title = BotFramework Thumbnail Card
+    subtitle = Microsoft Bot Framework
+    text = Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.
+    image = https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg
+    buttons = Get Started
+]

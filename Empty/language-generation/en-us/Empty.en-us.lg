@@ -155,7 +155,7 @@
 ]
 
 # SendActivity_gkiDe0_text()
-- Request failed, please try again.
+- Request failed, please try again. ${turn.dialogEvent.value.Message}
 # TeamsSendMEActionResponse_Card_v1ygV8()
 [Activity
     Attachments = ${json(TeamsSendMEActionResponse_Card_v1ygV8_attachment_DWOFcU())}

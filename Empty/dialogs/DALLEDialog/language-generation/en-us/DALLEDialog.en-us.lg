@@ -87,16 +87,23 @@
         },
         {
             "type": "Input.Text",
-            "placeholder": "a robot walks on an ice covered river",
+            "placeholder": "${if(turn.activity.value.MessagePayload.body.content!=null,turn.activity.value.MessagePayload.body.content,"a robot walks on an ice covered river")}",
             "id": "imagePrompt",
-            "value": "a robot walks on an ice covered river"
-        }
-    ],
-    "actions": [
+            "value": "${if(turn.activity.value.MessagePayload.body.content!=null,turn.activity.value.MessagePayload.body.content,"a robot walks on an ice covered river")}"
+        },
         {
-            "type": "Action.Submit",
-            "title": "Submit"
+            "type": "ActionSet",
+           "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit",
+                    "id": "DALLEMessage"
+                }
+            ]
         }
+
     ]
+        
+    
 }
 ```

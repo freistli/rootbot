@@ -317,7 +317,7 @@
       "$designer": {
         "id": "yAwIfD",
         "name": "ME - ASKGPT3Message - on fetch task",
-        "comment": "Should be AskGPT3Message command id only. Use it to handle AskChatGPTMessage for demo purpose as well."
+        "comment": ""
       },
       "actions": [
         {
@@ -352,7 +352,7 @@
       "$designer": {
         "id": "W5WbjG",
         "name": "ME - ASKGPT3Message - on submit action",
-        "comment": "Should be AskGPT3Message command id only. Use it to handle AskChatGPTMessage for demo purpose as well."
+        "comment": ""
       },
       "actions": [
         {
@@ -427,8 +427,16 @@
           "$designer": {
             "id": "O6xiE5"
           },
-          "condition": "=turn.activity.value.MessagePayload!=null",
+          "condition": "=turn.activity.value.MessagePayload.content!=null",
           "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Pa0NT9"
+              },
+              "property": "turn.prompt",
+              "value": "=turn.activity.value.MessagePayload.body.content"
+            },
             {
               "$kind": "Microsoft.BeginDialog",
               "$designer": {
@@ -450,6 +458,24 @@
           ]
         }
       ]
+    },
+    {
+      "$kind": "Teams.OnMESubmitAction",
+      "$designer": {
+        "id": "fIJ3Kw",
+        "name": "ME - ASKDALLE - on submit action"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "sUcDuf"
+          },
+          "activityProcessed": true,
+          "dialog": "DALLEGenerateDialog"
+        }
+      ],
+      "commandId": "AskDALLE"
     }
   ],
   "generator": "Empty.lg",
