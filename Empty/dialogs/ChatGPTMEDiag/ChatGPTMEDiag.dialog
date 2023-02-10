@@ -5,7 +5,7 @@
     "name": "ChatGPTMEDiag",
     "comment": ""
   },
-  "autoEndDialog": true,
+  "autoEndDialog": false,
   "defaultResultProperty": "dialog.result",
   "triggers": [
     {
@@ -37,8 +37,8 @@
           "responseType": "json",
           "body": {
             "prompt": "${turn.prompt}",
-            "messageId": "${dialog.mid}",
-            "conversationId": "${dialog.cid}"
+            "messageId": "${user.mid}",
+            "conversationId": "${user.cid}"
           }
         },
         {
@@ -46,7 +46,7 @@
           "$designer": {
             "id": "beCc15"
           },
-          "property": "dialog.mid",
+          "property": "user.mid",
           "value": "=turn.results.content.id"
         },
         {
@@ -54,7 +54,7 @@
           "$designer": {
             "id": "hQaKfm"
           },
-          "property": "dialog.cid",
+          "property": "user.cid",
           "value": "=turn.results.content.conversationId"
         },
         {

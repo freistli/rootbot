@@ -299,8 +299,7 @@
             "id": "7EaAzU"
           },
           "activityProcessed": true,
-          "dialog": "ChatGPTMEDiag",
-          "disabled": true
+          "dialog": "ChatGPTMEDiag"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -308,7 +307,8 @@
             "id": "UavjpG"
           },
           "activityProcessed": true,
-          "dialog": "GPT3Dialog"
+          "dialog": "GPT3Dialog",
+          "disabled": true
         }
       ]
     },
@@ -316,8 +316,8 @@
       "$kind": "Teams.OnMEFetchTask",
       "$designer": {
         "id": "yAwIfD",
-        "name": "ME - ASKGPT3Message - on fetch task",
-        "comment": ""
+        "name": "ME - ASKFromMessage - on fetch task",
+        "comment": "GPT3 and ChatGPT use the same fetch here"
       },
       "actions": [
         {
@@ -351,8 +351,8 @@
       "$kind": "Teams.OnMESubmitAction",
       "$designer": {
         "id": "W5WbjG",
-        "name": "ME - ASKGPT3Message - on submit action",
-        "comment": ""
+        "name": "ME - ASKFromMessage- on submit action",
+        "comment": "GPT3 and ChatGPT use the same submit here\n"
       },
       "actions": [
         {
@@ -380,12 +380,31 @@
           "disabled": true
         },
         {
-          "$kind": "Microsoft.BeginDialog",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "XQZ6jX"
+            "id": "CQvj6n"
           },
-          "activityProcessed": true,
-          "dialog": "GPT3Dialog"
+          "condition": "=turn.activity.value.commandId==\"AskGPT3Message\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "hNkiUH"
+              },
+              "activityProcessed": true,
+              "dialog": "GPT3Dialog"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "JzZazV"
+              },
+              "activityProcessed": true,
+              "dialog": "ChatGPTMEDiag"
+            }
+          ]
         }
       ],
       "condition": true

@@ -35,13 +35,31 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "id":"result",
+      "id":"prompt",
       "type": "Input.Text",
-      "value": "${SendActivity_AtOpWI_text()}",
+      "value": "${if(turn.prompt!=null,turn.prompt,"")}",
       "isSubtle": false,
       "wrap": true,
       "isMultiline": true
-    }
+    },
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${if(turn.results.content.text!=null,turn.results.content.text,turn.results.content.statusText)}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+    {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Ask ChatGPT",
+                    "button": "Ask ChatGPT"
+                }
+            ]
+        }
   ]
 }```
 # TeamsSendMEAttachmentsResponse_Attachments_0TBR2F()

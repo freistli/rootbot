@@ -70,13 +70,31 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "id":"result",
+      "id":"prompt",
       "type": "Input.Text",
-      "value": "${SendActivity_K7CbeC_text()}",
+      "value": "${if(turn.prompt!=null,turn.prompt,"")}",
       "isSubtle": false,
       "wrap": true,
       "isMultiline": true
-    }
+    },
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${turn.results.content.choices[0].text}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Ask GPT3",
+                    "button": "Ask GPT3"
+                }
+            ]
+        }
   ]
 }```
 # SendActivity_K7CbeC()

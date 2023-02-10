@@ -135,8 +135,7 @@
             "actions": [
                 {
                     "type": "Action.Submit",
-                    "title": "Submit",
-                    "id": "GPT3Message"
+                    "title": "Submit"
                 }
             ]
         }

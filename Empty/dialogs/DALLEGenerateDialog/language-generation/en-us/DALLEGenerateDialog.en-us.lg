@@ -73,6 +73,84 @@
     "type": "AdaptiveCard",
     "version": "1.2",
     "body": [
+    {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "ColumnSet",
+                            "columns": [
+                                {
+                                    "type": "Column",
+                                    "width": "stretch",
+                                    "bleed": true,
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": "Just select the image properties",
+                                            "weight": "Bolder",
+                                            "size": "Medium",
+                                            "wrap": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "bleed": true
+                        }
+                    ],
+                    "bleed": true
+                }
+            ],
+            "bleed": true
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": "${if(dialog.imageResolution!=null,dialog.imageResolution,"512x512")}",
+            "choices": [
+                {
+                    "title": "1024x1024",
+                    "value": "1024x1024"
+                },
+                {
+                    "title": "512x512",
+                    "value": "512x512"
+                }
+            ],
+            "placeholder": "512x512",
+            "id": "imageResolution"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "value": "${if(dialog.imageStyle!=null,dialog.imageStyle,". Full of reality details")}",
+            "choices": [
+                {
+                    "title": "Film",
+                    "value": ". Film quality"
+                },
+                {
+                    "title": "Cartoon",
+                    "value": ". Cartoon style"
+                },
+                {
+                    "title": "Reality",
+                    "value": ". Full of reality details"
+                },
+                {
+                    "title": "Disney",
+                    "value": ". Disney Style"
+                }
+            ],
+            "placeholder": "Reality",
+            "id": "imageStyle"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "${if(dialog.imageprompt!=null,dialog.imageprompt,"a robot walks on an ice covered river")}",
+            "id": "imagePrompt",
+            "value": "${if(dialog.imageprompt!=null,dialog.imageprompt,"a robot walks on an ice covered river")}"
+        },
         {
             "type": "ImageSet",
             "imageSize": "Large",
@@ -82,21 +160,36 @@
                     "id": "thumb-0",
                     "url": "${dialog.image0}",
                     "size": "Large",
-                    "horizontalAlignment": "center"
+                    "horizontalAlignment": "center",
+                    "selectAction": {
+                        "type": "Action.OpenUrl",
+                        "title": "Open",
+                        "url": "${dialog.image0}"
+                    }
                 },
                 {
                     "type": "Image",
                     "id": "thumb-1",
                     "url": "${dialog.image1}",
                     "size": "Large",
-                    "horizontalAlignment": "center"
+                    "horizontalAlignment": "center",
+                    "selectAction": {
+                        "type": "Action.OpenUrl",
+                        "title": "Open",
+                        "url": "${dialog.image1}"
+                    }
                 },
                 {
                     "type": "Image",
                     "id": "thumb-2",
                     "url": "${dialog.image2}",
                     "size": "Large",
-                    "horizontalAlignment": "center"
+                    "horizontalAlignment": "center",
+                    "selectAction": {
+                        "type": "Action.OpenUrl",
+                        "title": "Open",
+                        "url": "${dialog.image2}"
+                    }
                 }
             ]
         },
@@ -104,25 +197,9 @@
             "type": "ActionSet",
             "actions": [
                 {
-                    "type": "Action.OpenUrl",
-                    "title": "Open Url",
-                    "url": "${dialog.image0}",
-                    "iconUrl": "${dialog.image0}",
-                    "horizontalAlignment": "center"
-                },
-                {
-                    "type": "Action.OpenUrl",
-                    "title": "Open Url",
-                    "url": "${dialog.image1}",
-                    "iconUrl": "${dialog.image1}",
-                    "horizontalAlignment": "center"
-                },
-                {
-                    "type": "Action.OpenUrl",
-                    "title": "Open Url",
-                    "url": "${dialog.image2}",
-                    "iconUrl": "${dialog.image2}",
-                    "horizontalAlignment": "center"
+                    "type": "Action.Submit",
+                    "title": "Generate More",
+                    "button": "GenerateMore"
                 }
             ]
         }
