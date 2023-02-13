@@ -22,7 +22,7 @@
             "id": "sy4PAa"
           },
           "property": "dialog.chatGPTUrl",
-          "value": "http://flwin11host.westus.cloudapp.azure.com:31010/openai"
+          "value": "=settings.chatgptUrl"
         },
         {
           "$kind": "Microsoft.HttpRequest",
