@@ -38,7 +38,7 @@
           "resultProperty": "turn.results",
           "method": "POST",
           "url": "https://newopenai.openai.azure.com/openai/deployments/newtextmodel/completions?api-version=2022-12-01",
-          "body": "{   \"prompt\": \"${turn.prompt}\",   \"max_tokens\": 1448,   \"temperature\": 1,   \"frequency_penalty\": 0.26,   \"presence_penalty\": 0.25,   \"top_p\": 0.5 }",
+          "body": "{   \"prompt\": \"${turn.prompt}\",   \"max_tokens\": 1000,   \"temperature\": 1,   \"frequency_penalty\": 0.26,   \"presence_penalty\": 0.25,   \"top_p\": 0.5 }",
           "headers": {
             "api-key": "=settings.GPT3Key"
           }

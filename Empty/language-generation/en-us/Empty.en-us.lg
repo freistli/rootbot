@@ -5,11 +5,6 @@
   type = event
   name = startSkill
 ]
-# BeginSkill_Activity_WExIKf()
-[Activity
-  type = event
-  name = ChatGPTSKill
-]
 # Ask_Activity_HM8Q47()
 [Activity
     Attachments = ${json(Ask_Activity_HM8Q47_attachment_DNjNaE())}
@@ -122,6 +117,22 @@
   "version": "1.2",
   "type": "AdaptiveCard",
   "body": [
+  {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "medium",
+          "isSubtle": true,
+          "text": "Act As"
+        }
+      ]
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "ActAsSelector",
+      "choices": ${turn.results.content}
+    },
     {
       "id":"prompt",
       "type": "Input.Text",
@@ -154,7 +165,7 @@
 ]
 
 # SendActivity_gkiDe0_text()
-- Request failed, please try again. ${turn.dialogEvent.value.Message}
+- Error Happened please try again. ${turn.dialogEvent.value}
 # TeamsSendMEActionResponse_Card_v1ygV8()
 [Activity
     Attachments = ${json(TeamsSendMEActionResponse_Card_v1ygV8_attachment_DWOFcU())}
@@ -255,3 +266,113 @@
     ]
 }
 ```
+# TeamsSendMEActionResponse_Card_TILPSK()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_TILPSK_attachment_uCS4wV())}
+]
+
+# TeamsSendMEActionResponse_Card_TILPSK_attachment_uCS4wV()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+  {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "medium",
+          "isSubtle": true,
+          "text": "Act As a role, type keyword to start"
+        }
+      ]
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "ActAsSelector",
+      "style": "filtered",
+      "choices": ${turn.results.content}
+    },
+    {
+      "id":"prompt",
+      "type": "Input.Text",
+      "value": "${replace(replace(turn.activity.value.MessagePayload.body.content,'<p>',''),'</p>','')}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit"
+                }
+            ]
+        }
+  ]
+}```
+# TeamsSendMEActionResponse_Card_5OxfJF()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_5OxfJF_attachment_NnM8oH())}
+]
+
+# TeamsSendMEActionResponse_Card_5OxfJF_attachment_NnM8oH()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [  
+   
+    {
+      "id":"prompt",
+      "type": "Input.Text",
+      "value": "${replace(replace(turn.activity.value.MessagePayload.body.content,'<p>',''),'</p>','')}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit"
+                }
+            ]
+        }
+  ]
+}```
+# SendActivity_SKAOkj()
+[Activity
+    Text = ${SendActivity_SKAOkj_text()}
+]
+
+# SendActivity_SKAOkj_text()
+- ${replace(turn.results.content.text, '\n', '\n\n')}
+# SendActivity_L4qFaw()
+[Activity
+    Text = ${SendActivity_L4qFaw_text()}
+]
+
+# SendActivity_L4qFaw_text()
+- I'm ${turn.activity.value.ActAsSelector}. My answer to ${turn.activity.value.prompt} is:
+# SendActivity_n8JN2v()
+[Activity
+    Text = ${SendActivity_n8JN2v_text()}
+]
+
+# SendActivity_n8JN2v_text()
+- ${user.mid} ${user.cid}
+# SendActivity_vsWUqc()
+[Activity
+    Text = ${SendActivity_vsWUqc_text()}
+]
+
+# SendActivity_vsWUqc_text()
+- Handle Act As

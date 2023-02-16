@@ -4,14 +4,16 @@
     "triggers": {
       "": [
         "SkillsDialog.en-us",
-        "GPT3Dialog.en-us",
         "ChatGPTMEDiag.en-us",
+        "GPT3Dialog.en-us",
         "DALLEDialog.en-us",
         "DALLEGenerateDialog.en-us"
       ],
       "echoskil": "",
       "newqna": "",
-      "chatgptskill": "",
+      "chatgptskill": [
+        "ChatGPTMEDiag.en-us"
+      ],
       "DALL-E": "",
       "SayHi": [
         "SkillsDialog.en-us"
@@ -19,7 +21,10 @@
       "GPT3": [
         "GPT3Dialog.en-us"
       ],
-      "stop": ""
+      "stop": "",
+      "ActAs": [
+        "ChatGPTActAsDialog.en-us"
+      ]
     }
   }
 }

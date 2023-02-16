@@ -66,10 +66,19 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
+            "id": "isQTcx"
+          },
+          "activityProcessed": true,
+          "dialog": "ChatGPTMEDiag"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
             "id": "AUb4Uu"
           },
           "activityProcessed": true,
-          "dialog": "GPT3Dialog"
+          "dialog": "GPT3Dialog",
+          "disabled": true
         }
       ]
     },
@@ -77,7 +86,7 @@
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "EdhP7X",
-        "name": "echoskill"
+        "name": "EchoSkill"
       },
       "intent": "echoskil",
       "actions": [
@@ -102,7 +111,7 @@
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "d3cslE",
-        "name": "newqna"
+        "name": "NewCQASkill"
       },
       "intent": "newqna",
       "actions": [
@@ -131,18 +140,12 @@
       "intent": "chatgptskill",
       "actions": [
         {
-          "$kind": "Microsoft.BeginSkill",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "WExIKf"
+            "id": "gEs2MC"
           },
           "activityProcessed": true,
-          "botId": "=settings.MicrosoftAppId",
-          "skillHostEndpoint": "=settings.skillHostEndpoint",
-          "connectionName": "=settings.connectionName",
-          "allowInterruptions": false,
-          "skillEndpoint": "=settings.skill['chatGptSkill'].endpointUrl",
-          "skillAppId": "=settings.skill['chatGptSkill'].msAppId",
-          "activity": "${BeginSkill_Activity_WExIKf()}"
+          "dialog": "ChatGPTMEDiag"
         }
       ],
       "condition": "=turn.recognized.score > 0.7"
@@ -176,7 +179,7 @@
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "riHYea",
-        "name": "SayHi"
+        "name": "Start"
       },
       "intent": "SayHi",
       "actions": [
@@ -189,7 +192,7 @@
           "dialog": "SkillsDialog"
         }
       ],
-      "condition": "=turn.recognized.score > 0.9"
+      "condition": "=turn.recognized.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -214,7 +217,7 @@
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "uEtW8l",
-        "name": "stop"
+        "name": "End"
       },
       "intent": "stop",
       "actions": [
@@ -224,6 +227,16 @@
             "id": "CJS3sK"
           },
           "activity": "${SendActivity_CJS3sK()}"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperties",
+          "$designer": {
+            "id": "3WVTTR"
+          },
+          "properties": [
+            "user.cid",
+            "user.mid"
+          ]
         },
         {
           "$kind": "Microsoft.EndDialog",
@@ -323,6 +336,34 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
+            "id": "60imCx"
+          },
+          "condition": "=turn.activity.value.commandId==\"AskGPT3Message\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "289eh9"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "=settings.promoterUrl",
+              "body": "{     \"name\":\"getMethodList\" }"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "LadASo"
+              },
+              "property": "turn.results"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
             "id": "Kd4lKK"
           },
           "condition": "=turn.activity.value.MessagePayload!=null",
@@ -336,11 +377,29 @@
               "disabled": true
             },
             {
-              "$kind": "Teams.SendMEActionResponse",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "GdHxMW"
+                "id": "z1I7rg"
               },
-              "card": "${TeamsSendMEActionResponse_Card_GdHxMW()}"
+              "condition": "=turn.activity.value.commandId==\"AskGPT3Message\"",
+              "elseActions": [
+                {
+                  "$kind": "Teams.SendMEActionResponse",
+                  "$designer": {
+                    "id": "TILPSK"
+                  },
+                  "card": "${TeamsSendMEActionResponse_Card_TILPSK()}"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Teams.SendMEActionResponse",
+                  "$designer": {
+                    "id": "5OxfJF"
+                  },
+                  "card": "${TeamsSendMEActionResponse_Card_5OxfJF()}"
+                }
+              ]
             }
           ]
         }
@@ -495,6 +554,89 @@
         }
       ],
       "commandId": "AskDALLE"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "uO08fA",
+        "name": "ChatGPT Act As"
+      },
+      "intent": "ActAs",
+      "condition": "=turn.recognized.score > 0.7",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Yg9f4w"
+          },
+          "activityProcessed": true,
+          "dialog": "ChatGPTActAsDialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "CtZobv",
+        "name": "ChatGPT Act AS Card Message"
+      },
+      "condition": "=turn.activity.value!=null && turn.activity.value.ActAsSelector!=null",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "vsWUqc"
+          },
+          "activity": "${SendActivity_vsWUqc()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "872MPz"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "=settings.promoterUrl",
+          "body": "{     \"name\":\"${turn.activity.value.ActAsSelector}\",\"prompt\":\"${turn.activity.value.prompt}\" }"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "L4qFaw"
+          },
+          "activity": "${SendActivity_L4qFaw()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "SKAOkj"
+          },
+          "activity": "${SendActivity_SKAOkj()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "YYr0Kw"
+          },
+          "property": "user.mid",
+          "value": "=turn.results.content.id"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "J5CJBO"
+          },
+          "property": "user.cid",
+          "value": "=turn.results.content.conversationId"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "n8JN2v"
+          },
+          "activity": "${SendActivity_n8JN2v()}"
+        }
+      ]
     }
   ],
   "generator": "Empty.lg",

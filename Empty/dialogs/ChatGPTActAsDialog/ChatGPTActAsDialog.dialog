@@ -1,0 +1,42 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "UTjq8J",
+    "name": "ChatGPTActAsDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "1Xxwyv"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "N5aC8I"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "=settings.promoterUrl",
+          "body": "{     \"name\":\"getMethodList\" }"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "oUVQEs"
+          },
+          "activity": "${SendActivity_oUVQEs()}"
+        }
+      ]
+    }
+  ],
+  "generator": "ChatGPTActAsDialog.lg",
+  "recognizer": "ChatGPTActAsDialog.lu.qna",
+  "id": "ChatGPTActAsDialog"
+}

@@ -2,10 +2,10 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "U1tWq7",
-    "name": "ChatGPTMEDiag",
+    "name": "ChatGPTDiag",
     "comment": ""
   },
-  "autoEndDialog": false,
+  "autoEndDialog": true,
   "defaultResultProperty": "dialog.result",
   "triggers": [
     {
@@ -17,29 +17,56 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.TextInput",
           "$designer": {
-            "id": "sy4PAa"
+            "id": "gYjWsz"
           },
-          "property": "dialog.chatGPTUrl",
-          "value": "=settings.chatgptUrl"
+          "disabled": false,
+          "maxTurnCount": 1,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_gYjWsz()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "property": "turn.prompt"
         },
         {
-          "$kind": "Microsoft.HttpRequest",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "iI3cm3"
+            "id": "7IDRX7"
           },
-          "resultProperty": "turn.results",
-          "method": "POST",
-          "url": "${dialog.chatGPTUrl}",
-          "headers": {},
-          "contentType": "application/json",
-          "responseType": "json",
-          "body": {
-            "prompt": "${turn.prompt}",
-            "messageId": "${user.mid}",
-            "conversationId": "${user.cid}"
-          }
+          "condition": "=turn.activity.value.ActAsSelector!=null",
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "cVFtHi"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "=settings.promoterUrl",
+              "body": "{     \"name\":\"${turn.activity.value.ActAsSelector}\",\"prompt\":\"${turn.prompt}\" }"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "jibGfv"
+              },
+              "activity": "${SendActivity_jibGfv()}"
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "4d3FOA"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "=settings.chatgptUrl",
+              "body": "{   \"prompt\": \"${turn.prompt}\",   \"messageId\": \"${user.mid}\",   \"conversationId\": \"${user.cid}\" }"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SetProperty",
@@ -66,11 +93,29 @@
           "disabled": true
         },
         {
-          "$kind": "Teams.SendMEActionResponse",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "EHa8hD"
+            "id": "PQvnxQ"
           },
-          "card": "${TeamsSendMEActionResponse_Card_EHa8hD()}"
+          "condition": "=turn.command==\"true\"",
+          "actions": [
+            {
+              "$kind": "Teams.SendMEActionResponse",
+              "$designer": {
+                "id": "9ShUR7"
+              },
+              "card": "${TeamsSendMEActionResponse_Card_9ShUR7()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tIoSYm"
+              },
+              "activity": "${SendActivity_tIoSYm()}"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.DeleteProperty",
@@ -78,6 +123,13 @@
             "id": "aU6zW7"
           },
           "property": "turn.command"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "5GnZFO"
+          },
+          "property": "turn.activity.value.ActAsSelector"
         }
       ]
     }

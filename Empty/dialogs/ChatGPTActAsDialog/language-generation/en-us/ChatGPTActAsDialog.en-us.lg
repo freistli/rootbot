@@ -1,0 +1,51 @@
+[import](common.lg)
+
+# SendActivity_oUVQEs()
+[Activity
+    Attachments = ${json(SendActivity_oUVQEs_attachment_z8YFbj())}
+]
+
+# SendActivity_oUVQEs_attachment_z8YFbj()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+  {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "medium",
+          "isSubtle": true,
+          "text": "Act As a role, type keyword to start"
+        }
+      ]
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "ActAsSelector",
+      "style": "filtered",
+      "choices": ${turn.results.content}
+    },
+    {
+      "id":"prompt",
+      "type": "Input.Text",
+      "placeholder": "Ask me a question",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit"
+                }
+            ]
+        }
+  ]
+}```

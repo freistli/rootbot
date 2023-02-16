@@ -39,6 +39,7 @@
 - Hi
 - Hello
 - Hi Robot
+- Start
 > entity definitions:
 > @ ml city
 
@@ -57,5 +58,15 @@
 > - what is the weather like in {city=Seattle}
 - stop
 - bye
+- end
+> entity definitions:
+> @ ml city
+
+# ActAs
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+- Act As
+- ActAs
 > entity definitions:
 > @ ml city
