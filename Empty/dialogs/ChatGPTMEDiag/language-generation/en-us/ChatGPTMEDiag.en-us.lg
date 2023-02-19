@@ -159,6 +159,7 @@
 # SendActivity_tIoSYm()
 [Activity
     Text = ${SendActivity_tIoSYm_text()}
+    Speak = ${SendActivity_tIoSYm_speak()}
 ]
 
 # SendActivity_tIoSYm_text()
@@ -166,6 +167,7 @@
 # TextInput_Prompt_gYjWsz()
 [Activity
     Text = ${TextInput_Prompt_gYjWsz_text()}
+    Speak = ${TextInput_Prompt_gYjWsz_speak()}
 ]
 
 # TextInput_Prompt_gYjWsz_text()
@@ -173,7 +175,16 @@
 # SendActivity_jibGfv()
 [Activity
     Text = ${SendActivity_jibGfv_text()}
+    Speak = ${SendActivity_jibGfv_speak()}
 ]
 
 # SendActivity_jibGfv_text()
 - ${turn.prompt} ${user.cid} ${turn.command}
+# TextInput_Prompt_gYjWsz_speak()
+- Please input your prompt to ChatGPT
+# SendActivity_tIoSYm_speak()
+- ${if(turn.results.content.text!=null,replace(turn.results.content.text, '\n', '\n\n'),turn.results.content)}
+# SendActivity_jibGfv_speak()
+- Okay. 
+- Let me think
+- Let me try

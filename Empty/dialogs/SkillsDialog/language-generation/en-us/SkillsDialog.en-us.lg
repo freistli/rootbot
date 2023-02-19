@@ -2,6 +2,7 @@
 
 # SendActivity_tRzNOk()
 [Activity
+    Speak = ${SendActivity_tRzNOk_speak()}
     Attachments = ${SendActivity_tRzNOk_attachment_wHREcV()}
 ]
 
@@ -13,3 +14,5 @@
     image = https://fllivesharepoc.azurewebsites.net/logo.png
     buttons = ChatGPT | DALL-E | GPT-3 | Act As
 ]
+# SendActivity_tRzNOk_speak()
+- Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to show home menu. Say bye to end a conversation. Now you can say ChatGPT
