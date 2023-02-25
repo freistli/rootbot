@@ -2,7 +2,7 @@
 
 1. Clone the root bot
 
-2. Open in Bot Framework Composer, it will promote Convert, confirm. After a while, it may give error about Null Reference, ignore it.
+2. Open in Bot Framework Composer (go through https://github.com/freistli/rootbot/tree/main/Empty on how to use Bot Framework Composer), it will promote Convert, confirm. After a while, it may give error about Null Reference, ignore it.
 3. Add Teams Package to the root bot
 4. Provision root bot (setup publish profile)
 5. Set Luis key, AppID/PWD
