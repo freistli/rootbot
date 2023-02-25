@@ -10,14 +10,19 @@
 7. Connect to required bots
 8. Add necessary configuration keys in root bot configuration json:
 
- "GPT3key": "Your Azure Open AI key for GPT-3",
-  "promoterUrl": "Azure Function Endpoint of Prompoter",
-  "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
-  "openAIKey": "Bearer sk-xxxxxxxxx",
-  "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
+    "GPT3key": "Your Azure Open AI key for GPT-3",
+ 
+    "promoterUrl": "Azure Function Endpoint of Prompoter",
+  
+    "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
+  
+    "openAIKey": "Bearer sk-xxxxxxxxx",
+  
+    "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
+  
 
-Note: promoterUrl and chatgptUrl required to publish the two Azure Functions from here:
+     Note: promoterUrl and chatgptUrl required to publish the two Azure Functions from here:
 
-https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction 
+        https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction 
 
 9. Publish root bot.
