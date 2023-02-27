@@ -54,7 +54,8 @@
               "$designer": {
                 "id": "jibGfv"
               },
-              "activity": "${SendActivity_jibGfv()}"
+              "activity": "${SendActivity_jibGfv()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.HttpRequest",

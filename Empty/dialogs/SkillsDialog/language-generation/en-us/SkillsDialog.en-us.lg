@@ -9,7 +9,7 @@
 # SendActivity_tRzNOk_attachment_wHREcV()
 
 [ThumbnailCard
-    title = Root Bot 01
+    title = Root Bot V.02272023
     text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to show home menu. Say bye to end a conversation.
     image = https://fllivesharepoc.azurewebsites.net/logo.png
     buttons = ChatGPT | DALL-E | GPT-3 | Act As
