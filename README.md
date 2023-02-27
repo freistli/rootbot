@@ -2,7 +2,10 @@
 
 1. Clone the root bot
 
-2. Open the folder in Bot Framework Composer (go through Environment Preparation of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer)
+2. Open the folder in Bot Framework Composer
+   
+   Note: If not familar with BFC, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
+   
 3. BFC will promote "Project Convert", confirm it. After a while, it may give error about Null Reference, ignore it.
 4. Add Teams Package to the root bot
 
