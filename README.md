@@ -73,6 +73,8 @@ This bot project was created using the Empty Bot template, and contains a minima
      ```json
 
     "GPT3key": "Your Azure Open AI key for GPT-3",
+    
+    "GPT3Url" : "Your Azure Open AI Endpoint Url"
  
     "promoterUrl": "Azure Function Endpoint of Prompoter",
   
