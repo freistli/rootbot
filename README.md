@@ -32,7 +32,8 @@ This bot project was created using the Empty Bot template, and contains a minima
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
     
-7. Remove unnecessary skills (based on the error hints). 
+7. Remove unnecessary skills (based on the error hints, for example remove DALLE skill). 
+
 8. Add necessary configuration keys in root bot configuration json:
 
     "GPT3key": "Your Azure Open AI key for GPT-3",
