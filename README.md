@@ -28,6 +28,8 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
 
+<img width="381" alt="image" src="https://user-images.githubusercontent.com/8623897/221493362-843cfed2-7182-4e59-bd22-0df211a6eb87.png">
+
 ## DALLE in in Teams Message Extension
 
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221493090-d2b3abab-6191-430a-b159-1c94c18be5c8.png">
