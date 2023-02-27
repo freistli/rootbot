@@ -1,6 +1,6 @@
 # Welcome to your new bot
 
-This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot.
+This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make it integrated with several LLMs and working Microsoft Teams Platform.
 
 ## Structure
 
