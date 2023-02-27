@@ -1,6 +1,6 @@
 # Welcome to your new bot
 
-This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make it integrated with several LLMs and working Microsoft Teams Platform.
+This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
@@ -18,12 +18,15 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="936" alt="image" src="https://user-images.githubusercontent.com/8623897/221473604-f5f16c53-d682-48db-bce2-4300232d168f.png">
 
-## "Act As" with preset useful prompts
+## "Act As" ChatGPT with preset prompts in Adaptive Cards
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/8623897/221474204-243488e6-1974-4ecf-aeda-1cdce57bb80d.png">
 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
 
+## If you built DALLE SKill for it
+
+<img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
 
 
 # Rootbot Building Guide
