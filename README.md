@@ -63,6 +63,8 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 8. Add necessary configuration keys in root bot configuration json:
 
+     ```json
+
     "GPT3key": "Your Azure Open AI key for GPT-3",
  
     "promoterUrl": "Azure Function Endpoint of Prompoter",
@@ -72,7 +74,7 @@ This bot project was created using the Empty Bot template, and contains a minima
     "openAIKey": "Bearer sk-xxxxxxxxx",
   
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
-  
+    ```
 
      Note: promoterUrl and chatgptUrl are the two endpoints after publishing the two Azure Functions from here: https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction 
 
