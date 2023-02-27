@@ -1,20 +1,4 @@
 
-# echoskil
-> add some example phrases to trigger this intent:
-> - please tell me the weather
-> - what is the weather like in {city=Seattle}
-- echo
-> entity definitions:
-> @ ml city
-
-# newqna
-> add some example phrases to trigger this intent:
-> - please tell me the weather
-> - what is the weather like in {city=Seattle}
-- Where is the table 
-> entity definitions:
-> @ ml city
-
 # chatgptskill
 > add some example phrases to trigger this intent:
 > - please tell me the weather

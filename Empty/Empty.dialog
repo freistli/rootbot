@@ -95,55 +95,6 @@
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "EdhP7X",
-        "name": "EchoSkill"
-      },
-      "intent": "echoskil",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginSkill",
-          "$designer": {
-            "id": "SLWWE2"
-          },
-          "activityProcessed": true,
-          "botId": "=settings.MicrosoftAppId",
-          "skillHostEndpoint": "=settings.skillHostEndpoint",
-          "connectionName": "=settings.connectionName",
-          "allowInterruptions": false,
-          "skillEndpoint": "=settings.skill['echoSkill'].endpointUrl",
-          "skillAppId": "=settings.skill['echoSkill'].msAppId",
-          "activity": "${BeginSkill_Activity_SLWWE2()}"
-        }
-      ],
-      "condition": "=turn.recognized.score > 0.7"
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "d3cslE",
-        "name": "NewCQASkill"
-      },
-      "intent": "newqna",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginSkill",
-          "$designer": {
-            "id": "VIKtTg"
-          },
-          "activityProcessed": true,
-          "botId": "=settings.MicrosoftAppId",
-          "skillHostEndpoint": "=settings.skillHostEndpoint",
-          "connectionName": "=settings.connectionName",
-          "allowInterruptions": false,
-          "skillEndpoint": "=settings.skill['newqnabot01'].endpointUrl",
-          "skillAppId": "=settings.skill['newqnabot01'].msAppId"
-        }
-      ],
-      "condition": "=turn.recognized.score > 0.7"
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
         "id": "fgG5nQ",
         "name": "ChatGPTSkill"
       },

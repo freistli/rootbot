@@ -9,8 +9,6 @@
         "DALLEDialog.en-us",
         "DALLEGenerateDialog.en-us"
       ],
-      "echoskil": "",
-      "newqna": "",
       "chatgptskill": [
         "ChatGPTMEDiag.en-us"
       ],

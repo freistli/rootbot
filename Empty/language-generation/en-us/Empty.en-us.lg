@@ -1,10 +1,5 @@
 [import](common.lg)
 
-# BeginSkill_Activity_SLWWE2()
-[Activity
-  type = event
-  name = startSkill
-]
 # Ask_Activity_HM8Q47()
 [Activity
     Attachments = ${json(Ask_Activity_HM8Q47_attachment_DNjNaE())}
