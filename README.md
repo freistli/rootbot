@@ -2,7 +2,6 @@
 
 This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make it integrated with several LLMs and working Microsoft Teams Platform.
 
-## Structure
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
 
