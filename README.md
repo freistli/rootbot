@@ -76,7 +76,7 @@ This bot project was created using the Empty Bot template, and contains a minima
     
     "GPT3Url" : "Your Azure Open AI Endpoint Url"
  
-    "promoterUrl": "Azure Function Endpoint of Prompoter",
+    "promoterUrl": "Azure Function Endpoint of Act As Prompoter",
   
     "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
   
