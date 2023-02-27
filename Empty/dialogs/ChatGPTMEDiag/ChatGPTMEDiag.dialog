@@ -17,6 +17,14 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "1Qj9PN"
+          },
+          "property": "user.chatgpt",
+          "value": "true"
+        },
+        {
           "$kind": "Microsoft.TextInput",
           "$designer": {
             "id": "gYjWsz"

@@ -64,21 +64,31 @@
           "value": "=turn.activity.text"
         },
         {
-          "$kind": "Microsoft.BeginDialog",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "isQTcx"
+            "id": "WXkgtz"
           },
-          "activityProcessed": true,
-          "dialog": "ChatGPTMEDiag"
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "AUb4Uu"
-          },
-          "activityProcessed": true,
-          "dialog": "GPT3Dialog",
-          "disabled": true
+          "condition": "=user.chatgpt == \"true\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "oTpxmL"
+              },
+              "activityProcessed": true,
+              "dialog": "ChatGPTMEDiag"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "2ZO1GR"
+              },
+              "activityProcessed": true,
+              "dialog": "GPT3Dialog"
+            }
+          ]
         }
       ]
     },
@@ -184,12 +194,27 @@
       "intent": "SayHi",
       "actions": [
         {
+          "$kind": "Microsoft.DeleteProperties",
+          "$designer": {
+            "id": "kkdrBc"
+          },
+          "properties": [
+            "turn.prompt"
+          ]
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "CYUVQH"
           },
           "activityProcessed": true,
           "dialog": "SkillsDialog"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "Jc62Ff"
+          }
         }
       ],
       "condition": "=turn.recognized.score > 0.7"
@@ -235,7 +260,8 @@
           },
           "properties": [
             "user.cid",
-            "user.mid"
+            "user.mid",
+            "user.chatgpt"
           ]
         },
         {

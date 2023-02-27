@@ -163,7 +163,7 @@
 ]
 
 # SendActivity_tIoSYm_text()
-- ${if(turn.results.content.text!=null,replace(turn.results.content.text, '\n', '\n\n'),turn.results.content)}
+- ChatGPT: ${if(turn.results.content.text!=null,replace(turn.results.content.text, '\n', '\n\n'),turn.results.content)}
 # TextInput_Prompt_gYjWsz()
 [Activity
     Text = ${TextInput_Prompt_gYjWsz_text()}

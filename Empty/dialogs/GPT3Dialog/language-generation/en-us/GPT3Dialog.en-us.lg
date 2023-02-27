@@ -13,7 +13,7 @@
 ]
 
 # SendActivity_tZwqmS_text()
-- ${replace(turn.results.content.choices[0].text, '\n', '\n\n')}
+- GPT-3: ${replace(turn.results.content.choices[0].text, '\n', '\n\n')}
 # TeamsSendMEBotMessagePreviewResponse_Card_LcYhTQ()
 [Activity
     Attachments = ${json(TeamsSendMEBotMessagePreviewResponse_Card_LcYhTQ_attachment_u5jPga())}
