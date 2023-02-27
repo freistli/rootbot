@@ -6,7 +6,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
 
 
-## ChatGPT response in Teams Conversation
+## ChatGPT responses in Teams Conversation
 
 <img width="958" alt="image" src="https://user-images.githubusercontent.com/8623897/221471351-0bebf072-ceb5-49ed-a3cb-2837916e0cbb.png">
 
