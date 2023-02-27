@@ -2,13 +2,22 @@
 
 This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot.
 
-# Rootbot Setup Guide
+# Rootbot Building Guide
 
 1. Clone the root bot
 
 2. Open the folder in Bot Framework Composer
    
-   Note: If not familar with BFC, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
+   Note: BFC is not installed, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
+   
+   Building this project requires expereinces on building and publishing Bot App to Teams Platform in Bot Framework Composer. If not quite certain, can follow below articles to get quick wrap up on important concepts and steps before bullding this project:
+   
+   https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135
+   
+   https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/improve-the-weather-forecast-bot-app-using-language-generation/ba-p/3262350
+   
+   https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876
+   
    
 3. BFC will promote "Project Convert", confirm it. After a while, it may give error about Null Reference, ignore it.
 4. Add Teams Package to the root bot
@@ -23,9 +32,8 @@ This bot project was created using the Empty Bot template, and contains a minima
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
     
-7. Remove unnecessary skills (based on the error hints). Keep required skills.
-8. Connect to required bots
-9. Add necessary configuration keys in root bot configuration json:
+7. Remove unnecessary skills (based on the error hints). 
+8. Add necessary configuration keys in root bot configuration json:
 
     "GPT3key": "Your Azure Open AI key for GPT-3",
  
@@ -46,7 +54,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 9. Publish root bot.
 
-
+10. Enalbe Teams Channel, create App Package for teams.
 
 ## Next steps
 
