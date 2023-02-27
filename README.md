@@ -2,15 +2,40 @@
 
 This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot.
 
+## Structure
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
+
+
+## ChatGPT response in Teams Conversation
+
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/8623897/221471351-0bebf072-ceb5-49ed-a3cb-2837916e0cbb.png">
+
+<img width="807" alt="image" src="https://user-images.githubusercontent.com/8623897/221471644-ce9e1ead-7c19-4cda-8d3f-53a26927b581.png">
+
+## Interactive in Teams Message Extension
+
+<img width="321" alt="image" src="https://user-images.githubusercontent.com/8623897/221473432-b50434be-e103-4143-b89e-5e532af7aa77.png">
+
+<img width="936" alt="image" src="https://user-images.githubusercontent.com/8623897/221473604-f5f16c53-d682-48db-bce2-4300232d168f.png">
+
+## "Act As" with preset useful prompts
+
+<img width="934" alt="image" src="https://user-images.githubusercontent.com/8623897/221474204-243488e6-1974-4ecf-aeda-1cdce57bb80d.png">
+
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
+
+
+
 # Rootbot Building Guide
 
 1. Clone the root bot
 
 2. Open the folder in Bot Framework Composer
    
-   Note: BFC is not installed, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
+   Note: If BFC is not installed, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
    
-   Building this project requires expereinces on building and publishing Bot App to Teams Platform in Bot Framework Composer. If not quite certain, can follow below articles to get quick wrap up on important concepts and steps before bullding this project:
+   Building this project requires expereinces on building and publishing Bot App to Teams Platform in Bot Framework Composer. If not quite certain, can refer to below articles to get quick ideas on important concepts and steps before bullding this project:
    
    https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135
    
