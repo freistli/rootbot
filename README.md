@@ -85,7 +85,7 @@ This bot project was created using the Empty Bot template, and contains a minima
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
     ```
 
-     Note: promoterUrl and chatgptUrl are the two endpoints after publishing the two Azure Functions from here: https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction . Also need to configure your OpenAI Key there after publishing them: https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
+     Note: promoterUrl and chatgptUrl are the two endpoints after publishing the two Azure Functions from Visual Studio Code: https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction . Also need to configure your OpenAI Key there after publishing them: https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
 
      The BFC JSON configuration UI is similar to:
      
