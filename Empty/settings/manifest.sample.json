@@ -1,0 +1,162 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
+    "version": "1.7.0",
+    "manifestVersion": "1.15",
+    "id": "<<your teams app id>>",
+    "packageName": "com.package.name",
+    "name": {
+        "short": "rootbot02",
+        "full": "root bot 02"
+    },
+    "developer": {
+        "name": "Contoso",
+        "mpnId": "",
+        "websiteUrl": "https://www.contoso.com",
+        "privacyUrl": "https://www.contoso.com/privacy",
+        "termsOfUseUrl": "https://www.contoso.com/terms"
+    },
+    "description": {
+        "short": "root bot sample",
+        "full": "root bot sample - CQA, ChatGPT, DALLE"
+    },
+    "icons": {
+        "outline": "outline.png",
+        "color": "color.png"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [
+        {
+            "botId": "<<your bot app id in AAD>>",
+            "scopes": [
+                "personal",
+                "team",
+                "groupchat"
+            ],
+            "isNotificationOnly": false,
+            "supportsCalling": false,
+            "supportsVideo": false,
+            "supportsFiles": true
+        }
+    ],
+    "composeExtensions": [
+        {
+            "botId": "<<your bot app id in AAD>>",
+            "commands": [
+                {
+                    "id": "AskChatGPT",
+                    "type": "action",
+                    "title": "Ask ChatGPT a question",
+                    "description": "Ask ChatGPT a question",
+                    "initialRun": true,
+                    "fetchTask": false,
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "Prompt",
+                            "title": "Prompt",
+                            "description": "Send question to ChatGPT",
+                            "inputType": "text"
+                        }
+                    ]
+                },
+                {
+                    "id": "AskGPT3",
+                    "type": "action",
+                    "title": "Ask GPT3 a question",
+                    "description": "Ask GPT3 a question",
+                    "initialRun": false,
+                    "fetchTask": false,
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "Prompt",
+                            "title": "Prompt",
+                            "description": "Ask questions to GPT3",
+                            "inputType": "text"
+                        }
+                    ]
+                },
+                {
+                    "id": "AskDALLE",
+                    "type": "action",
+                    "title": "Ask DALLE to generate images",
+                    "description": "Ask DALLE to generate images",
+                    "initialRun": false,
+                    "fetchTask": true,
+                    "context": [
+                        "commandBox",
+                        "compose",
+                        "message"
+                    ],
+                    "taskInfo": {
+                        "title": "Image Generation",
+                        "width": "640",
+                        "height": "640",
+                        "url": "https://flstaticweb.azurewebsites.net/image.html"
+                    }
+                },
+                {
+                    "id": "AskGPT3Message",
+                    "type": "action",
+                    "title": "Ask GPT3 using this message",
+                    "description": "Ask GPT3 using this message",
+                    "initialRun": false,
+                    "fetchTask": true,
+                    "context": [
+                        "message"
+                    ],
+                    "taskInfo": {
+                        "title": "Ask GPT3",
+                        "width": "640",
+                        "height": "640",
+                        "url": "https://flstaticweb.azurewebsites.net/image.html"
+                    }
+                },
+                {
+                    "id": "AskChatGPTMessage",
+                    "type": "action",
+                    "title": "Ask ChatGPT using this message",
+                    "description": "Ask ChatGPT using this message",
+                    "initialRun": false,
+                    "fetchTask": true,
+                    "context": [
+                        "message"
+                    ],
+                    "taskInfo": {
+                        "title": "Ask ChatGPT",
+                        "width": "640",
+                        "height": "640",
+                        "url": "https://flstaticweb.azurewebsites.net/image.html"
+                    }
+                }
+            ],
+            "canUpdateConfiguration": true,
+            "messageHandlers": [
+                {
+                    "type": "link",
+                    "value": {
+                        "domains": [
+                            "*.azurewebsites.net",
+                            "*.blob.core.windows.net"
+                        ],
+                        "supportsAnonymizedPayloads": false
+                    }
+                }
+            ]
+        }
+    ],
+    "validDomains": [
+        "*.azurewebsites.net",
+        "*.blob.core.windows.net"        
+    ],
+    "webApplicationInfo": {
+        "id": "<<your bot app id in AAD>>",
+        "resource": ""
+    }
+}
