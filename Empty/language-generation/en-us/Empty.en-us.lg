@@ -56,16 +56,6 @@
     ]
 }
 ```
-# BeginSkill_Activity_Nmgq5n()
-[Activity
-  type = event
-  name = ChatGPTSKill
-]
-# BeginSkill_Activity_Nmgq5n_text()
-- ```[Activity
-  type = event
-  name = DALLESkill
-]```
 # SendActivity_CJS3sK()
 [Activity
     Text = ${SendActivity_CJS3sK_text()}
@@ -371,3 +361,29 @@
 
 # SendActivity_vsWUqc_text()
 - Handle Act As
+# SendActivity_S4CqAM()
+[Activity
+    Text = ${SendActivity_S4CqAM_text()}
+]
+
+# SendActivity_S4CqAM_text()
+- This DALL-E option needs to connect to DALL-E SKill bot. You can try DALLE-E feature by clicking **Teams Message Extension** if don't have DALL-E SKill Bot configured for the rootbot.
+# ChoiceInput_Prompt_EKTJ1O()
+[Activity
+    Text = ${ChoiceInput_Prompt_EKTJ1O_text()}
+]
+
+# ChoiceInput_Prompt_EKTJ1O_text()
+- I want to connect to DALL-E Skill
+# BeginSkill_Activity_OgE9L5()
+[Activity
+  type = event
+  name = DALLESKill
+]
+# SendActivity_Cv6FQ5()
+[Activity
+    Text = ${SendActivity_Cv6FQ5_text()}
+]
+
+# SendActivity_Cv6FQ5_text()
+- Okay, leave without connecting to DALL-E Skill

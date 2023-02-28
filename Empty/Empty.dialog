@@ -96,7 +96,7 @@
       "$kind": "Microsoft.OnIntent",
       "$designer": {
         "id": "fgG5nQ",
-        "name": "ChatGPTSkill"
+        "name": "ChatGPT"
       },
       "intent": "chatgptskill",
       "actions": [
@@ -120,18 +120,76 @@
       "intent": "DALL-E",
       "actions": [
         {
-          "$kind": "Microsoft.BeginSkill",
+          "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "Nmgq5n"
+            "id": "S4CqAM"
           },
-          "activityProcessed": true,
-          "botId": "=settings.MicrosoftAppId",
-          "skillHostEndpoint": "=settings.skillHostEndpoint",
-          "connectionName": "=settings.connectionName",
+          "activity": "${SendActivity_S4CqAM()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "EKTJ1O"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
           "allowInterruptions": false,
-          "skillEndpoint": "=settings.skill['dalleSkill'].endpointUrl",
-          "skillAppId": "=settings.skill['dalleSkill'].msAppId",
-          "activity": "${BeginSkill_Activity_Nmgq5n()}"
+          "prompt": "${ChoiceInput_Prompt_EKTJ1O()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
+          },
+          "property": "turn.connectDallESkill",
+          "choices": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "z0z0vM"
+          },
+          "condition": "turn.connectDallESkill",
+          "cases": [
+            {
+              "value": "Yes",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginSkill",
+                  "$designer": {
+                    "id": "OgE9L5"
+                  },
+                  "activityProcessed": true,
+                  "botId": "=settings.MicrosoftAppId",
+                  "skillHostEndpoint": "=settings.skillHostEndpoint",
+                  "connectionName": "=settings.connectionName",
+                  "allowInterruptions": false,
+                  "skillEndpoint": "=settings.skill['dalleSkill'].endpointUrl",
+                  "skillAppId": "=settings.skill['dalleSkill'].msAppId",
+                  "activity": "${BeginSkill_Activity_OgE9L5()}"
+                }
+              ]
+            },
+            {
+              "value": "No",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Cv6FQ5"
+                  },
+                  "activity": "${SendActivity_Cv6FQ5()}"
+                }
+              ]
+            }
+          ]
         }
       ],
       "condition": "=turn.recognized.score > 0.7"
