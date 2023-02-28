@@ -80,7 +80,7 @@ This bot project was created using the Empty Bot template, and contains a minima
   
     "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
   
-    "openAIKey": "Bearer sk-xxxxxxxxx",
+    "openAIKey": "Bearer sk-your OpenAI API Key",
   
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
     ```
