@@ -414,6 +414,29 @@
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
+                "id": "MazZxN"
+              },
+              "condition": "isMatch(turn.activity.value.MessagePayload.body.content, '^[\\.\\-\\*,</>(\\&\\$\\+\\=)!\\?_a-zA-Z0-9@\\s]+$')",
+              "elseActions": [
+                {
+                  "$kind": "Teams.SendMEActionResponse",
+                  "$designer": {
+                    "id": "yeDWY3"
+                  },
+                  "card": "${TeamsSendMEActionResponse_Card_yeDWY3()}"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "Ij41l1"
+                  }
+                }
+              ],
+              "actions": []
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
                 "id": "z1I7rg"
               },
               "condition": "=turn.activity.value.commandId==\"AskGPT3Message\"",

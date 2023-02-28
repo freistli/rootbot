@@ -387,3 +387,47 @@
 
 # SendActivity_Cv6FQ5_text()
 - Okay, leave without connecting to DALL-E Skill
+# TeamsSendMEActionResponse_Card_x5OESZ()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_x5OESZ_attachment_YjsGBi())}
+]
+
+# TeamsSendMEActionResponse_Card_x5OESZ_attachment_YjsGBi()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": " Cannot use the message as Input. It needs to follow this characters set /[a-zA-Z0-9\t\n\r{}[],."-#:*]+/",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```
+
+# TeamsSendMEActionResponse_Card_yeDWY3()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_yeDWY3_attachment_sHc67x())}
+]
+
+# TeamsSendMEActionResponse_Card_yeDWY3_attachment_sHc67x()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Some characters of this message cannot be used as Adaptive Card fields. Please chat with your root bot directly, which supports all characters",
+      "weight": "bolder",
+      "isSubtle": false,
+      "wrap":true
+    }
+  ]
+}```

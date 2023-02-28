@@ -188,3 +188,55 @@
 - Okay. 
 - Let me think
 - Let me try
+# TeamsSendMEActionResponse_Card_upPHSu()
+[Activity
+    Attachments = ${json(TeamsSendMEActionResponse_Card_upPHSu_attachment_DeFgCe())}
+]
+
+# TeamsSendMEActionResponse_Card_upPHSu_attachment_DeFgCe()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "id":"prompt",
+      "type": "Input.Text",
+      "value": "${if(turn.prompt!=null,turn.prompt,"")}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+    {
+      "id":"result",
+      "type": "Input.Text",
+      "value": "${if(turn.results.content.text!=null,replace(turn.results.content.text, '\n', '\n\n'),turn.results.content.statusText)}",
+      "isSubtle": false,
+      "wrap": true,
+      "isMultiline": true
+    },
+    {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Ask ChatGPT",
+                    "button": "Ask ChatGPT"
+                }
+            ]
+        }
+  ]
+}```
+# TeamsSendMEAttachmentsResponse_Attachments_vADf8R()
+[Activity
+    Attachments = ${TeamsSendMEAttachmentsResponse_Attachments_vADf8R_attachment_olPUdr()}
+]
+
+# TeamsSendMEAttachmentsResponse_Attachments_vADf8R_attachment_olPUdr()
+[HeroCard
+  title = Response
+  subtitle = ${if(turn.prompt!=null,turn.prompt,"")}
+  text = ${if(turn.results.content.text!=null,replace(turn.results.content.text, '\n', '\n\n'),turn.results.content.statusText)}
+]

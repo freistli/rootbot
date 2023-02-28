@@ -109,11 +109,29 @@
           "condition": "=turn.command==\"true\"",
           "actions": [
             {
-              "$kind": "Teams.SendMEActionResponse",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "9ShUR7"
+                "id": "8Uir5M"
               },
-              "card": "${TeamsSendMEActionResponse_Card_9ShUR7()}"
+              "condition": "=isMatch(turn.results.content.text, '^[\\.\\-\\*,</>!\\?_a-zA-Z0-9@\\s]+$')",
+              "actions": [
+                {
+                  "$kind": "Teams.SendMEActionResponse",
+                  "$designer": {
+                    "id": "upPHSu"
+                  },
+                  "card": "${TeamsSendMEActionResponse_Card_upPHSu()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Teams.SendMEAttachmentsResponse",
+                  "$designer": {
+                    "id": "vADf8R"
+                  },
+                  "attachments": "${TeamsSendMEAttachmentsResponse_Attachments_vADf8R()}"
+                }
+              ]
             }
           ],
           "elseActions": [

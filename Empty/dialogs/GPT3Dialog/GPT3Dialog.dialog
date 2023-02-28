@@ -83,11 +83,29 @@
               "disabled": true
             },
             {
-              "$kind": "Teams.SendMEActionResponse",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "5r3KLG"
+                "id": "9bZ3i7"
               },
-              "card": "${TeamsSendMEActionResponse_Card_5r3KLG()}"
+              "condition": "isMatch(turn.results.content.choices[0].text, '^[\\.\\-\\*,</>!\\?_a-zA-Z0-9@\\s]+$')",
+              "actions": [
+                {
+                  "$kind": "Teams.SendMEActionResponse",
+                  "$designer": {
+                    "id": "lHBLXF"
+                  },
+                  "card": "${TeamsSendMEActionResponse_Card_lHBLXF()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Teams.SendMEAttachmentsResponse",
+                  "$designer": {
+                    "id": "FzLf85"
+                  },
+                  "attachments": "${TeamsSendMEAttachmentsResponse_Attachments_FzLf85()}"
+                }
+              ]
             }
           ]
         },
