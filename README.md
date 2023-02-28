@@ -24,17 +24,17 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
 
-## If you built DALLE SKill for it
-
-<img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
-
-<img width="381" alt="image" src="https://user-images.githubusercontent.com/8623897/221493362-843cfed2-7182-4e59-bd22-0df211a6eb87.png">
-
-## DALLE in in Teams Message Extension
+## DALLE in in Teams Message Extension (DALL-E SKill Bot is not required, DALL-E for Teams ME logic is included in the project)
 
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221493090-d2b3abab-6191-430a-b159-1c94c18be5c8.png">
 
 <img width="918" alt="image" src="https://user-images.githubusercontent.com/8623897/221492795-fb8de08a-b7e8-4ff3-8e26-1d9c00ae1e68.png">
+
+## DALLE in Conversation (DALL-E SKill Bot is required)
+
+<img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
+
+<img width="381" alt="image" src="https://user-images.githubusercontent.com/8623897/221493362-843cfed2-7182-4e59-bd22-0df211a6eb87.png">
 
 # Rootbot Building Guide
 
@@ -66,7 +66,7 @@ This bot project was created using the Empty Bot template, and contains a minima
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
     
-7. Remove unnecessary skills (based on the error hints, for example remove DALLE skill). 
+7. Remove unnecessary skills (based on the error hints, for example, remove DALLE skill). 
 
 8. Add necessary configuration keys in root bot configuration json:
 
