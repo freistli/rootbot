@@ -120,6 +120,9 @@
     }
   ],
   "generator": "GPT3Dialog.lg",
-  "recognizer": "GPT3Dialog.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "GPT3Dialog"
 }

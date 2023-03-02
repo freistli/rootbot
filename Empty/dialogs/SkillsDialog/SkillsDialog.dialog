@@ -27,6 +27,9 @@
     }
   ],
   "generator": "SkillsDialog.lg",
-  "recognizer": "SkillsDialog.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "SkillsDialog"
 }

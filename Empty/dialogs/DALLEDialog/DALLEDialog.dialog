@@ -27,6 +27,9 @@
     }
   ],
   "generator": "DALLEDialog.lg",
-  "recognizer": "DALLEDialog.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "DALLEDialog"
 }

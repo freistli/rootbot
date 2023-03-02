@@ -7,15 +7,6 @@
 > entity definitions:
 > @ ml city
 
-# DALL-E
-> add some example phrases to trigger this intent:
-> - please tell me the weather
-> - what is the weather like in {city=Seattle}
-- DALL-E
-- DALLE
-> entity definitions:
-> @ ml city
-
 # SayHi
 > add some example phrases to trigger this intent:
 > - please tell me the weather

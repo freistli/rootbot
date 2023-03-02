@@ -143,6 +143,9 @@
     }
   ],
   "generator": "DALLEGenerateDialog.lg",
-  "recognizer": "DALLEGenerateDialog.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "DALLEGenerateDialog"
 }

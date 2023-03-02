@@ -150,7 +150,7 @@
 ]
 
 # SendActivity_gkiDe0_text()
-- Error Happened please try again. ${turn.dialogEvent.value}
+- Error Happened please try again. ${turn.dialogEvent.value.Message}
 # TeamsSendMEActionResponse_Card_v1ygV8()
 [Activity
     Attachments = ${json(TeamsSendMEActionResponse_Card_v1ygV8_attachment_DWOFcU())}
@@ -361,32 +361,6 @@
 
 # SendActivity_vsWUqc_text()
 - Handle Act As
-# SendActivity_S4CqAM()
-[Activity
-    Text = ${SendActivity_S4CqAM_text()}
-]
-
-# SendActivity_S4CqAM_text()
-- This DALL-E option needs to connect to DALL-E SKill bot. You can try DALLE-E feature by clicking **Teams Message Extension** if don't have DALL-E SKill Bot configured for the rootbot.
-# ChoiceInput_Prompt_EKTJ1O()
-[Activity
-    Text = ${ChoiceInput_Prompt_EKTJ1O_text()}
-]
-
-# ChoiceInput_Prompt_EKTJ1O_text()
-- I want to connect to DALL-E Skill
-# BeginSkill_Activity_OgE9L5()
-[Activity
-  type = event
-  name = DALLESKill
-]
-# SendActivity_Cv6FQ5()
-[Activity
-    Text = ${SendActivity_Cv6FQ5_text()}
-]
-
-# SendActivity_Cv6FQ5_text()
-- Okay, leave without connecting to DALL-E Skill
 # TeamsSendMEActionResponse_Card_x5OESZ()
 [Activity
     Attachments = ${json(TeamsSendMEActionResponse_Card_x5OESZ_attachment_YjsGBi())}

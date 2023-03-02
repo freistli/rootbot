@@ -171,7 +171,7 @@
 ]
 
 # TextInput_Prompt_gYjWsz_text()
-- Please input your prompt to ChatGPT
+- Please input your prompt to ChatGPT, input **bye** to leave the conversation.
 # SendActivity_jibGfv()
 [Activity
     Text = ${SendActivity_jibGfv_text()}

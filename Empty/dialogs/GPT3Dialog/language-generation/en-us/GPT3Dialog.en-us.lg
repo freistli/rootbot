@@ -6,7 +6,7 @@
 ]
 
 # TextInput_Prompt_SMRYFg_text()
-- Please input your prompt to GPT-3
+- Please input your prompt to GPT-3, input **bye** to leave the conversation.
 # SendActivity_tZwqmS()
 [Activity
     Text = ${SendActivity_tZwqmS_text()}

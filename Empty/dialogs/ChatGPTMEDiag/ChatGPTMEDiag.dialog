@@ -162,6 +162,9 @@
     }
   ],
   "generator": "ChatGPTMEDiag.lg",
-  "recognizer": "ChatGPTMEDiag.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "ChatGPTMEDiag"
 }

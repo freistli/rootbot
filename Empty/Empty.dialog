@@ -109,90 +109,7 @@
           "dialog": "ChatGPTMEDiag"
         }
       ],
-      "condition": "=turn.recognized.score > 0.7"
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "KJFhUh",
-        "name": "DALLESkill"
-      },
-      "intent": "DALL-E",
-      "actions": [
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "S4CqAM"
-          },
-          "activity": "${SendActivity_S4CqAM()}"
-        },
-        {
-          "$kind": "Microsoft.ChoiceInput",
-          "$designer": {
-            "id": "EKTJ1O"
-          },
-          "defaultLocale": "en-us",
-          "disabled": false,
-          "maxTurnCount": 3,
-          "alwaysPrompt": false,
-          "allowInterruptions": false,
-          "prompt": "${ChoiceInput_Prompt_EKTJ1O()}",
-          "unrecognizedPrompt": "",
-          "invalidPrompt": "",
-          "defaultValueResponse": "",
-          "choiceOptions": {
-            "includeNumbers": true,
-            "inlineOrMore": ", or ",
-            "inlineOr": " or "
-          },
-          "property": "turn.connectDallESkill",
-          "choices": [
-            "Yes",
-            "No"
-          ]
-        },
-        {
-          "$kind": "Microsoft.SwitchCondition",
-          "$designer": {
-            "id": "z0z0vM"
-          },
-          "condition": "turn.connectDallESkill",
-          "cases": [
-            {
-              "value": "Yes",
-              "actions": [
-                {
-                  "$kind": "Microsoft.BeginSkill",
-                  "$designer": {
-                    "id": "OgE9L5"
-                  },
-                  "activityProcessed": true,
-                  "botId": "=settings.MicrosoftAppId",
-                  "skillHostEndpoint": "=settings.skillHostEndpoint",
-                  "connectionName": "=settings.connectionName",
-                  "allowInterruptions": false,
-                  "skillEndpoint": "=settings.skill['dalleSkill'].endpointUrl",
-                  "skillAppId": "=settings.skill['dalleSkill'].msAppId",
-                  "activity": "${BeginSkill_Activity_OgE9L5()}"
-                }
-              ]
-            },
-            {
-              "value": "No",
-              "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "Cv6FQ5"
-                  },
-                  "activity": "${SendActivity_Cv6FQ5()}"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "condition": "=turn.recognized.score > 0.7"
+      "condition": true
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -226,7 +143,7 @@
           }
         }
       ],
-      "condition": "=turn.recognized.score > 0.7"
+      "condition": true
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -245,7 +162,7 @@
           "dialog": "GPT3Dialog"
         }
       ],
-      "condition": "=turn.recognized.score > 0.7"
+      "condition": true
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -280,7 +197,7 @@
           }
         }
       ],
-      "condition": "=turn.recognized.score > 0.7"
+      "condition": true
     },
     {
       "$kind": "Teams.OnMESubmitAction",
@@ -620,7 +537,6 @@
         "name": "ChatGPT Act As"
       },
       "intent": "ActAs",
-      "condition": "=turn.recognized.score > 0.7",
       "actions": [
         {
           "$kind": "Microsoft.BeginDialog",
@@ -630,7 +546,8 @@
           "activityProcessed": true,
           "dialog": "ChatGPTActAsDialog"
         }
-      ]
+      ],
+      "condition": true
     },
     {
       "$kind": "Microsoft.OnMessageActivity",
@@ -692,12 +609,37 @@
           "$designer": {
             "id": "n8JN2v"
           },
-          "activity": "${SendActivity_n8JN2v()}"
+          "activity": "${SendActivity_n8JN2v()}",
+          "disabled": true
         }
       ]
     }
   ],
   "generator": "Empty.lg",
   "id": "Empty",
-  "recognizer": "Empty.lu.qna"
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": [
+      {
+        "intent": "chatgptskill",
+        "pattern": "\\b(\\w*^chatgpt$\\w*)\\b"
+      },
+      {
+        "intent": "SayHi",
+        "pattern": "\\b(\\w*^start$\\w*)\\b|\\b(\\w*^hello$\\w*)\\b|\\b(\\w*^hi$\\w*)\\b"
+      },
+      {
+        "intent": "GPT3",
+        "pattern": "\\b(\\w*^gpt3$\\w*)\\b|\\b(\\w*^gpt-3$\\w*)\\b"
+      },
+      {
+        "intent": "stop",
+        "pattern": "\\b(\\w*^end$\\w*)\\b|\\b(\\w*^stop$\\w*)\\b|\\b(\\w*^bye$\\w*)\\b"
+      },
+      {
+        "intent": "ActAs",
+        "pattern": "\\b(\\w*^act\\s*as$\\w*)\\b"
+      }
+    ]
+  }
 }

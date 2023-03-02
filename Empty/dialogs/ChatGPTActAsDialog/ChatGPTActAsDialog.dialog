@@ -37,6 +37,9 @@
     }
   ],
   "generator": "ChatGPTActAsDialog.lg",
-  "recognizer": "ChatGPTActAsDialog.lu.qna",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
   "id": "ChatGPTActAsDialog"
 }
