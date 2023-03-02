@@ -95,19 +95,22 @@ This bot project was created using the Empty Bot template, and contains a minima
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
     ```
 
-     Note: **promoterUrl** is the function url after publishing **prompter** Azure Functions (Node.JS 18 LTS) from Visual Studio Code: 
+     Note: **promoterUrl** is the function url after publishing **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction
      
-     **chatgptUrl** is the function url after publishing another **openai** Azure Functions (Node.JS 18 LTS) from Visual Studio Code:
+     **chatgptUrl** is the function url after publishing another **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction-release
      
      Note: currenlty prompter and openai should be in differetn Azure Function App because they are using different dependencies now.  
      
-     Also need to configure your OpenAI_API_Key there after publishing them:    
+     Also need to configure your OpenAI_API_Key there after publishing them (for both Azure Function Apps):    
      
      https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
+     
+     <img width="341" alt="image" src="https://user-images.githubusercontent.com/8623897/222511333-a9aa7908-64a1-454a-9ea6-cb74bbcb5da0.png">
+
 
      The BFC JSON configuration UI is similar to:
      
