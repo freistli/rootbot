@@ -128,7 +128,7 @@
     {
       "id":"result",
       "type": "Input.Text",
-      "value": "${turn.results.content.choices[0].text}",
+      "value": "${replace(turn.results.content.choices[0].text, '\n', '\n\n')}",
       "isSubtle": false,
       "wrap": true,
       "isMultiline": true
@@ -154,5 +154,5 @@
 [HeroCard
   title = Response
   subtitle = ${if(turn.prompt!=null,turn.prompt,"")}
-  text = ${turn.results.content.choices[0].text}  
+  text = ${replace(turn.results.content.choices[0].text, '\n', '\n\n')}  
 ]
