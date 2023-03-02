@@ -416,7 +416,7 @@
               "$designer": {
                 "id": "MazZxN"
               },
-              "condition": "isMatch(turn.activity.value.MessagePayload.body.content, '^[\\.\\-\\*,</>(\\&\\$\\+\\=)!\\?_a-zA-Z0-9@\\s]+$')",
+              "condition": "isMatch(turn.activity.value.MessagePayload.body.content, '^[\\.\\-\\*,</>(\\&\\$\\:\\+\\=)!\\?_a-zA-Z0-9@\\s]+$')",
               "elseActions": [
                 {
                   "$kind": "Teams.SendMEActionResponse",
