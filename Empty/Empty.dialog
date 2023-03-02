@@ -692,7 +692,8 @@
           "$designer": {
             "id": "n8JN2v"
           },
-          "activity": "${SendActivity_n8JN2v()}"
+          "activity": "${SendActivity_n8JN2v()}",
+          "disabled": true
         }
       ]
     }
