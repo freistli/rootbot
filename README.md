@@ -58,13 +58,27 @@ This bot project was created using the Empty Bot template, and contains a minima
 
    <img width="878" alt="image" src="https://user-images.githubusercontent.com/8623897/221361118-3157a492-222e-492b-9f8b-d1bf759b1d23.png">
 
-5. Provision root bot in in Bot Frameework Composer (setup publish profile). Don't need to choose Azure Luis Resource because we now use Regex to handle user intents of the bot now.
+5. Provision root bot in in Bot Frameework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now.
 
 6. Setup AppID/PWD (refer to steps 18~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
  
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
-7. Add necessary configuration keys in root bot configuration json:
+7. Add necessary configuration keys in root bot configuration json
+
+
+   Note: for test purpose, you don't have to put real values for all of them. Setup what you need. 
+
+      GPT3Key & GPT3Url are for GPT3 feature
+
+      prompterUrl is for Act As feature
+
+      chatgptUrl is for ChatGpt feature
+
+      openAIKey is for DALLE feature
+
+      taskmoduleurl is for DALLE image OpenURL display. It is a static web page, you can directly use the sample link, or put the same static html code on your site:         https://flstaticweb.azurewebsites.net/image.html
+   
 
      ```json
 
@@ -81,11 +95,11 @@ This bot project was created using the Empty Bot template, and contains a minima
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
     ```
 
-     Note: promoterUrl is the function url after publishing **prompter** Azure Functions (Node.JS 18 LTS) from Visual Studio Code: 
+     Note: **promoterUrl** is the function url after publishing **prompter** Azure Functions (Node.JS 18 LTS) from Visual Studio Code: 
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction
      
-     chatgptUrl is the function url after publishing another **openai** Azure Functions (Node.JS 18 LTS) from Visual Studio Code:
+     **chatgptUrl** is the function url after publishing another **openai** Azure Functions (Node.JS 18 LTS) from Visual Studio Code:
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction-release
      
