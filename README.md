@@ -54,21 +54,17 @@ This bot project was created using the Empty Bot template, and contains a minima
    
    
 3. BFC will promote "Project Convert", confirm it. After a while, it may give error about Null Reference, ignore it.
-4. Add Teams Package to the root bot
+4. Add Teams Package to the root bot, it will solve all errors about adaptive dialogs of the converted project in Bot Frameework Composer.
 
    <img width="878" alt="image" src="https://user-images.githubusercontent.com/8623897/221361118-3157a492-222e-492b-9f8b-d1bf759b1d23.png">
 
-5. Provision root bot (setup publish profile)
-6. Set Azure Luis Authoring key, and AppID/PWD (refer to steps 15~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
+5. Provision root bot in in Bot Frameework Composer (setup publish profile). Don't need to choose Azure Luis Resource because we now use Regex to handle user intents of the bot now.
+
+6. Setup AppID/PWD (refer to steps 18~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
  
-   ![image](https://user-images.githubusercontent.com/8623897/221360395-33faeba5-44f2-4b92-8584-db0b94e2d9c0.png)
-   
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
-    
-7. Remove unnecessary skills (based on the error hints, for example, remove DALLE skill). 
-
-8. Add necessary configuration keys in root bot configuration json:
+7. Add necessary configuration keys in root bot configuration json:
 
      ```json
 
@@ -85,11 +81,17 @@ This bot project was created using the Empty Bot template, and contains a minima
     "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
     ```
 
-     Note: promoterUrl and chatgptUrl are the two endpoints after publishing the two Azure Functions (Node.JS 18 LTS) from Visual Studio Code: 
+     Note: promoterUrl is the function url after publishing **prompter** Azure Functions (Node.JS 18 LTS) from Visual Studio Code: 
      
-     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction . 
+     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction
      
-     Also need to configure your OpenAI Key there after publishing them:    
+     chatgptUrl is the function url after publishing another **openai** Azure Functions (Node.JS 18 LTS) from Visual Studio Code:
+     
+     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction-release
+     
+     Note: currenlty prompter and openai should be in differetn Azure Function App because they are using different dependencies now.  
+     
+     Also need to configure your OpenAI_API_Key there after publishing them:    
      
      https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
 
@@ -97,9 +99,9 @@ This bot project was created using the Empty Bot template, and contains a minima
      
      ![image](https://user-images.githubusercontent.com/8623897/221360271-6ca877b4-ac93-4dea-aa08-5ed0f1126c6d.png)
 
-9. Publish root bot.
+8. Publish root bot.
 
-10. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\settings\manifest.sample.json](https://github.com/freistli/rootbot/blob/main/Empty/settings/manifest.sample.json)
+9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\settings\manifest.sample.json](https://github.com/freistli/rootbot/blob/main/Empty/settings/manifest.sample.json)
 
 ## Next steps
 
