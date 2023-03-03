@@ -119,7 +119,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\settings\manifest.sample.json](https://github.com/freistli/rootbot/blob/main/Empty/settings/manifest.sample.json)
 
-## Host Bot App in other environment or cloud 
+## Host Bot App in other non-Azure environments 
 
 1. The enviroment needs to have .net core 3.1 environment setup. And after above steps you will have publictarget folder, run the command in this way:
 
