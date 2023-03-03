@@ -18,7 +18,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="936" alt="image" src="https://user-images.githubusercontent.com/8623897/221473604-f5f16c53-d682-48db-bce2-4300232d168f.png">
 
-## "Act As" ChatGPT with preset prompts in Adaptive Cards
+## "Act As" ChatGPT with preset prompts in Adaptive Cards [experimental feature]
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/8623897/221474204-243488e6-1974-4ecf-aeda-1cdce57bb80d.png">
 
@@ -30,7 +30,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="918" alt="image" src="https://user-images.githubusercontent.com/8623897/221492795-fb8de08a-b7e8-4ff3-8e26-1d9c00ae1e68.png">
 
-## DALLE in Conversation (DALL-E SKill Bot is required)
+## DALLE in Conversation (An external DALL-E SKill Bot is required, can be ignored here if we focus on ChatGPT/GPT)
 
 <img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
 
@@ -66,18 +66,17 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 7. Add necessary configuration keys in root bot configuration json
 
-
    Note: for test purpose, you don't have to put real values for all of them. Setup what you need. 
 
-      GPT3Key & GPT3Url are for GPT3 feature
+      1. GPT3Key & GPT3Url are for GPT3 feature
 
-      prompterUrl is for Act As feature
+      1. prompterUrl is for Act As feature
 
-      chatgptUrl is for ChatGpt feature
+      1. chatgptUrl is for ChatGpt feature
 
-      openAIKey is for DALLE feature
+      1. openAIKey is for DALLE feature
 
-      taskmoduleurl is for DALLE image OpenURL display. It is a static web page, you can directly use the sample link, or put the same static html code on your site:         https://flstaticweb.azurewebsites.net/image.html
+      1. taskmoduleurl is for DALLE image OpenURL display. It is a static web page, you can directly use the sample link, or put the same static html code on your site:         https://flstaticweb.azurewebsites.net/image.html
    
 
      ```json
@@ -103,7 +102,7 @@ This bot project was created using the Empty Bot template, and contains a minima
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction-release
      
-     Note: currenlty prompter and openai should be in differetn Azure Function App because they are using different dependencies now.  
+     Note: currenlty prompter and openai should be in different Azure Function Apps because they are using different dependencies now.  
      
      Also need to configure your OpenAI_API_Key there after publishing them (for both Azure Function Apps):    
      
@@ -119,6 +118,23 @@ This bot project was created using the Empty Bot template, and contains a minima
 8. Publish root bot.
 
 9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\settings\manifest.sample.json](https://github.com/freistli/rootbot/blob/main/Empty/settings/manifest.sample.json)
+
+## Host Bot App in other environment or cloud 
+
+1. The enviroment needs to have .net core 3.1 environment setup. And after above steps you will have publictarget folder, run the command in this way:
+
+"C:\BotComposerProject\Empty\Empty\bin\release\publishTarget\Empty.exe"  --port 3980 --urls http://0.0.0.0:3980 --MicrosoftAppPassword [the AAD bot app secret key] --luis:endpointKey "" --SkillHostEndpoint http://127.0.0.1:3980/api/skills'
+
+2. The environment needs to have a reverse proxy, for example, ngrok:
+
+ngrok http 3980 --host-header=localhost
+
+3. Configure Azure Bot Service to use this endpoint:
+
+Refer to: https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0
+
+
+
 
 ## Next steps
 
