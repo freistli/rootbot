@@ -40,6 +40,10 @@ This bot project was created using the Empty Bot template, and contains a minima
 ## Prerequests
 
 [Install Bot Framework Composer](https://learn.microsoft.com/en-us/composer/install-composer)
+Azure Subscription
+OpenAI account if want to use ChatGPT and DALLE
+Azure OpenAI account if want to use GPT-3
+Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if want to use in Teams Channel and Teams Message Extension)
 
 ## Steps
 
