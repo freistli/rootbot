@@ -1,34 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/main/Composer/packages/server/schemas/botproject.schema",
   "name": "Empty",
-  "skills": {
-    "echoSkill": {
-      "workspace": "../../EchoSkill/EchoSkill",
-      "remote": false,
-      "manifest": "EchoSkill-manifest",
-      "endpointName": "EchoSkillBot01"
-    },
-    "echoSkill-1": {
-      "manifest": "https://EchoSkillBot01.azurewebsites.net/manifests/EchoSkill-manifest.json",
-      "remote": true,
-      "endpointName": "EchoSkillBot01"
-    },
-    "newqnabot01": {
-      "manifest": "skills/manifest.json",
-      "remote": true,
-      "endpointName": "newqnabot01 PROD"
-    },
-    "chatGptSkill": {
-      "workspace": "../../ChatGPTSkill/ChatGPTSkill",
-      "remote": false,
-      "manifest": "ChatGPTSkill-manifest",
-      "endpointName": "FLChatGPTSkill"
-    },
-    "dalleSkill": {
-      "workspace": "../../DALLESkill/DALLESkill",
-      "remote": false,
-      "manifest": "DALLESkill-manifest",
-      "endpointName": "DALLESkill"
-    }
-  }
+  "skills": {}
 }
