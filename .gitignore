@@ -264,5 +264,5 @@ __pycache__/
 /Source/v3Net/Icebreaker/Properties/PublishProfiles
 
 appsettings.dev.json
+empty.dev.botproj
 *.zip
-Empty.dev.botproj
