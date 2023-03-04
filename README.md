@@ -23,7 +23,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
 
-## DALLE in in Teams Message Extension (DALL-E SKill Bot is not required, DALL-E for Teams ME logic is included in the project)
+## DALLE in in Teams Message Extension
 
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221493090-d2b3abab-6191-430a-b159-1c94c18be5c8.png">
 
