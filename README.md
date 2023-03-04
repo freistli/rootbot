@@ -122,7 +122,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 8. Publish root bot.
 
-9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\settings\manifest.sample.json](https://github.com/freistli/rootbot/blob/main/Empty/settings/manifest.sample.json)
+9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\package\manifest.json](https://github.com/freistli/rootbot/blob/main/Empty/package/manifest.json)
 
 ## Host Bot App in other non-Azure environments 
 
