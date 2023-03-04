@@ -58,12 +58,12 @@ This bot project was created using the Empty Bot template, and contains a minima
    https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876
    
    
-3. BFC will promote "Project Convert", confirm it. After a while, it may give error about Null Reference, ignore it.
-4. Add Teams Package to the root bot, it will solve all errors about adaptive dialogs of the converted project in Bot Framework Composer.
-
-   <img width="878" alt="image" src="https://user-images.githubusercontent.com/8623897/221361118-3157a492-222e-492b-9f8b-d1bf759b1d23.png">
+3. After cloning the project, rename .\Empty\settings\appsettings.template.json as .\Empty\settings\appsettings.json
+4. Open Bot Framework Composer, open the project folder in it to load the bot project.
 
 5. Provision root bot in in Bot Framework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now.
+
+   Refer steps 5 - 12 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135)
 
 6. Setup AppID/PWD (refer to steps 18~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
  
