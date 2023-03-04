@@ -61,11 +61,9 @@ This bot project was created using the Empty Bot template, and contains a minima
 3. After cloning the project, rename .\Empty\settings\appsettings.template.json as .\Empty\settings\appsettings.json
 4. Open Bot Framework Composer, open the project folder in it to load the bot project.
 
-5. Provision root bot in in Bot Framework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now.
+5. Provision root bot in in Bot Framework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now. (refer to steps 5 - 12 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
 
-   Refer steps 5 - 12 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135)
-
-6. Setup AppID/PWD (refer to steps 18~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
+6. Setup AppID/PWD (refer to steps 18~19 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
  
    ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
 
