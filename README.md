@@ -29,12 +29,6 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="918" alt="image" src="https://user-images.githubusercontent.com/8623897/221492795-fb8de08a-b7e8-4ff3-8e26-1d9c00ae1e68.png">
 
-## DALLE in Conversation (An external DALL-E SKill Bot is required, can be ignored here if we focus on ChatGPT/GPT)
-
-<img width="956" alt="image" src="https://user-images.githubusercontent.com/8623897/221476733-659305ce-5201-4a0f-9316-6de497a36923.png">
-
-<img width="381" alt="image" src="https://user-images.githubusercontent.com/8623897/221493362-843cfed2-7182-4e59-bd22-0df211a6eb87.png">
-
 # How to Build
 
 ## Prerequests
