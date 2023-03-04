@@ -5,7 +5,6 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
 
-
 ## ChatGPT responses in Teams Conversation
 
 <img width="958" alt="image" src="https://user-images.githubusercontent.com/8623897/221471351-0bebf072-ceb5-49ed-a3cb-2837916e0cbb.png">
@@ -36,7 +35,13 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 <img width="381" alt="image" src="https://user-images.githubusercontent.com/8623897/221493362-843cfed2-7182-4e59-bd22-0df211a6eb87.png">
 
-# Rootbot Building Guide
+# How to Build
+
+## Prerequests
+
+[Install Bot Framework Composer](https://learn.microsoft.com/en-us/composer/install-composer)
+
+## Steps
 
 1. Clone the root bot
 
@@ -54,11 +59,11 @@ This bot project was created using the Empty Bot template, and contains a minima
    
    
 3. BFC will promote "Project Convert", confirm it. After a while, it may give error about Null Reference, ignore it.
-4. Add Teams Package to the root bot, it will solve all errors about adaptive dialogs of the converted project in Bot Frameework Composer.
+4. Add Teams Package to the root bot, it will solve all errors about adaptive dialogs of the converted project in Bot Framework Composer.
 
    <img width="878" alt="image" src="https://user-images.githubusercontent.com/8623897/221361118-3157a492-222e-492b-9f8b-d1bf759b1d23.png">
 
-5. Provision root bot in in Bot Frameework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now.
+5. Provision root bot in in Bot Framework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now.
 
 6. Setup AppID/PWD (refer to steps 18~19 of https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 for more details)
  
