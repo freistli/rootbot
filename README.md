@@ -69,7 +69,7 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
 
 6. Setup AppID/PWD (refer to steps 18~19 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
  
-   ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
+   <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png"></img>
 
 7. Add necessary configuration keys in root bot configuration json
 
