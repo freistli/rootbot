@@ -4,6 +4,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 <img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
+<img width="424" alt="image" src="https://user-images.githubusercontent.com/8623897/222939210-bcf24b28-36c0-4049-bded-a0e4745934cf.png">
 
 ## ChatGPT responses in Teams Conversation
 
