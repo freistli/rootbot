@@ -9,10 +9,10 @@
 # SendActivity_tRzNOk_attachment_wHREcV()
 
 [ThumbnailCard
-    title = Root Bot V.02272023
+    title = Root Bot V.03052023
     text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to show home menu. Say bye to end a conversation.
     image = https://fllivesharepoc.azurewebsites.net/logo.png
-    buttons = ChatGPT | DALL-E | GPT-3 | Act As
+    buttons = ChatGPT | GPT-3 | Act As  
 ]
 # SendActivity_tRzNOk_speak()
 - Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to show home menu. Say bye to end a conversation. Now you can say ChatGPT
