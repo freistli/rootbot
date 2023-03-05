@@ -1,9 +1,9 @@
 # Welcome to your new bot
 
-This bot project was created using the Empty Bot template, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
+<img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/8623897/221474676-847cfaa9-fb1c-4a1f-9a48-e987c7242c58.png">
 
 ## ChatGPT responses in Teams Conversation
 
@@ -19,7 +19,7 @@ This bot project was created using the Empty Bot template, and contains a minima
 
 ## "Act As" ChatGPT with preset prompts in Adaptive Cards [experimental feature]
 
-<img width="934" alt="image" src="https://user-images.githubusercontent.com/8623897/221474204-243488e6-1974-4ecf-aeda-1cdce57bb80d.png">
+<img width="905" alt="image" src="https://user-images.githubusercontent.com/8623897/222938613-210d79f4-8f55-490b-8ac1-d7f29337cce7.png">
 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
 
