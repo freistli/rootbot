@@ -34,10 +34,15 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 ## Prerequests
 
 [Install Bot Framework Composer](https://learn.microsoft.com/en-us/composer/install-composer)
-Azure Subscription
+
+Azure Subscription (able to create App Registration in AAD, Azure Bot, Azure function app, and Azure Web App resources)
+
 OpenAI account if want to use ChatGPT and DALLE
+
 Azure OpenAI account if want to use GPT-3
+
 Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if want to use in Teams Channel and Teams Message Extension)
+
 
 ## Steps
 
