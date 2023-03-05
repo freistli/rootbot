@@ -1,6 +1,6 @@
-# Welcome to your new bot
+# Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT, GPT-3, DALL-E) from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 <img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
@@ -77,11 +77,8 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
 
       1. openAIKey is for DALLE feature
 
-      1. taskmoduleurl is for DALLE image OpenURL display. It is a static web page, you can directly use the sample link, or put the same static html code on your site:         https://flstaticweb.azurewebsites.net/image.html
-   
 
      ```json
-
     "GPT3key": "Your Azure Open AI key for GPT-3",
     
     "GPT3Url" : "Your Azure Open AI Endpoint Url"
@@ -90,9 +87,7 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
   
     "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
   
-    "openAIKey": "Bearer sk-your OpenAI API Key",
-  
-    "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
+    "openAIKey": "Bearer sk-your OpenAI API Key"
     ```
 
      Note: **promoterUrl** is the function url after publishing **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
