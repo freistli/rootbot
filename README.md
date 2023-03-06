@@ -30,6 +30,15 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 <img width="918" alt="image" src="https://user-images.githubusercontent.com/8623897/221492795-fb8de08a-b7e8-4ff3-8e26-1d9c00ae1e68.png">
 
+# Credits
+
+ [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit)
+
+ [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f) 
+ 
+ [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit)
+
+
 # How to Build
 
 ## Prerequests
