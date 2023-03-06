@@ -1,6 +1,6 @@
 # Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT, GPT-3, DALL-E) from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT & DALL-E from from OpenAI, GPT-3 from Azure OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 <img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
