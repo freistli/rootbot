@@ -1,4 +1,4 @@
-Backend Azure Function App to provide experimental prompter feature.
+Backend Azure Function App (Node.JS 18 LTS) to provide experimental prompter feature.
 
 After publishing the functions on Azure, please add OPENAI_API_KEY (get from OpenAI.COM API Key) in applicaiton settings of the Azure Function
 
