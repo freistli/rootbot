@@ -107,11 +107,11 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
      Note: **promoterUrl** is the function url after publishing **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
      
-     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction
+     https://github.com/freistli/rootbot/tree/main/demo-azurefunction 
      
      **chatgptUrl** is the function url after publishing another **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
      
-     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azurefunction-release
+     https://github.com/freistli/rootbot/tree/main/demo-azurefunction-release
      
      Note: currenlty prompter and openai should be in different Azure Function Apps because they are using different dependencies now.  
      
