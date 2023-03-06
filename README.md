@@ -132,7 +132,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 ## Host Bot App in other non-Azure environments 
 
-1. The enviroment needs to have .net core 3.1 environment setup. And after above steps you will have publictarget folder, run the command in this way:
+1. The enviroment needs to have .net core 3.1 runtime setup by default. And after above steps you will have publictarget folder, run the command in this way:
 
 "C:\BotComposerProject\Empty\Empty\bin\release\publishTarget\Empty.exe"  --port 3980 --urls http://0.0.0.0:3980 --MicrosoftAppPassword [the AAD bot app secret key] --luis:endpointKey "" --SkillHostEndpoint http://127.0.0.1:3980/api/skills'
 
