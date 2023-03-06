@@ -144,7 +144,7 @@ ngrok http 3980 --host-header=localhost
 
 Refer to: https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0
 
-
+Note: If you don't use Bot Framework Composer to publish this bot, but want to get the release folder, can use Visual Studio 2022 to open empty.sln and build it as release. If you want it to run in .Net Core 6.0, can modify the project setting from <TargetFramework>netcoreapp3.1</TargetFramework>  to <TargetFramework>netcoreapp6.0</TargetFramework>
 
 
 ## Next steps
