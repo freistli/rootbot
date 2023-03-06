@@ -1,9 +1,10 @@
-# Welcome to your new bot
+# Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT, GPT-3, DALL-E) from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 <img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
+<img width="424" alt="image" src="https://user-images.githubusercontent.com/8623897/222939210-bcf24b28-36c0-4049-bded-a0e4745934cf.png">
 
 ## ChatGPT responses in Teams Conversation
 
@@ -33,11 +34,16 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 ## Prerequests
 
-[Install Bot Framework Composer](https://learn.microsoft.com/en-us/composer/install-composer)
-Azure Subscription
-OpenAI account if want to use ChatGPT and DALLE
-Azure OpenAI account if want to use GPT-3
-Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if want to use in Teams Channel and Teams Message Extension)
+1. [Install Bot Framework Composer](https://learn.microsoft.com/en-us/composer/install-composer)
+
+2. Azure Subscription (able to create App Registration in AAD, Azure Bot, Azure function app, and Azure Web App resources)
+
+3. OpenAI account if want to use ChatGPT and DALLE
+
+4. Azure OpenAI account if want to use GPT-3
+
+5. Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if want to use in Teams Channel and Teams Message Extension)
+
 
 ## Steps
 
@@ -63,7 +69,7 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
 
 6. Setup AppID/PWD (refer to steps 18~19 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
  
-   ![image](https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png)
+   <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png"></img>
 
 7. Add necessary configuration keys in root bot configuration json
 
@@ -77,11 +83,8 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
 
       1. openAIKey is for DALLE feature
 
-      1. taskmoduleurl is for DALLE image OpenURL display. It is a static web page, you can directly use the sample link, or put the same static html code on your site:         https://flstaticweb.azurewebsites.net/image.html
-   
 
      ```json
-
     "GPT3key": "Your Azure Open AI key for GPT-3",
     
     "GPT3Url" : "Your Azure Open AI Endpoint Url"
@@ -90,9 +93,7 @@ Teams Environment (Microsoft 365 Business Basic license & Microsoft Teams) if wa
   
     "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
   
-    "openAIKey": "Bearer sk-your OpenAI API Key",
-  
-    "taskmoduleurl": "https://flstaticweb.azurewebsites.net/",
+    "openAIKey": "Bearer sk-your OpenAI API Key"
     ```
 
      Note: **promoterUrl** is the function url after publishing **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
