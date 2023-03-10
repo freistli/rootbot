@@ -1,8 +1,8 @@
 # Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT & DALL-E from from OpenAI, GPT-3 from Azure OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT can be from Azure OpenAI or OpenAI, GPT-3 from Azure OpenAI, DALL-E from OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
-<img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
+<img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/224331748-68fc3144-49cb-4d3f-91db-59819dffa397.png">
 
 <img width="424" alt="image" src="https://user-images.githubusercontent.com/8623897/222939210-bcf24b28-36c0-4049-bded-a0e4745934cf.png">
 
@@ -100,7 +100,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
  
     "promoterUrl": "Azure Function Endpoint of Act As Prompoter",
   
-    "chatgptUrl": "Azure Function Endpoint of OpenAI ChatGPT Wrapper",
+    "chatgptUrl": "Azure Function Endpoint of Azure OpenAI or OpenAI ChatGPT Wrapper",
   
     "openAIKey": "Bearer sk-your OpenAI API Key"
     ```
@@ -111,16 +111,27 @@ This bot project was created using the Empty Bot template from Bot Framework Com
      
      **chatgptUrl** is the function url after publishing another **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
      
+     Connect to offical Azure OpenAI Service:
+     
+     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azure-chatgpt-function
+     
+     Connect to offical OpenAI service:
+     
      https://github.com/freistli/rootbot/tree/main/demo-azurefunction-release
      
      Note: currenlty prompter and openai should be in different Azure Function Apps because they are using different dependencies now.  
      
-     Also need to configure your OpenAI_API_Key there after publishing them (for both Azure Function Apps):    
+     Also need to configure your OpenAI_API_Key there after publishing them (for Prompter & OpenAI Azure Function Apps):    
      
      https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
      
      <img width="341" alt="image" src="https://user-images.githubusercontent.com/8623897/222511333-a9aa7908-64a1-454a-9ea6-cb74bbcb5da0.png">
 
+     If you use Azure OpenAI ChatGPT, need to configure below two keys in Application Settings:
+     
+      AZURE_OPENAI_API_KEY 
+      
+      AZURE_OPENAI_API_BASE
 
      The BFC JSON configuration UI is similar to:
      
