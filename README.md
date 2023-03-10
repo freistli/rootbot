@@ -1,6 +1,6 @@
 # Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT, GPT-3, DALL-E) from OpenAI and Azure OpenAI, working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT & DALL-E from from OpenAI, GPT-3 from Azure OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 <img width="1182" alt="image" src="https://user-images.githubusercontent.com/8623897/222938430-f99f37af-0d6d-453e-b115-b4eea27e0950.png">
 
@@ -132,7 +132,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 ## Host Bot App in other non-Azure environments 
 
-1. The enviroment needs to have .net core 3.1 environment setup. And after above steps you will have publictarget folder, run the command in this way:
+1. The enviroment needs to have .net core 3.1 runtime setup by default. And after above steps you will have publictarget folder, run the command in this way:
 
 "C:\BotComposerProject\Empty\Empty\bin\release\publishTarget\Empty.exe"  --port 3980 --urls http://0.0.0.0:3980 --MicrosoftAppPassword [the AAD bot app secret key] --luis:endpointKey "" --SkillHostEndpoint http://127.0.0.1:3980/api/skills'
 
@@ -144,7 +144,7 @@ ngrok http 3980 --host-header=localhost
 
 Refer to: https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0
 
-
+Note: If you don't use Bot Framework Composer to publish this bot, but want to get the release folder, can use Visual Studio 2022 to open empty.sln and build it as release. If you want it to run in .Net Core 6.0, can modify the project setting from <TargetFramework>netcoreapp3.1</TargetFramework>  to <TargetFramework>netcoreapp6.0</TargetFramework>
 
 
 ## Next steps
