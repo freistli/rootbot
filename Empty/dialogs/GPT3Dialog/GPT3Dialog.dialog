@@ -38,6 +38,14 @@
           "property": "turn.prompt"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "cJ7pOV"
+          },
+          "property": "turn.prompt",
+          "value": "=jsonStringify(turn.prompt)"
+        },
+        {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
             "id": "jtJzL6"
@@ -45,7 +53,7 @@
           "resultProperty": "turn.results",
           "method": "POST",
           "url": "=settings.GPT3Url",
-          "body": "{   \"prompt\": \"${turn.prompt}\",   \"max_tokens\": 1000,   \"temperature\": 1,   \"frequency_penalty\": 0.26,   \"presence_penalty\": 0.25,   \"top_p\": 0.5 }",
+          "body": "{   \"prompt\": ${turn.prompt},   \"max_tokens\": 1000,   \"temperature\": 1,   \"frequency_penalty\": 0.26,   \"presence_penalty\": 0.25,   \"top_p\": 0.5 }",
           "headers": {
             "api-key": "=settings.GPT3Key"
           }

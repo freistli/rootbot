@@ -39,6 +39,14 @@
           "property": "turn.prompt"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "rzalSe"
+          },
+          "property": "turn.prompt",
+          "value": "=jsonStringify(turn.prompt)"
+        },
+        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "7IDRX7"
@@ -73,7 +81,7 @@
               "resultProperty": "turn.results",
               "method": "POST",
               "url": "=settings.chatgptUrl",
-              "body": "{   \"prompt\": \"${turn.prompt}\",   \"messageId\": \"${user.mid}\",   \"conversationId\": \"${user.cid}\" }"
+              "body": "{   \"prompt\": ${turn.prompt},   \"messageId\": \"${user.mid}\",   \"conversationId\": \"${user.cid}\"}"
             }
           ]
         },
