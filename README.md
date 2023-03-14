@@ -111,7 +111,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
      
      **chatgptUrl** is the function url after publishing another **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
      
-     Connect to offical Azure OpenAI Service:
+     Connect to offical Azure OpenAI Service (deploy your ChatGPT model on Azure OpenAI as a name 'chatpgt'):
      
      https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azure-chatgpt-function
      
