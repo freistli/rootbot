@@ -112,7 +112,8 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "PQvnxQ"
+            "id": "PQvnxQ",
+            "comment": "if true, means it is from Message Extension"
           },
           "condition": "=turn.command==\"true\"",
           "actions": [

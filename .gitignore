@@ -266,3 +266,4 @@ appsettings.json
 appsettings.dev.json
 empty.dev.botproj
 *.zip
+Empty/Properties/PublishProfiles/FolderProfile.pubxml

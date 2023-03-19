@@ -86,7 +86,7 @@
                 "id": "2ZO1GR"
               },
               "activityProcessed": true,
-              "dialog": "GPT3Dialog"
+              "dialog": "ChatGPTMEDiag"
             }
           ]
         }
