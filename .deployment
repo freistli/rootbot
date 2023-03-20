@@ -1,0 +1,3 @@
+[config]
+project=demo-azure-chatgpt-function
+SCM_DO_BUILD_DURING_DEPLOYMENT=true
