@@ -42,6 +42,10 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 The script will help users setup all required resources by single command. 
 
+Build environment is not required during express deployment. 
+
+PowerShell and latest AZ CLI are required.
+
 It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
 
 You can choose one of the below commands based on your Azure subscription account
