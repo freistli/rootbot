@@ -40,7 +40,7 @@ This bot project was created using the Empty Bot template from Bot Framework Com
 
 # Express Deployment
 
-The script will help users setup all required resources by single command. 
+The script will help users setup all required resources by single command for Teams ChatGPT bot. 
 
 Build environment is not required during express deployment. 
 
