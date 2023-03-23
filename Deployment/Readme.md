@@ -1,4 +1,4 @@
-# Express Installation
+# Express Deployment
 
 The script will help users setup all required resources by single command. It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
 
