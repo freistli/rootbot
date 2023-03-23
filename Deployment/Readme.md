@@ -1,6 +1,10 @@
 # Express Deployment
 
-The script will help users setup all required resources by single command. It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
+The script will help users setup all required resources by single command. 
+
+It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
+
+You can choose one of the below commands based on your Azure subscription account
 
 ## Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
 
