@@ -1,3 +1,8 @@
+# NOTE
+
+For express deploy ChatGPT bot in Teams based on Azure OpenAI service (ChatGPT only), please follow this branch
+https://github.com/freistli/rootbot/tree/chatgptonly#express-deployment
+
 # Welcome to your AI Teams bot
 
 This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT can be from Azure OpenAI or OpenAI, GPT-3 from Azure OpenAI, DALL-E from OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
