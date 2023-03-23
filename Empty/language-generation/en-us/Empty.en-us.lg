@@ -405,3 +405,10 @@
     }
   ]
 }```
+# SendActivity_TbQVXH()
+[Activity
+    Text = ${SendActivity_TbQVXH_text()}
+]
+
+# SendActivity_TbQVXH_text()
+- Please input your prompt to ChatGPT, input **bye** to leave the conversation.

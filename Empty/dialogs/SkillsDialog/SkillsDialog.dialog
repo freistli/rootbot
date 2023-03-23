@@ -22,6 +22,12 @@
             "id": "tRzNOk"
           },
           "activity": "${SendActivity_tRzNOk()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "GrHeaO"
+          }
         }
       ]
     }

@@ -106,7 +106,21 @@
             "id": "gEs2MC"
           },
           "activityProcessed": true,
-          "dialog": "ChatGPTMEDiag"
+          "dialog": "ChatGPTMEDiag",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "TbQVXH"
+          },
+          "activity": "${SendActivity_TbQVXH()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "AMpWM3"
+          }
         }
       ],
       "condition": true
