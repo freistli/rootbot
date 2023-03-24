@@ -44,11 +44,16 @@ The script will help users setup all required resources by single command for Te
 
 Build environment is not required during express deployment. 
 
-PowerShell and latest AZ CLI are required.
+PowerShell and latest AZ CLI 2.46.0 are required.
 
 It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
 
-You can choose one of the below commands based on your Azure subscription account
+## Clone Branch
+
+```
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\Deployment
+```
 
 ## Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
 
