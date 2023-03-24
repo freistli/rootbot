@@ -111,7 +111,11 @@ If you hit this, please close the running PS window, and start second time with 
 
 ## Steps
 
-1. Clone the root bot
+1. Clone the root bot from the main branch
+
+   ```
+   git clone https://github.com/freistli/rootbot.git
+   ```
 
 2. Open the folder in Bot Framework Composer
    
