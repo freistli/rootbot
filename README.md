@@ -38,9 +38,11 @@ This bot project was created using the Empty Bot template from Bot Framework Com
  
  [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit)
 
-# Express Deployment
+# Express Deployment as Azure ChatGPT Teams Bot
 
-The script will help users setup all required resources by single command for Teams ChatGPT bot. 
+The script will help users setup all required resources by single command for quick verifying Teams ChatGPT bot (no other LLMs dependecies, simple and fast). 
+
+<img width="357" alt="image" src="https://user-images.githubusercontent.com/8623897/227429491-1472099a-1006-40ea-b216-21b00331047f.png">
 
 Build environment is not required during express deployment. 
 
@@ -83,7 +85,7 @@ If you hit this, please close the running PS window, and start second time with 
 ```
 
 
-# How to Build
+# Build More Features In Dev environment
 
 ## Prerequests
 
