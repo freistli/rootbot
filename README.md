@@ -70,6 +70,7 @@ cd .\rootbot\Deployment
 
 ```
 AZ CLI 2.4.6.0 has a bug that it reports [No section: 'bicep'] when run bicep without configurations at first time: 
+
 https://github.com/Azure/azure-cli/issues/25710
 
 If you hit this, please close the running PS window, and start second time with the same parameters, then it will work.
@@ -78,20 +79,37 @@ If you hit this, please close the running PS window, and start second time with 
 ## Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
 
 ```powershell
-.\deploy.ps1 -baseName <resource base name> -apiBase <Azure OpenAI Service Url> -apiKey <Azure OpenAI Key> -chatGPTDeployName <ChatGPT Model Deployment name> -sameSubscription $true -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Url> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <ChatGPT Model Deployment name> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
 
 ## Deploy All Resources to single Azure Subscription, choose subscription id directly
 
 ```powershell
-.\deploy.ps1 -baseName <resource base name> -apiBase <Azure OpenAI Service Url> -apiKey <Azure OpenAI Key> -chatGPTDeployName <ChatGPT Model Deployment name> -aadSubscription <Bot App Registration Azure Subscription id> -sameSubscription $true -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Url> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <ChatGPT Model Deployment name> `
+-aadSubscription <Bot App Registration Azure Subscription id> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
 
 ## Deploy Bot App Registration and Azure Resources to different Azure Subscription
 
 ```powershell
-.\deploy.ps1 -baseName <resource base name> -apiBase <Azure OpenAI Service Url> -apiKey <Azure OpenAI Key> -chatGPTDeployName <ChatGPT Model Deployment name> -sameSubscription $false -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Url> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <ChatGPT Model Deployment name> `
+-sameSubscription $false `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
+
 
 
 # Build More Features In Dev environment
@@ -111,7 +129,11 @@ If you hit this, please close the running PS window, and start second time with 
 
 ## Steps
 
-1. Clone the root bot
+1. Clone the root bot from the main branch
+
+   ```
+   git clone https://github.com/freistli/rootbot.git
+   ```
 
 2. Open the folder in Bot Framework Composer
    
