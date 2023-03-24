@@ -1,0 +1,89 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
+    "version": "1.7.0",
+    "manifestVersion": "1.15",
+    "id": "{TeamsAppId}",
+    "packageName": "com.package.name",
+    "name": {
+        "short": "TeamsAIBotSample",
+        "full": "Teams AI Bot Sample"
+    },
+    "developer": {
+        "name": "Contoso",
+        "mpnId": "",
+        "websiteUrl": "https://www.contoso.com",
+        "privacyUrl": "https://www.contoso.com/privacy",
+        "termsOfUseUrl": "https://www.contoso.com/terms"
+    },
+    "description": {
+        "short": "Teams AI Bot Sample",
+        "full": "Teams AI Bot Sample - ChatGPT"
+    },
+    "icons": {
+        "outline": "outline.png",
+        "color": "color.png"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [
+        {
+            "botId": "{BotAppId}",
+            "scopes": [
+                "personal",
+                "team",
+                "groupchat"
+            ],
+            "isNotificationOnly": false,
+            "supportsCalling": false,
+            "supportsVideo": false,
+            "supportsFiles": true
+        }
+    ],
+    "composeExtensions": [
+        {
+            "botId": "{BotAppId}",
+            "commands": [
+                {
+                    "id": "AskChatGPT",
+                    "type": "action",
+                    "title": "Ask ChatGPT a question",
+                    "description": "Ask ChatGPT a question",
+                    "initialRun": true,
+                    "fetchTask": false,
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "Prompt",
+                            "title": "Prompt",
+                            "description": "Send question to ChatGPT",
+                            "inputType": "text"
+                        }
+                    ]
+                }
+            ],
+            "canUpdateConfiguration": true,
+            "messageHandlers": [
+                {
+                    "type": "link",
+                    "value": {
+                        "domains": [
+                            "*.azurewebsites.net",
+                            "*.blob.core.windows.net"
+                        ],
+                        "supportsAnonymizedPayloads": false
+                    }
+                }
+            ]
+        }
+    ],
+    "validDomains": [
+        "*.azurewebsites.net",
+        "*.blob.core.windows.net"        
+    ],
+    "webApplicationInfo": {
+        "id": "{BotAppId}",
+        "resource": ""
+    }
+}

@@ -50,8 +50,30 @@ param(
         Write-Host $msg -ForegroundColor $color
     }
 
+    function NeedDeployment {
+        param( 
+            [string]$deploymentName,
+            [string]$resourceGroup
+        )
+        
+        $deployment = $(az deployment group show --name $deploymentName --resource-group $resourceGroup --query 'properties.provisioningState' --output tsv)
+        if ($deployment -eq "Succeeded") 
+        { 
+            Write-Host "${deploymentName} deployment succeeded, skip" 
+            return $false
+        } 
+        else 
+        { 
+            return $true
+
+         }
+    }
+
+
     $ErrorActionPreference = "Stop"
-    $ProgressPreference = "SilentlyContinue"
+    $ProgressPreference = "Continue"
+
+    & ".\AZCLIVersionCheck.ps1"
 
     $resourceGroup = $baseName+"RG"
     $appSettingFilePath= '.\code\settings\appsettings.json'
@@ -140,18 +162,26 @@ param(
     PrintMsg "Create Azure Resource Group ${resourceGroup}"
     az group create --name $resourceGroup --location $location
 
+    if (NeedDeployment -deploymentName "AZChatGPTFuncAppDeploy" -resourceGroup $resourceGroup)
+    {
     Write-Progress -Activity 'Deploy Azure Function'  -PercentComplete 30
     PrintMsg "Deploy backend Azure Resource with AZChatGPTFuncAppDeploy.bicep"
     az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName
-    
+    }
+
+    if (NeedDeployment -deploymentName "WebAppDeployTemplate" -resourceGroup $resourceGroup )
+    {
     Write-Progress -Activity 'Deploy bot web app Azure Resource'  -PercentComplete 50
     PrintMsg "Deploy bot app Azure Resource with WebAppDeployTemplate.bicep"
     az deployment group create --resource-group $resourceGroup --template-file WebAppDeployTemplate.bicep
+    }
 
+    if (NeedDeployment -deploymentName "AADBotService" -resourceGroup $resourceGroup )
+    {
     Write-Progress -Activity 'Deploy bot service'  -PercentComplete 70
     PrintMsg "Deploy bot service with AADBotApp.bicep"
     az deployment group create --resource-group $resourceGroup --template-file AADBotService.bicep --parameters botAppId=$botAppId
-
+    }
     <#
     Section TWO
     Get chatgptUrl
@@ -206,3 +236,9 @@ param(
     Write-Progress -Activity 'Deploy Completed'  -PercentComplete 100
     PrintMsg "Deploy Completed in ${resourceGroup}"
 
+    PrintMsg "Create Teams AI Bot app package"
+    
+    & ".\ManifestPackage.ps1" -botAppId $botAppId
+
+
+    
