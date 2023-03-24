@@ -1,10 +1,19 @@
 # Express Deployment
 
-The script will help users setup all required resources by single command. 
+The script will help users setup all required resources by single command for Teams ChatGPT bot. 
+
+Build environment is not required during express deployment. 
+
+PowerShell and latest AZ CLI 2.46.0 are required.
 
 It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
 
-You can choose one of the below commands based on your Azure subscription account
+## Clone Branch
+
+```
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\Deployment
+```
 
 ## Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
 
@@ -23,4 +32,3 @@ You can choose one of the below commands based on your Azure subscription accoun
 ```powershell
 .\deploy.ps1 -baseName <resource base name> -apiBase <Azure OpenAI Service Url> -apiKey <Azure OpenAI Key> -chatGPTDeployName <ChatGPT Model Deployment name> -sameSubscription $false -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
-
