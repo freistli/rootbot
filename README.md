@@ -1,3 +1,12 @@
+# Index
+
+[Overview](#welcome-to-your-ai-teams-bot)
+
+[Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-as-azure-chatgpt-teams-bot)
+
+[Build More Features In Dev environment](#build-more-features-in-dev-environment)
+
+
 # Welcome to your AI Teams bot
 
 This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT can be from Azure OpenAI or OpenAI, GPT-3 from Azure OpenAI, DALL-E from OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
