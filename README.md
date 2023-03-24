@@ -44,7 +44,7 @@ The script will help users setup all required resources by single command for Te
 
 Build environment is not required during express deployment. 
 
-PowerShell and latest AZ CLI 2.46.0 are required.
+Windows, PowerShell and latest [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) 2.46.0 are required.
 
 It will take around 7~10 minutes. After completion, open the created bot service in resource group, and can open it in Teams Channel directly
 
@@ -53,6 +53,15 @@ It will take around 7~10 minutes. After completion, open the created bot service
 ```
 git clone -b chatgptonly https://github.com/freistli/rootbot.git
 cd .\rootbot\Deployment
+```
+
+## NOTE:
+
+```
+AZ CLI 2.4.6.0 has a bug that it reports [No section: 'bicep'] when run bicep without configurations at first time: 
+https://github.com/Azure/azure-cli/issues/25710
+
+If you hit this, please close the running PS window, and start second time with the same parameters, then it will work.
 ```
 
 ## Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
