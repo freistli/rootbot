@@ -1,10 +1,12 @@
+$ErrorActionPreference = "Stop"
+
 $minimumVersion = [version]'2.46.0' 
 $result = $(az --version | Select-String "azure-cli" | % { $_.Line} )
 
 if ($result -match "\d+\.\d+\.\d+") 
 { 
     $version = $matches[0] 
-    Write-Host "azure-cli: "$version 
+    Write-Host "azure-cli: "$version -ForegroundColor Green
 }
 
 

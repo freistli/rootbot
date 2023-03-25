@@ -14,6 +14,8 @@ param(
         [string]$teamsAppId = ""
  )
 
+ $ErrorActionPreference = "Stop"
+
  $botAppId = $botAppId.ToLower()
  if($teamsAppId -eq "")
  {
@@ -48,4 +50,14 @@ $json | Set-Content -Path ".\manifest.json"
 Set-Location "..\"
 Compress-Archive -Path ".\package\*" -DestinationPath $targetPath -Update
 
-explorer.exe ".\TeamsAIBot.zip"
+$item = Get-Item $targetPath 
+
+$fullPath = $item.FullName 
+
+Write-Host "The generated Teams Bot App Package is ${fullPath}." -ForegroundColor Green
+
+if (!([System.Environment]::OSVersion.Platform -eq "Unix")) 
+{ 
+    Write-Host "Running on Windows, open ${targetPath} in explorer.exe" -ForegroundColor Green
+    explorer.exe ".\TeamsAIBot.zip"
+}
