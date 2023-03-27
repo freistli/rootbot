@@ -246,7 +246,9 @@ param(
     Write-Progress -Activity 'Deploy code.zip to Azure Web App'  -PercentComplete 90    
     $appName = $(az deployment group show  -g $resourceGroup  -n WebAppDeployTemplate --query properties.outputs.webappname.value --output tsv)
     PrintMsg "Deploy code.zip to Azure Web App ${appName}"
-    az webapp deploy --resource-group $resourceGroup --name $appName --src-path $newZipFile
+
+    # ".\myCode.zip" cannot be found, have to use ./
+    az webapp deploy --resource-group $resourceGroup --name $appName --src-path "./myCode.zip"
 
     Write-Progress -Activity 'Deploy Completed'  -PercentComplete 100
     PrintMsg "Deploy Completed in ${resourceGroup}"
