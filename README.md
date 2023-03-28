@@ -79,6 +79,9 @@ cd .\rootbot\Deployment
 3. Run below command
 
 ```PowerShell
+set-location /home/system/clouddrive
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+set-location /home/system/clouddrive/rootbot/Deployment
 .\deployInAzureShell.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Url> `
 -apiKey <Azure OpenAI Key> `
@@ -119,6 +122,21 @@ If you hit this, please close the running PS window, and start second time with 
 -aadSubscription <Bot App Registration Azure Subscription id> `
 -sameSubscription $true `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+```
+
+### Deploy All Resources to single Azure Subscription, choose subscription id directly, use Azure Cache for Redis to host conversation flows for ChatGPT
+
+```powershell
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Url> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <ChatGPT Model Deployment name> `
+-aadSubscription <Bot App Registration Azure Subscription id> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+-useCache "AzureRedis" `
+-azureCacheForRedisHostName "<your redis cache host>.redis.cache.windows.net" `
+-azureCacheForRedisAccessKey "<your redis cache access key>"
 ```
 
 ### Deploy Bot App Registration and Azure Resources to different Azure Subscription
