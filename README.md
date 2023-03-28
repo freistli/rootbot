@@ -65,15 +65,15 @@ The script will help users setup all required resources by single command for qu
 
 ### NOTE:
 
-```
-AZ CLI 2.4.6.0 has a bug that it reports [No section: 'bicep'] when run bicep 
+
+AZ CLI 2.4.6.0 has a bug that it reports ***[No section: 'bicep]*** when run bicep 
 without configurations at first time: 
 
-https://github.com/Azure/azure-cli/issues/25710
+[https://github.com/Azure/azure-cli/issues/25710](https://github.com/Azure/azure-cli/issues/25710)
 
 If you hit this, please close the running PS window, and start second time with the 
 same parameters, then it will work.
-```
+
 
 ## Required Parameters of deploy.ps1
 
@@ -87,7 +87,7 @@ The Azure OpenAI Service Endpoint
 The Aure OpenAI Service Accessk Key
 
 #### chatGPTDeployName
-The turbo model deploy name in your Azure OpenAI Service. In this sample, it is 'chatgpt'
+The **gpt-35-turbo model** deploy name in your Azure OpenAI Service. In this sample, it is 'chatgpt'
 
 <img width="503" alt="image" src="https://user-images.githubusercontent.com/8623897/228241161-ea538dd6-c19e-495e-832b-94a2b9f87b30.png">
 
@@ -103,7 +103,7 @@ Run "get-help ./deploy.ps1", and refer to below sample commands.
 
 <img width="294" alt="image" src="https://user-images.githubusercontent.com/8623897/228239966-78e3d070-1015-4c99-9b52-9ae77cf65917.png">
 
-3. Run below command
+3. Run below command. Please be careful to keep a **blankspace** before the ` character in the Powershell command. 
 
 ```PowerShell
 
@@ -116,7 +116,7 @@ set-location ./rootbot/Deployment
 .\deployInAzureShell.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Endpoint> `
 -apiKey <Azure OpenAI Key> `
--chatGPTDeployName <ChatGPT Model Deployment name> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
 
@@ -133,7 +133,7 @@ cd .\rootbot\deployment
 .\deploy.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Endpoint> `
 -apiKey <Azure OpenAI Key> `
--chatGPTDeployName <ChatGPT Model Deployment name> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
 -sameSubscription $true `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
@@ -149,7 +149,7 @@ cd .\rootbot\deployment
 .\deploy.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Endpoint> `
 -apiKey <Azure OpenAI Key> `
--chatGPTDeployName <ChatGPT Model Deployment name> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
 -aadSubscription <Bot App Registration Azure Subscription id> `
 -sameSubscription $true `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
@@ -166,7 +166,7 @@ cd .\rootbot\deployment
 .\deploy.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Endpoint> `
 -apiKey <Azure OpenAI Key> `
--chatGPTDeployName <ChatGPT Model Deployment name> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
 -aadSubscription <Bot App Registration Azure Subscription id> `
 -sameSubscription $true `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
@@ -186,7 +186,7 @@ cd .\rootbot\deployment
 .\deploy.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Url> `
 -apiKey <Azure OpenAI Key> `
--chatGPTDeployName <ChatGPT Model Deployment name> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
 -sameSubscription $false `
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
