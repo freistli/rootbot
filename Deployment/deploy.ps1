@@ -35,10 +35,22 @@ param(
         [Parameter(HelpMessage="Same Subscription for AAD App Registration and Bot App Azure Resource")]
         [bool]$sameSubscription=$true,
 
-        ## Same Subscription for AAD App Registration and Bot App Azure Resource
+        ## Release package name on github repo
         [Parameter(HelpMessage="Release package name on github repo")]
-        [string]$zipUrl="https://github.com/freistli/rootbot/releases/download/Release/code.zip"
+        [string]$zipUrl="https://github.com/freistli/rootbot/releases/download/Release/code.zip",
 
+        ## Use Azure Cache for Redis
+        [Parameter(HelpMessage="Use Azure Cache for Redis")]
+        [string]$useCache="none",
+
+        ## Azure Cache for Redis Host Name
+        [Parameter(HelpMessage="Azure Cache for Redis Host Name")]
+        [string]$azureCacheForRedisHostName="none",
+
+        ## Azure Cache for Redis Access Key
+        [Parameter(HelpMessage="Azure Cache for Redis Access Key")]
+        [string]$azureCacheForRedisAccessKey="none"        
+                
  )
  
     function PrintMsg {
@@ -166,7 +178,9 @@ param(
     {
     Write-Progress -Activity 'Deploy Azure Function'  -PercentComplete 30
     PrintMsg "Deploy backend Azure Resource with AZChatGPTFuncAppDeploy.bicep"
-    az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName
+    az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep `
+    --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName `
+    useCache=$useCache azureRedisHostName=$azureCacheForRedisHostName azureRedisAccessKey=$azureCacheForRedisAccessKey
     }
 
     if (NeedDeployment -deploymentName "WebAppDeployTemplate" -resourceGroup $resourceGroup )

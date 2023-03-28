@@ -29,6 +29,13 @@ param azureOpenAIAPIBase string
 
 param chatGPTDeployName string
 
+param azureRedisHostName string = 'none'
+
+param azureRedisAccessKey string = 'none'
+
+param useCache string = 'none'
+
+
 var functionAppName = appName
 var hostingPlanName = appName
 var applicationInsightsName = appName
@@ -101,6 +108,18 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
         {
           name: 'CHATGPT_DEPLOY_NAME'
           value: chatGPTDeployName
+        }
+        {
+          name: 'AZURE_CACHE_FOR_REDIS_HOST_NAME'
+          value: azureRedisHostName
+        }
+        {
+          name: 'AZURE_CACHE_FOR_REDIS_ACCESS_KEY'
+          value: azureRedisAccessKey
+        }
+        {
+          name: 'USE_CACHE'
+          value: useCache
         }
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
