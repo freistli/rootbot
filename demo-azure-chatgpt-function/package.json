@@ -27,7 +27,7 @@
   "tsup": "^6.5.0",
   "typescript": "^4.9.3",
   "uuid": "^9.0.0",
-  "@freistli/azurechatgptapi":"^0.0.5"
+  "@freistli/azurechatgptapi":"0.0.5"
 },
   "devDependencies": {
    
