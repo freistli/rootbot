@@ -120,7 +120,16 @@ set-location ./rootbot/Deployment
 -zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
 ```
 
-## Option Two: Local PowerShell & AZ CLI on Windows
+4. Click Manage File Share. Download the TeamsAIBot.zip, and then upload to your Teams
+
+<img width="315" alt="image" src="https://user-images.githubusercontent.com/8623897/228249096-820babb8-f215-4220-a12b-2028ae072188.png">
+
+<img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/228249380-8c44f60f-5f66-4edb-a911-5a15f1c1bf07.png">
+
+
+## Option Two: Local PowerShell & AZ CLI on Windows. 
+
+Choose one of below commands, which will auto generate TeamsAIBot.App, open it in Explorer.exe for Teams App side load.
 
 ### Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
 
