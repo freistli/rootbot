@@ -79,6 +79,9 @@ cd .\rootbot\Deployment
 3. Run below command
 
 ```PowerShell
+set-location /home/system/clouddrive
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+set-location /home/system/clouddrive/rootbot/Deployment
 .\deployInAzureShell.ps1 -baseName <resource base name> `
 -apiBase <Azure OpenAI Service Url> `
 -apiKey <Azure OpenAI Key> `
