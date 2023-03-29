@@ -181,11 +181,19 @@ param(
     PrintMsg "Create Azure Resource Group ${resourceGroup}"
     az group create --name $resourceGroup --location $location
 
-    if (NeedDeployment -deploymentName "AZChatGPTFuncAppDeploy" -resourceGroup $resourceGroup)
+    while (NeedDeployment -deploymentName "AZChatGPTFuncAppDeploy" -resourceGroup $resourceGroup)
     {
     Write-Progress -Activity 'Deploy Azure Function'  -PercentComplete 30
     PrintMsg "Deploy and Build backend Azure Resource with AZChatGPTFuncAppDeploy.bicep, will take several minutes"
-    az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName
+    try{
+    az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep `
+    --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName `
+    useCache=$useCache azureRedisHostName=$azureCacheForRedisHostName azureRedisAccessKey=$azureCacheForRedisAccessKey 2>$null
+    }
+    catch {
+        PrintMsg "bicep deploy hits issue, retry"
+    }
+
     }
 
     if (NeedDeployment -deploymentName "WebAppDeployTemplate" -resourceGroup $resourceGroup )
