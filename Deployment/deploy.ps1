@@ -39,6 +39,10 @@ param(
         [Parameter(HelpMessage="Release package name on github repo")]
         [string]$zipUrl="https://github.com/freistli/rootbot/releases/download/Release/code.zip",
 
+        ## Run in Azure Shell
+        [Parameter(HelpMessage="Run in Azure Shell")]
+        [bool]$azureShell=$false,
+
         ## Use Azure Cache for Redis
         [Parameter(HelpMessage="Use Azure Cache for Redis")]
         [string]$useCache="none",
@@ -89,12 +93,17 @@ param(
     $ErrorActionPreference = "Stop"
     $ProgressPreference = "Continue"
 
-    & ".\AZCLIVersionCheck.ps1"
+    if (!$azureShell) {
+        & ".\AZCLIVersionCheck.ps1"
+    }
+    else {
+        PrintMsg "Run in Azure Shell, Bot App Registration & Bot App Azure Resources will be created in the same subscription"
+    }
 
     $resourceGroup = $baseName+"RG"
     $appSettingFilePath= '.\code\settings\appsettings.json'
     $zipfile = '.\code.zip' 
-    $newZipFile= '.\myCode.zip' 
+    $newZipFile= './myCode.zip' 
     $botAppId = 'sample'
     $botAppPwd = 'sample'
     $chatgptUrl = 'sample'
@@ -106,17 +115,20 @@ param(
     Register Bot App in AAD
     #> 
     
-    # Login AAD
-    PrintMsg "Azure Login for AAD which hosts the Bot App Registration"
-    az login --query '[].{Name:name,Subscription:id}' --output table
-    
-    Write-Progress -Activity 'Register Bot App in AAD'  -PercentComplete 5
-    if (-not $aadSubscription) 
-    { 
-        $aadSubscription = Read-Host "Please enter your subscription ID for AAD tenant" 
-    }
-    
-    az account set --subscription $aadSubscription.trim()
+    if(!$azureShell)
+    {
+        # Login AAD
+        PrintMsg "Azure Login for AAD which hosts the Bot App Registration"
+        az login --query '[].{Name:name,Subscription:id}' --output table
+        
+        Write-Progress -Activity 'Register Bot App in AAD'  -PercentComplete 5
+        if (-not $aadSubscription) 
+        { 
+            $aadSubscription = Read-Host "Please enter your subscription ID for AAD tenant" 
+        }
+        
+        az account set --subscription $aadSubscription.trim()
+   }
 
     Write-Progress -Activity 'Register Bot App in AAD'  -PercentComplete 8
     # Create App Registration
@@ -143,7 +155,8 @@ param(
     Section ONE
     Provision azure resources
     #>
-
+    if(!$azureShell)
+    {
     # Login Azure Resource Subscription
     if(!$sameSubscription)
     {
@@ -173,7 +186,7 @@ param(
             exit
         }
     }
-
+    }
     Write-Progress -Activity "Create Azure Resource Group ${resourceGroup}"  -PercentComplete 20
     PrintMsg "Create Azure Resource Group ${resourceGroup}"
     az group create --name $resourceGroup --location $location

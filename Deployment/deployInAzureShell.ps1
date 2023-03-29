@@ -35,14 +35,26 @@ param(
         [Parameter(HelpMessage="Same Subscription for AAD App Registration and Bot App Azure Resource")]
         [bool]$sameSubscription=$true,
 
-        ## Same Subscription for AAD App Registration and Bot App Azure Resource
+        ## Release package name on github repo
         [Parameter(HelpMessage="Release package name on github repo")]
         [string]$zipUrl="https://github.com/freistli/rootbot/releases/download/Release/code.zip",
 
         ## Run in Azure Shell
         [Parameter(HelpMessage="Run in Azure Shell")]
-        [bool]$azureShell=$true
+        [bool]$azureShell=$true,
 
+        ## Use Azure Cache for Redis
+        [Parameter(HelpMessage="Use Azure Cache for Redis")]
+        [string]$useCache="none",
+
+        ## Azure Cache for Redis Host Name
+        [Parameter(HelpMessage="Azure Cache for Redis Host Name")]
+        [string]$azureCacheForRedisHostName="none",
+
+        ## Azure Cache for Redis Access Key
+        [Parameter(HelpMessage="Azure Cache for Redis Access Key")]
+        [string]$azureCacheForRedisAccessKey="none"        
+                
  )
  
     function PrintMsg {
@@ -91,7 +103,7 @@ param(
     $resourceGroup = $baseName+"RG"
     $appSettingFilePath= '.\code\settings\appsettings.json'
     $zipfile = '.\code.zip' 
-    $newZipFile= '.\myCode.zip' 
+    $newZipFile= './myCode.zip' 
     $botAppId = 'sample'
     $botAppPwd = 'sample'
     $chatgptUrl = 'sample'
@@ -143,40 +155,38 @@ param(
     Section ONE
     Provision azure resources
     #>
-    
     if(!$azureShell)
     {
-        # Login Azure Resource Subscription
-        if(!$sameSubscription)
-        {
-            $response = Read-Host "Do you use the same subscription as AAD to deploy resources? Type Y or N and press Enter" 
-            if ($response -eq "Y") 
+    # Login Azure Resource Subscription
+    if(!$sameSubscription)
+    {
+        $response = Read-Host "Do you use the same subscription as AAD to deploy resources? Type Y or N and press Enter" 
+        if ($response -eq "Y") 
+        { 
+            PrintMsg "You typed Y"         
+        } 
+        elseif ($response -eq "N") 
+        { 
+            PrintMsg"You typed N" 
+            
+            $aadSubscription = $null
+            PrintMsg "Azure Login for Azure Resource Subscription"
+            az login --query '[].{Name:name,Subscription:id}' --output table
+            
+            if (-not $aadSubscription) 
             { 
-                PrintMsg "You typed Y"         
-            } 
-            elseif ($response -eq "N") 
-            { 
-                PrintMsg"You typed N" 
-                
-                $aadSubscription = $null
-                PrintMsg "Azure Login for Azure Resource Subscription"
-                az login --query '[].{Name:name,Subscription:id}' --output table
-                
-                if (-not $aadSubscription) 
-                { 
-                    $aadSubscription = Read-Host "Please enter your subscription ID for Azure Resource Subscription" 
-                }
-                
-                az account set --subscription $aadSubscription.trim()
-            } 
-            else 
-            { 
-                PrintMsg "Invalid input" 
-                exit
+                $aadSubscription = Read-Host "Please enter your subscription ID for Azure Resource Subscription" 
             }
+            
+            az account set --subscription $aadSubscription.trim()
+        } 
+        else 
+        { 
+            PrintMsg "Invalid input" 
+            exit
         }
     }
-
+    }
     Write-Progress -Activity "Create Azure Resource Group ${resourceGroup}"  -PercentComplete 20
     PrintMsg "Create Azure Resource Group ${resourceGroup}"
     az group create --name $resourceGroup --location $location
@@ -258,9 +268,7 @@ param(
     Write-Progress -Activity 'Deploy code.zip to Azure Web App'  -PercentComplete 90    
     $appName = $(az deployment group show  -g $resourceGroup  -n WebAppDeployTemplate --query properties.outputs.webappname.value --output tsv)
     PrintMsg "Deploy code.zip to Azure Web App ${appName}"
-
-    # ".\myCode.zip" cannot be found, have to use ./
-    az webapp deploy --resource-group $resourceGroup --name $appName --src-path "./myCode.zip"
+    az webapp deploy --resource-group $resourceGroup --name $appName --src-path $newZipFile
 
     Write-Progress -Activity 'Deploy Completed'  -PercentComplete 100
     PrintMsg "Deploy Completed in ${resourceGroup}"
