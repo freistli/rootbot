@@ -239,6 +239,7 @@ param(
     PrintMsg "Download the code zip file"
     Invoke-WebRequest -Uri $zipUrl -OutFile $zipfile
 
+    <#
     PrintMsg "Expand the code zip file"
     Expand-Archive -Path $zipfile -DestinationPath ".\code\" -Force
 
@@ -260,6 +261,10 @@ param(
     $json | Set-Content -Path $appSettingFilePath
 
     Compress-Archive -Path ".\code\*" -DestinationPath $newZipFile -Update
+    #>
+
+    & ".\updateZipFile.ps1" -zipFile $pwd"\"$zipFile -fileToModify "settings\appsettings.json" `
+    -botAppIdValue $botAppId -botAppPwdValue $botAppPwd -chatGPTUrlValue $chatgptUrl
 
     <#
     Section FOUR
@@ -268,7 +273,7 @@ param(
     Write-Progress -Activity 'Deploy code.zip to Azure Web App'  -PercentComplete 90    
     $appName = $(az deployment group show  -g $resourceGroup  -n WebAppDeployTemplate --query properties.outputs.webappname.value --output tsv)
     PrintMsg "Deploy code.zip to Azure Web App ${appName}"
-    az webapp deploy --resource-group $resourceGroup --name $appName --src-path $newZipFile
+    az webapp deploy --resource-group $resourceGroup --name $appName --src-path $zipFile
 
     Write-Progress -Activity 'Deploy Completed'  -PercentComplete 100
     PrintMsg "Deploy Completed in ${resourceGroup}"
