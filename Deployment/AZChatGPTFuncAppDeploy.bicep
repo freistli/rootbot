@@ -34,7 +34,7 @@ param azureRedisHostName string = 'none'
 param azureRedisAccessKey string = 'none'
 
 param useCache string = 'none'
-
+ 
 
 var functionAppName = appName
 var hostingPlanName = appName
@@ -51,17 +51,12 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
   kind: 'Storage'
 }
 
-resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource hostingPlan2 'Microsoft.Web/serverfarms@2021-03-01' = {
   name: hostingPlanName
   location: location
   sku: {
-    name: 'EP1'
-    tier: 'ElasticPremium'
-    family: 'EP'
-  }
-  kind: 'elastic'
-  properties: {
-    maximumElasticWorkerCount: 2
+    name: 'Y1'
+    tier: 'Dynamic'
   }
 }
 
@@ -70,7 +65,7 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
   location: location
   kind: 'functionapp'
   properties: {
-    serverFarmId: hostingPlan.id
+    serverFarmId:  hostingPlan2.id
     siteConfig: {
       appSettings: [
         {

@@ -59,18 +59,22 @@ param(
             [string]$deploymentName,
             [string]$resourceGroup
         )
-        
-        $deployment = $(az deployment group show --name $deploymentName --resource-group $resourceGroup --query 'properties.provisioningState' --output tsv)
-        if ($deployment -eq "Succeeded") 
-        { 
-            Write-Host "${deploymentName} deployment succeeded, skip" 
-            return $false
-        } 
-        else 
-        { 
-            return $true
+        try{
+            $deployment = $(az deployment group show --name $deploymentName --resource-group $resourceGroup --query 'properties.provisioningState' --output tsv 2>$null)
+            if ($deployment -eq "Succeeded") 
+            { 
+                Write-Host "${deploymentName} deployment succeeded, skip" 
+                return $false
+            } 
+            else 
+            { 
+                return $true
 
-         }
+            }
+        }
+        catch {
+            return $true
+        }
     }
 
 
@@ -180,7 +184,7 @@ param(
     if (NeedDeployment -deploymentName "AZChatGPTFuncAppDeploy" -resourceGroup $resourceGroup)
     {
     Write-Progress -Activity 'Deploy Azure Function'  -PercentComplete 30
-    PrintMsg "Deploy backend Azure Resource with AZChatGPTFuncAppDeploy.bicep"
+    PrintMsg "Deploy and Build backend Azure Resource with AZChatGPTFuncAppDeploy.bicep, will take several minutes"
     az deployment group create --resource-group $resourceGroup --template-file AZChatGPTFuncAppDeploy.bicep --parameters azureOpenAIAPIKey=$apiKey azureOpenAIAPIBase=$apiBase chatGPTDeployName=$chatGPTDeployName
     }
 

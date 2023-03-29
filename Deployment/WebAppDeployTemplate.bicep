@@ -19,7 +19,7 @@ param location string = resourceGroup().location
   'P3'
   'P4'
 ])
-param sku string = 'S1'
+param sku string = 'F1'
 
 @description('The instance size of the hosting plan (small, medium, or large).')
 @allowed([
