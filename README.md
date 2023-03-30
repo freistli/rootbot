@@ -1,15 +1,193 @@
 # Index
 
-[Overview](#welcome-to-your-ai-teams-bot)
 
+This repository contains sample code to integrate AI services into Microsoft Teams as a bot.
+Since chat is very common in Teams, this interface is very natural, and allows Microsoft 365 security, compliance and governance policies to be leveraged as a gateway for all conversations (just like a human chatting with a human).  
+
+This is sample code -- it is not a product or a supported release.  Our intention is to give a starting point so that people can quickly connect AI services running via Azure or OpenAI, to Microsoft Teams.  Microsoft has announced a product line (Co-pilot and Business Chat) that takes this concept much further and is integrated with the Microsoft Graph for better fact checking and prompt enhancement with context.
+
+But right now, you can use this sample code to experiment, learn and plan for the future, and it provides an interface to the ChatGPT expertienc but allowing monitoring and governance.
+
+Want to get started with the simplest most common use case?  Use the Express Deployment Release.
 [Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-as-azure-chatgpt-teams-bot)
 
+Want to understand how this bot works?
+[Overview of the Teams AI Bot Lab](#welcome-to-your-ai-teams-bot-lab)
+
+
+Want to experiment with more advanced features?
 [Build More Features In Dev environment](#build-more-features-in-dev-environment)
 
 
-# Welcome to your AI Teams bot
 
-This bot project was created using the Empty Bot template from Bot Framework Composer, and contains a minimal set of files necessary to have a working bot. Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT can be from Azure OpenAI or OpenAI, GPT-3 from Azure OpenAI, DALL-E from OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
+# Express Deployment of pre-built ChatGPT Teams Bot.
+
+
+
+<img width="357" alt="image" src="https://user-images.githubusercontent.com/8623897/227429491-1472099a-1006-40ea-b216-21b00331047f.png">
+
+- Preparation is minimal - you need an Azure subscription, access to the Azure OpenAI API, and an endpoint for GPT3.5.
+
+- The script will help users setup all other Azure resources using a single command.
+- It will create a downloadable Teams App you can side-install.   
+- No build environment is needed. 
+
+- You can choose to use the Online Azure Shell, a local Azure CLI shell, or For Online Azure Shell, choose PowerShell option.
+
+- For local environment, Windows, PowerShell and latest [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) 2.46.0 are required.
+
+- Deployment will take around 7~10 minutes. 
+
+- After completion, open the created bot service in resource group, and can open it in Teams Channel directly
+
+### NOTE:
+
+
+AZ CLI 2.4.6.0 has a bug that it reports ***[No section: 'bicep]*** when run bicep 
+without configurations at first time: 
+
+[https://github.com/Azure/azure-cli/issues/25710](https://github.com/Azure/azure-cli/issues/25710)
+
+The script has handled this error inside using a retry method. In case you keep hitting this, please close the running PS window, and start second time with the 
+same parameters, then it will work.
+
+
+## Required Parameters of deploy.ps1
+
+#### baseName
+You give a name like "MyAIBot".  A resource group name will be created with {baseName}RG and all other services used will be inthat resource group. The bot app registration in Azure AD will be {baseName}.
+
+#### apiBase
+The Azure OpenAI Service Endpoint.  This is a URL that is generated when you setup OpenAI API in Azure.
+
+#### apiKey
+The Aure OpenAI Service Access Key.  This also gets generated when you setup the API.
+
+#### chatGPTDeployName
+The **gpt-35-turbo model** deployment name in your Azure OpenAI Service (whatever you called it). In this sample, it is 'chatgpt'
+
+<img width="503" alt="image" src="https://user-images.githubusercontent.com/8623897/228241161-ea538dd6-c19e-495e-832b-94a2b9f87b30.png">
+
+#### Other optional parameters
+Run "get-help ./deploy.ps1", and refer to below sample commands.
+
+## Option One: Online Azure Shell
+
+### Deploy all resourses into the Azure Shell Subscription 
+
+1. Open <a href="https://shell.azure.com" target="_blank">Azure Shell</a>
+2. Choose PowerShell from the pull down menu.
+
+<img width="294" alt="image" src="https://user-images.githubusercontent.com/8623897/228239966-78e3d070-1015-4c99-9b52-9ae77cf65917.png">
+
+3. Run below command. Please be careful to keep a **blankspace** before the ` character in the Powershell command. 
+
+```PowerShell
+
+#Clone Branch to Azure Shell Cloud Drive
+Get-CloudDrive | Select-Object -ExpandProperty MountPoint | set-location
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+set-location ./rootbot/Deployment
+
+#Deployment
+.\deployInAzureShell.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Endpoint> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+```
+Let it run for a while.  If you get an error message about bicep you should run it a second time.
+It takes about 10 minutes to deploy all the services.
+
+
+4. Click Manage File Share. Download the TeamsAIBot.zip to your local machine, and then you can side-load it to Teams.
+
+<img width="315" alt="image" src="https://user-images.githubusercontent.com/8623897/228249096-820babb8-f215-4220-a12b-2028ae072188.png">
+
+<img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/228249380-8c44f60f-5f66-4edb-a911-5a15f1c1bf07.png">
+
+
+## Option Two: Local PowerShell & AZ CLI on Windows. 
+
+Choose one of below commands, which will auto generate TeamsAIBot.App, open it in Explorer.exe for Teams App side load.
+
+### Deploy All Resources to single Azure Subscription, let you pick up which subscription needs to be used 
+
+```powershell
+#Clone Branch to local folder 
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\deployment
+
+#Deployment
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Endpoint> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+```
+
+### Deploy All Resources to single Azure Subscription, choose subscription id directly (if your Azure AD is different)
+
+```powershell
+#Clone Branch to local folder 
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\deployment
+
+#Deployment
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Endpoint> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
+-aadSubscription <Bot App Registration Azure Subscription id> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+```
+
+## Option Three: More Complex Deployments
+
+### Deploy All Resources to single Azure Subscription, choose subscription id directly, use Azure Cache for Redis to host conversation flows for ChatGPT
+
+```powershell
+#Clone Branch to local folder 
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\deployment
+
+#Deployment
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Endpoint> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
+-aadSubscription <Bot App Registration Azure Subscription id> `
+-sameSubscription $true `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+-useCache "AzureRedis" `
+-azureCacheForRedisHostName "<your redis cache host>.redis.cache.windows.net" `
+-azureCacheForRedisAccessKey "<your redis cache access key>"
+```
+
+### Deploy Bot App Registration and Azure Resources to different Azure Subscriptions
+
+```powershell
+#Clone Branch to local folder 
+git clone -b chatgptonly https://github.com/freistli/rootbot.git
+cd .\rootbot\deployment
+
+#Deployment
+.\deploy.ps1 -baseName <resource base name> `
+-apiBase <Azure OpenAI Service Url> `
+-apiKey <Azure OpenAI Key> `
+-chatGPTDeployName <gpt-35-turbo Model Deployment name> `
+-sameSubscription $false `
+-zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
+```
+
+# Welcome to the AI Teams bot lab
+
+This bot project was created using the Bot Framework Composer using the Empty Bot template.  It therefore contains a minimal set of files necessary to have a working bot. We have then added certain triggers, dialogs and skills to integrate with LLM (Large Language Model) services, usually via the Azure OpenAI API.
+
+
+   Added certain triggers, dialogs and skills to make the bot integrated with several LLMs services (ChatGPT can be from Azure OpenAI or OpenAI, GPT-3 from Azure OpenAI, DALL-E from OpenAI), working on Microsoft Teams Platform. You can configure the triggers in the project to use one or more LLMs services based on your needs. 
 
 <img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/224331748-68fc3144-49cb-4d3f-91db-59819dffa397.png">
 
@@ -47,158 +225,8 @@ This bot project was created using the Empty Bot template from Bot Framework Com
  
  [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit)
 
-# Express Deployment as Azure ChatGPT Teams Bot
-
-The script will help users setup all required resources by single command for quick verifying Teams ChatGPT bot (no other LLMs dependecies, simple and fast). 
-
-<img width="357" alt="image" src="https://user-images.githubusercontent.com/8623897/227429491-1472099a-1006-40ea-b216-21b00331047f.png">
-
-- Build environment is not required during express deployment. 
-
-- For Online Azure Shell, choose PowerShell option.
-
-- For local environment, Windows, PowerShell and latest [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) 2.46.0 are required.
-
-- Deployment will take around 7~10 minutes. 
-
-- After completion, open the created bot service in resource group, and can open it in Teams Channel directly
-
-### NOTE:
 
 
-AZ CLI 2.4.6.0 has a bug that it reports ***[No section: 'bicep]*** when run bicep 
-without configurations at first time: 
-
-[https://github.com/Azure/azure-cli/issues/25710](https://github.com/Azure/azure-cli/issues/25710)
-
-If you hit this, please close the running PS window, and start second time with the 
-same parameters, then it will work.
-
-
-## Required Parameters of deploy.ps1
-
-#### baseName
-A resource group name will be created with {baseName}RG
-
-#### apiBase
-The Azure OpenAI Service Endpoint
-
-#### apiKey
-The Aure OpenAI Service Accessk Key
-
-#### chatGPTDeployName
-The **gpt-35-turbo model** deploy name in your Azure OpenAI Service. In this sample, it is 'chatgpt'
-
-<img width="503" alt="image" src="https://user-images.githubusercontent.com/8623897/228241161-ea538dd6-c19e-495e-832b-94a2b9f87b30.png">
-
-#### Other optional parameters
-Run "get-help ./deploy.ps1", and refer to below sample commands.
-
-## Option One: Online Azure Shell
-
-### Deploy all resourses into the Azure Shell Subscription 
-
-1. Open <a href="https://shell.azure.com" target="_blank">Azure Shell</a>
-2. Choose PowerShell
-
-<img width="294" alt="image" src="https://user-images.githubusercontent.com/8623897/228239966-78e3d070-1015-4c99-9b52-9ae77cf65917.png">
-
-3. Run below command. Please be careful to keep a **blankspace** before the ` character in the Powershell command. 
-
-```PowerShell
-
-#Clone Branch to Azure Shell Cloud Drive
-Get-CloudDrive | Select-Object -ExpandProperty MountPoint | set-location
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-set-location ./rootbot/Deployment
-
-#Deployment
-.\deployInAzureShell.ps1 -baseName <resource base name> `
--apiBase <Azure OpenAI Service Endpoint> `
--apiKey <Azure OpenAI Key> `
--chatGPTDeployName <gpt-35-turbo Model Deployment name> `
--zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
-```
-
-4. Click Manage File Share. Download the TeamsAIBot.zip, and then upload to your Teams
-
-<img width="315" alt="image" src="https://user-images.githubusercontent.com/8623897/228249096-820babb8-f215-4220-a12b-2028ae072188.png">
-
-<img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/228249380-8c44f60f-5f66-4edb-a911-5a15f1c1bf07.png">
-
-
-## Option Two: Local PowerShell & AZ CLI on Windows. 
-
-Choose one of below commands, which will auto generate TeamsAIBot.App, open it in Explorer.exe for Teams App side load.
-
-### Deploy All Resources to single Azure Subscription, let you pick up which subscription neeeds to be used 
-
-```powershell
-#Clone Branch to local folder 
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-cd .\rootbot\deployment
-
-#Deployment
-.\deploy.ps1 -baseName <resource base name> `
--apiBase <Azure OpenAI Service Endpoint> `
--apiKey <Azure OpenAI Key> `
--chatGPTDeployName <gpt-35-turbo Model Deployment name> `
--sameSubscription $true `
--zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
-```
-
-### Deploy All Resources to single Azure Subscription, choose subscription id directly
-
-```powershell
-#Clone Branch to local folder 
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-cd .\rootbot\deployment
-
-#Deployment
-.\deploy.ps1 -baseName <resource base name> `
--apiBase <Azure OpenAI Service Endpoint> `
--apiKey <Azure OpenAI Key> `
--chatGPTDeployName <gpt-35-turbo Model Deployment name> `
--aadSubscription <Bot App Registration Azure Subscription id> `
--sameSubscription $true `
--zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
-```
-
-### Deploy All Resources to single Azure Subscription, choose subscription id directly, use Azure Cache for Redis to host conversation flows for ChatGPT
-
-```powershell
-#Clone Branch to local folder 
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-cd .\rootbot\deployment
-
-#Deployment
-.\deploy.ps1 -baseName <resource base name> `
--apiBase <Azure OpenAI Service Endpoint> `
--apiKey <Azure OpenAI Key> `
--chatGPTDeployName <gpt-35-turbo Model Deployment name> `
--aadSubscription <Bot App Registration Azure Subscription id> `
--sameSubscription $true `
--zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
--useCache "AzureRedis" `
--azureCacheForRedisHostName "<your redis cache host>.redis.cache.windows.net" `
--azureCacheForRedisAccessKey "<your redis cache access key>"
-```
-
-### Deploy Bot App Registration and Azure Resources to different Azure Subscription
-
-```powershell
-#Clone Branch to local folder 
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-cd .\rootbot\deployment
-
-#Deployment
-.\deploy.ps1 -baseName <resource base name> `
--apiBase <Azure OpenAI Service Url> `
--apiKey <Azure OpenAI Key> `
--chatGPTDeployName <gpt-35-turbo Model Deployment name> `
--sameSubscription $false `
--zipUrl "https://github.com/freistli/rootbot/releases/download/Release/code_20230323-144829.zip"
-```
 
 # Build More Features In Dev environment
 
