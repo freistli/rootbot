@@ -26,19 +26,13 @@ class MyOpenAI {
   }
 
   public async initOpenAI() {
-    
     this.api = new ChatGPTAPI({ apiKey: process.env.OPENAI_API_KEY })
   }
 
-  public async callOpenAI(
-    prompt: string,
-    messageId: string,
-    conversationId: string
-  ): Promise<any> {
+  public async callOpenAI(prompt: string, messageId: string): Promise<any> {
     console.log('mid:' + messageId)
-    console.log('cid:' + conversationId)
 
-    if (messageId == '' || conversationId == '') {
+    if (messageId == '') {
       const res = await oraPromise(this.api.sendMessage(prompt), {
         text: prompt
       })
@@ -46,7 +40,6 @@ class MyOpenAI {
     } else {
       const res = await oraPromise(
         this.api.sendMessage(prompt, {
-          conversationId: conversationId,
           parentMessageId: messageId
         }),
         {
@@ -69,8 +62,7 @@ const httpTrigger: AzureFunction = async function (
     console.log(req.body.prompt)
     const result = await MyOpenAI.Instance()?.callOpenAI(
       req.body.prompt,
-      req.body.messageId,
-      req.body.conversationId
+      req.body.messageId
     )
     context.res = {
       // status: 200, /* Defaults to 200 */

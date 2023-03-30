@@ -5,7 +5,7 @@ import { oraPromise } from 'ora'
 
 class MyOpenAI {
   static current: MyOpenAI
-  public api: ChatGPTAPI
+  public api: any
 
   constructor() {
     this.initOpenAI().then(() => {
@@ -30,15 +30,10 @@ class MyOpenAI {
     this.api = new ChatGPTAPI({ apiKey: process.env.OPENAI_API_KEY })
   }
 
-  public async callOpenAI(
-    prompt: string,
-    messageId: string,
-    conversationId: string
-  ): Promise<any> {
+  public async callOpenAI(prompt: string, messageId: string): Promise<any> {
     console.log('mid:' + messageId)
-    console.log('cid:' + conversationId)
 
-    if (messageId == '' || conversationId == '') {
+    if (messageId == '') {
       const res = await oraPromise(this.api.sendMessage(prompt), {
         text: prompt
       })
@@ -46,7 +41,6 @@ class MyOpenAI {
     } else {
       const res = await oraPromise(
         this.api.sendMessage(prompt, {
-          conversationId: conversationId,
           parentMessageId: messageId
         }),
         {
@@ -57,6 +51,7 @@ class MyOpenAI {
     }
   }
 }
+
 class Choice {
   public title: string
   public value: string

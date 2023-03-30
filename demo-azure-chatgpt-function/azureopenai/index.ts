@@ -1,18 +1,21 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions'
-import { AzureChatGPTAPI } from '@freistli/azurechatgptapi'
-import dotenv from 'dotenv-safe'
+import {
+  AzureChatGPTAPI,
+  AzureRedisAdapter,
+  ChatMessage
+} from '@freistli/azurechatgptapi'
+import Keyv from 'keyv'
 import { oraPromise } from 'ora'
 
 //dotenv.config()
 
 class MyOpenAI {
   static current: MyOpenAI
-  public api: any
+  public api: any = null
+  private azureRedisStore: Keyv<ChatMessage, any>
 
   constructor() {
-    this.initOpenAI().then(() => {
-      return
-    })
+    this.initOpenAI()
   }
 
   public static Instance() {
@@ -29,18 +32,47 @@ class MyOpenAI {
   }
 
   public async initOpenAI() {
+    if (process.env.USE_CACHE?.toLowerCase() === 'azureredis') {
+      // Environment variables for cache
+      const cacheHostName = process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME
+      const cachePassword = process.env.AZURE_CACHE_FOR_REDIS_ACCESS_KEY
+
+      if (!cacheHostName)
+        throw Error('AZURE_CACHE_FOR_REDIS_HOST_NAME is empty')
+      if (!cachePassword)
+        throw Error('AZURE_CACHE_FOR_REDIS_ACCESS_KEY is empty')
+
+      const azureRedisAdapter = new AzureRedisAdapter({
+        cacheHostName: process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME,
+        cachePassword: process.env.AZURE_CACHE_FOR_REDIS_ACCESS_KEY
+      })
+
+      await azureRedisAdapter.connect()
+
+      this.azureRedisStore = new Keyv<ChatMessage, any>({
+        store: azureRedisAdapter
+      })
+    }
+
+    console.log('Initializing ChatGPTAPI instanace')
     this.api = new AzureChatGPTAPI(
       {
         apiKey: process.env.AZURE_OPENAI_API_KEY,
         apiBaseUrl: process.env.AZURE_OPENAI_API_BASE,
+        messageStore: this.azureRedisStore,
         debug: false
       },
-      'chatgpt'
+      process.env.CHATGPT_DEPLOY_NAME ?? 'chatgpt'
     )
+    console.log('ChatGPTAPI instanace is created')
   }
 
   public async callOpenAI(prompt: string, messageId: string): Promise<any> {
     console.log('mid:' + messageId)
+
+    while (this.api === null) {
+      await new Promise((resolve) => setTimeout(resolve, 500))
+    }
 
     try {
       if (messageId == '') {
@@ -60,7 +92,7 @@ class MyOpenAI {
         return res
       }
     } catch (e: any) {
-      console.log('Failed to handle: ' + prompt)
+      console.log('Failed to handle: ' + prompt + 'with error: ' + e)
       return 'Cannot handle this prompt for the moment, please try again'
     }
   }
