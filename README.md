@@ -48,14 +48,14 @@ without configurations at first time:
 
 [https://github.com/Azure/azure-cli/issues/25710](https://github.com/Azure/azure-cli/issues/25710)
 
-If you hit this, please close the running PS window, and start second time with the 
+The script has handled this error inside using a retry method. In case you keep hitting this, please close the running PS window, and start second time with the 
 same parameters, then it will work.
 
 
 ## Required Parameters of deploy.ps1
 
 #### baseName
-You give a name like "MyAIBot".  A resource group name will be created with {baseName}_RG and all other services used will be inthat resource group.
+You give a name like "MyAIBot".  A resource group name will be created with {baseName}RG and all other services used will be inthat resource group. The bot app registration in Azure AD will be {baseName}.
 
 #### apiBase
 The Azure OpenAI Service Endpoint.  This is a URL that is generated when you setup OpenAI API in Azure.
@@ -100,7 +100,7 @@ Let it run for a while.  If you get an error message about bicep you should run 
 It takes about 10 minutes to deploy all the services.
 
 
-1. Click Manage File Share. Download the TeamsAIBot.zip to your local maching, and then you can side-load it to Teams.
+4. Click Manage File Share. Download the TeamsAIBot.zip to your local machine, and then you can side-load it to Teams.
 
 <img width="315" alt="image" src="https://user-images.githubusercontent.com/8623897/228249096-820babb8-f215-4220-a12b-2028ae072188.png">
 
