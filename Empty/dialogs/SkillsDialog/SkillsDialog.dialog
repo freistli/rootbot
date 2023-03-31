@@ -19,6 +19,22 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
+            "id": "6RiwsJ"
+          },
+          "activity": "${SendActivity_6RiwsJ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "1oj1gL"
+          },
+          "activity": "${SendActivity_1oj1gL()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
             "id": "tRzNOk"
           },
           "activity": "${SendActivity_tRzNOk()}"
