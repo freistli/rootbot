@@ -64,31 +64,12 @@
           "value": "=turn.activity.text"
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "WXkgtz"
+            "id": "EK3tOZ"
           },
-          "condition": "=user.chatgpt == \"true\"",
-          "actions": [
-            {
-              "$kind": "Microsoft.BeginDialog",
-              "$designer": {
-                "id": "oTpxmL"
-              },
-              "activityProcessed": true,
-              "dialog": "ChatGPTMEDiag"
-            }
-          ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.BeginDialog",
-              "$designer": {
-                "id": "2ZO1GR"
-              },
-              "activityProcessed": true,
-              "dialog": "ChatGPTMEDiag"
-            }
-          ]
+          "activityProcessed": true,
+          "dialog": "ChatGPTMEDiag"
         }
       ]
     },
