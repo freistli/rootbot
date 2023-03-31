@@ -300,7 +300,7 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
      Note: 
 
-     Prompter is optimized for Azure OpenAI. Can use the same **azureprompter** function URL in promoterUrl and chatgptUrl.
+     Prompter is optimized for Azure OpenAI specifically. Can use the same **azureprompter** function URL in promoterUrl and chatgptUrl.
      
      **promoterUrl** is the function url after publishing **azureprompter** / **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
      
