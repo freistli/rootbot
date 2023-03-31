@@ -572,7 +572,7 @@
           "resultProperty": "turn.results",
           "method": "POST",
           "url": "=settings.promoterUrl",
-          "body": "{     \"name\":\"${turn.activity.value.ActAsSelector}\",\"prompt\":\"${turn.activity.value.prompt}\" }"
+          "body": "{     \"name\":\"${turn.activity.value.ActAsSelector}\",\"prompt\":\"${turn.activity.value.prompt}\",\"messageId\":\"${user.mid}\"}"
         },
         {
           "$kind": "Microsoft.SendActivity",

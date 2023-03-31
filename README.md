@@ -298,23 +298,30 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
     "openAIKey": "Bearer sk-your OpenAI API Key"
     ```
 
-     Note: **promoterUrl** is the function url after publishing **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
+     Note: 
+
+     Prompter is optimized for Azure OpenAI. Can use the same **azureprompter** function URL in promoterUrl and chatgptUrl.
      
-     https://github.com/freistli/rootbot/tree/main/demo-azurefunction 
+     **promoterUrl** is the function url after publishing **azureprompter** / **prompter** Azure Function (Node.JS 18 LTS) from Visual Studio Code: 
      
-     **chatgptUrl** is the function url after publishing another **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
+         Azure OpenAI:
+         https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azure-chatgpt-function
+
+         OpenAI:
+         https://github.com/freistli/rootbot/tree/main/demo-azurefunction 
      
-     Connect to offical Azure OpenAI Service (deploy your ChatGPT model on Azure OpenAI as a name 'chatpgt'):
+     **chatgptUrl** is the function url after publishing another **azureopenai** / **openai** Azure Function (Node.JS 18 LTS) from Visual Studio Code:
      
-     https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azure-chatgpt-function
+         Connect to offical Azure OpenAI Service (deploy your ChatGPT model on Azure OpenAI as a name 'chatpgt'):
+         
+         https://github.com/freistli/chatgpt-api/tree/main/demos/demo-azure-chatgpt-function
+         
+         Connect to offical OpenAI service:
+         
+         https://github.com/freistli/rootbot/tree/main/demo-azurefunction 
      
-     Connect to offical OpenAI service:
-     
-     https://github.com/freistli/rootbot/tree/main/demo-azurefunction-release
-     
-     Note: currenlty prompter and openai should be in different Azure Function Apps because they are using different dependencies now.  
-     
-     Also need to configure your OpenAI_API_Key there after publishing them (for Prompter & OpenAI Azure Function Apps):    
+         
+     If use OpenAI, need to configure your **OpenAI_API_Key** there after publishing the function apps:    
      
      https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
      
@@ -325,6 +332,8 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
       AZURE_OPENAI_API_KEY 
       
       AZURE_OPENAI_API_BASE
+
+      CHATGPT_DEPLOY_NAME
 
      The BFC JSON configuration UI is similar to:
      
