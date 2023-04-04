@@ -219,11 +219,11 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
 # Credits
 
- [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit)
+ [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit). Base on it, I implemented [Azure OpenAI ChatGPT API Package](https://www.npmjs.com/package/@freistli/azurechatgptapi)
 
- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f) 
+ [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f). 
  
- [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit)
+ [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit). Based on it, I implemented [Azure OpenAI ChatGPT Prompts](https://www.npmjs.com/package/@freistli/azure-chatgpt-prompts)
 
 
 
