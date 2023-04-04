@@ -12,7 +12,7 @@ Want to get started with the simplest most common use case?  Use the Express Dep
 [Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-as-azure-chatgpt-teams-bot)
 
 Want to understand how this bot works?
-[Overview of the Teams AI Bot Lab](#welcome-to-your-ai-teams-bot-lab)
+[Overview of the Teams AI Bot Lab](#welcome-to-the-ai-teams-bot-lab)
 
 
 Want to experiment with more advanced features?
