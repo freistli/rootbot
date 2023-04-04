@@ -12,7 +12,7 @@ Want to get started with the simplest most common use case?  Use the Express Dep
 [Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-as-azure-chatgpt-teams-bot)
 
 Want to understand how this bot works?
-[Overview of the Teams AI Bot Lab](#welcome-to-your-ai-teams-bot-lab)
+[Overview of the Teams AI Bot Lab](#welcome-to-the-ai-teams-bot-lab)
 
 
 Want to experiment with more advanced features?
@@ -219,11 +219,11 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
 # Credits
 
- [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit)
+ [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit). Base on it, I implemented [Azure OpenAI ChatGPT API Package](https://www.npmjs.com/package/@freistli/azurechatgptapi)
 
- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f) 
+ [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f). 
  
- [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit)
+ [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit). Based on it, I implemented [Azure OpenAI ChatGPT Prompts](https://www.npmjs.com/package/@freistli/azure-chatgpt-prompts)
 
 
 
