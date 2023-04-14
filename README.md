@@ -251,7 +251,10 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
    git clone https://github.com/freistli/rootbot.git
    ```
 
-2. Open the folder in Bot Framework Composer
+2. After cloning the project, rename .\Empty\settings\appsettings.template.json as .\Empty\settings\appsettings.json
+
+
+3. Open the folder in Bot Framework Composer
    
    Note: If BFC is not installed, please go through **Environment Preparation** of this article https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135 on how to use Bot Framework Composer.
    
@@ -264,7 +267,6 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
    https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876
    
    
-3. After cloning the project, rename .\Empty\settings\appsettings.template.json as .\Empty\settings\appsettings.json
 4. Open Bot Framework Composer, open the project folder in it to load the bot project.
 
 5. Provision root bot in in Bot Framework Composer (setup publish profile). Don't need to choose Azure Luis Resource because the project uses Regex to handle user intents of the bot now. (refer to steps 5 - 12 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
