@@ -14,10 +14,10 @@ Want to get started with the simplest most common use case?  Use the Express Dep
 Want to understand how this bot works?
 [Overview of the Teams AI Bot Lab](#welcome-to-the-ai-teams-bot-lab)
 
-Want to build/customize Teams AI Bot with Teams Toolkit?
-Please check: https://github.com/freistli/TeamsAIBot
+Want to build/customize Teams AI Bot with **Teams Toolkit**?
+https://github.com/freistli/TeamsAIBot
 
-Want to experiment with more advanced features with Bot Framework Composer?
+Want to experiment with more advanced features with **Bot Framework Composer**?
 [Build More Features In Dev environment](#build-more-features-in-dev-environment)
 
 
