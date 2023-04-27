@@ -331,7 +331,7 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
      
      <img width="341" alt="image" src="https://user-images.githubusercontent.com/8623897/222511333-a9aa7908-64a1-454a-9ea6-cb74bbcb5da0.png">
 
-     If you use Azure OpenAI ChatGPT, need to configure below two keys in Application Settings:
+     If you use Azure OpenAI ChatGPT, need to configure below three variables in Application Settings:
      
       AZURE_OPENAI_API_KEY 
       
