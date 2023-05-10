@@ -8,17 +8,21 @@ This is sample code -- it is not a product or a supported release.  Our intentio
 
 But right now, you can use this sample code to experiment, learn and plan for the future, and it provides an interface to the ChatGPT expertienc but allowing monitoring and governance.
 
-Want to get started with the simplest most common use case?  Use the Express Deployment Release.
-[Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-of-pre-built-chatgpt-teams-bot)
+* Want to get started with the simplest most common use case?  Use the Express Deployment Release. (friendly to IT Admins)
 
-Want to understand how this bot works?
-[Overview of the Teams AI Bot Lab](#welcome-to-the-ai-teams-bot-lab)
+   [Express Deployment as Azure ChatGPT Teams Bot](#express-deployment-of-pre-built-chatgpt-teams-bot)
 
-Want to build/customize Teams AI Bot with **Teams Toolkit**?
-https://github.com/freistli/TeamsAIBot
+* Want to understand how this bot works?
 
-Want to experiment with more advanced features with **Bot Framework Composer**?
-[Build More Features In Dev environment](#build-more-features-in-dev-environment)
+   [Overview of the Teams AI Bot Lab](#welcome-to-the-ai-teams-bot-lab)
+
+* Want to build/customize Teams AI Bot with **Teams Toolkit**? (friendly to Developers beginning on the bot app journey)
+
+   https://github.com/freistli/TeamsAIBot
+
+* Want to experiment with more advanced features with **Bot Framework Composer**? (Good start to understand more integration possiblities with Teams Features as Bot app)
+
+   [Build More Features In Dev environment](#build-more-features-in-dev-environment)
 
 
 
