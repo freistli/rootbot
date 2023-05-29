@@ -143,7 +143,7 @@ resource functionAppName_web 'Microsoft.Web/sites/sourcecontrols@2018-11-01' = {
   parent: functionApp
   name: 'web'
   properties: {
-    repoUrl: 'https://azuredevops.fineksus.local/DataAnalytics/PaygateAI/_git/AzureGPTFunction'
+    repoUrl: 'https://github.com/emrah-ozturk/azchatgptfunc.git'
     branch: 'main'
     isManualIntegration: true
   }
