@@ -265,5 +265,8 @@ __pycache__/
 appsettings.json
 appsettings.dev.json
 empty.dev.botproj
-*.zip
 Empty/Properties/PublishProfiles/FolderProfile.pubxml
+
+# Add VisualStudioCode
+.vscode/
+code/

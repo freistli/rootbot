@@ -5,19 +5,19 @@
     "id": "{TeamsAppId}",
     "packageName": "com.package.name",
     "name": {
-        "short": "TeamsAIBotSample",
-        "full": "Teams AI Bot Sample"
+        "short": "PaygateGPT",
+        "full": "Fineksus AI-Powered Chatbot"
     },
     "developer": {
-        "name": "Contoso",
+        "name": "Fineksus",
         "mpnId": "",
-        "websiteUrl": "https://www.contoso.com",
-        "privacyUrl": "https://www.contoso.com/privacy",
-        "termsOfUseUrl": "https://www.contoso.com/terms"
+        "websiteUrl": "https://www.fineksus.com/",
+        "privacyUrl": "https://www.fineksus.com/privacy-and-cookie-policy/",
+        "termsOfUseUrl": "https://www.fineksus.com/about-us/"
     },
     "description": {
-        "short": "Teams AI Bot Sample",
-        "full": "Teams AI Bot Sample - ChatGPT"
+        "short": "PaygateGPT",
+        "full": "Fineksus AI-Powered Chatbot"
     },
     "icons": {
         "outline": "outline.png",

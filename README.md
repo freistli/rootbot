@@ -24,7 +24,7 @@ Want to experiment with more advanced features?
 
 
 
-<img width="357" alt="image" src="https://user-images.githubusercontent.com/8623897/227429491-1472099a-1006-40ea-b216-21b00331047f.png">
+<img width="357" alt="image" src="https://fineksus.com/wp-content/uploads/2018/11/logo.png">
 
 - Preparation is minimal - you need an Azure subscription, access to the Azure OpenAI API, and an endpoint for GPT3.5.
 
@@ -66,8 +66,6 @@ The Aure OpenAI Service Access Key.  This also gets generated when you setup the
 #### chatGPTDeployName
 The **gpt-35-turbo model** deployment name in your Azure OpenAI Service (whatever you called it). In this sample, it is 'chatgpt'
 
-<img width="503" alt="image" src="https://user-images.githubusercontent.com/8623897/228241161-ea538dd6-c19e-495e-832b-94a2b9f87b30.png">
-
 #### Other optional parameters
 Run "get-help ./deploy.ps1", and refer to below sample commands.
 
@@ -77,17 +75,14 @@ Run "get-help ./deploy.ps1", and refer to below sample commands.
 
 1. Open <a href="https://shell.azure.com" target="_blank">Azure Shell</a>
 2. Choose PowerShell from the pull down menu.
-
-<img width="294" alt="image" src="https://user-images.githubusercontent.com/8623897/228239966-78e3d070-1015-4c99-9b52-9ae77cf65917.png">
-
 3. Run below command. Please be careful to keep a **blankspace** before the ` character in the Powershell command. 
 
 ```PowerShell
 
 #Clone Branch to Azure Shell Cloud Drive
 Get-CloudDrive | Select-Object -ExpandProperty MountPoint | set-location
-git clone -b chatgptonly https://github.com/freistli/rootbot.git
-set-location ./rootbot/Deployment
+git clone ssh://azuredevops.fineksus.local:22/DataAnalytics/PaygateAI/_git/FineksusGPT
+set-location ./FineksusGPT/Deployment
 
 #Deployment
 .\deployInAzureShell.ps1 -baseName <resource base name> `
@@ -101,11 +96,6 @@ It takes about 10 minutes to deploy all the services.
 
 
 4. Click Manage File Share. Download the TeamsAIBot.zip to your local machine, and then you can side-load it to Teams.
-
-<img width="315" alt="image" src="https://user-images.githubusercontent.com/8623897/228249096-820babb8-f215-4220-a12b-2028ae072188.png">
-
-<img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/228249380-8c44f60f-5f66-4edb-a911-5a15f1c1bf07.png">
-
 
 ## Option Two: Local PowerShell & AZ CLI on Windows. 
 
@@ -191,42 +181,6 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
 <img width="928" alt="image" src="https://user-images.githubusercontent.com/8623897/224331748-68fc3144-49cb-4d3f-91db-59819dffa397.png">
 
-<img width="424" alt="image" src="https://user-images.githubusercontent.com/8623897/222939210-bcf24b28-36c0-4049-bded-a0e4745934cf.png">
-
-## ChatGPT responses in Teams Conversation
-
-<img width="958" alt="image" src="https://user-images.githubusercontent.com/8623897/221471351-0bebf072-ceb5-49ed-a3cb-2837916e0cbb.png">
-
-<img width="807" alt="image" src="https://user-images.githubusercontent.com/8623897/221471644-ce9e1ead-7c19-4cda-8d3f-53a26927b581.png">
-
-## Interactive in Teams Message Extension
-
-<img width="321" alt="image" src="https://user-images.githubusercontent.com/8623897/221473432-b50434be-e103-4143-b89e-5e532af7aa77.png">
-
-<img width="936" alt="image" src="https://user-images.githubusercontent.com/8623897/221473604-f5f16c53-d682-48db-bce2-4300232d168f.png">
-
-## "Act As" ChatGPT with preset prompts in Adaptive Cards [experimental feature]
-
-<img width="905" alt="image" src="https://user-images.githubusercontent.com/8623897/222938613-210d79f4-8f55-490b-8ac1-d7f29337cce7.png">
-
-<img width="439" alt="image" src="https://user-images.githubusercontent.com/8623897/221474514-81ca299b-d417-42e8-8cea-359a754f52f1.png">
-
-## DALLE in in Teams Message Extension
-
-<img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221493090-d2b3abab-6191-430a-b159-1c94c18be5c8.png">
-
-<img width="918" alt="image" src="https://user-images.githubusercontent.com/8623897/221492795-fb8de08a-b7e8-4ff3-8e26-1d9c00ae1e68.png">
-
-# Credits
-
- [ChatGPT API Pckages](https://github.com/transitive-bullshit/chatgpt-api) by [Travis Fischer](https://github.com/transitive-bullshit). Base on it, I implemented [Azure OpenAI ChatGPT API Package](https://www.npmjs.com/package/@freistli/azurechatgptapi)
-
- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) by [Fatih Kadir Akın](https://github.com/f). 
- 
- [chatgpt-prompts package](https://github.com/pacholoamit/chatgpt-prompts) by [Pacholo Amit](https://github.com/pacholoamit). Based on it, I implemented [Azure OpenAI ChatGPT Prompts](https://www.npmjs.com/package/@freistli/azure-chatgpt-prompts)
-
-
-
 
 # Build More Features In Dev environment
 
@@ -271,8 +225,6 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
 6. Setup AppID/PWD (refer to steps 18~19 in [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/create-a-weather-forecast-bot-with-azure-luis-and-maps-services/ba-p/3261135) for more details)
  
-   <img width="318" alt="image" src="https://user-images.githubusercontent.com/8623897/221360529-b2154401-5853-46d9-8196-3ae26ddc4c60.png"></img>
-
 7. Add necessary configuration keys in root bot configuration json
 
    Note: for test purpose, you don't have to put real values for all of them. Setup what you need. 
@@ -321,11 +273,8 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
          https://github.com/freistli/rootbot/tree/main/demo-azurefunction 
      
          
-     If use OpenAI, need to configure your **OpenAI_API_Key** there after publishing the function apps:    
-     
-     https://github.com/freistli/chatgpt-api/blob/main/demos/demo-azurefunction/Readme.md
-     
-     <img width="341" alt="image" src="https://user-images.githubusercontent.com/8623897/222511333-a9aa7908-64a1-454a-9ea6-cb74bbcb5da0.png">
+     If use OpenAI, need to configure your **OpenAI_API_Key** there after publishing the function apps:         
+
 
      If you use Azure OpenAI ChatGPT, need to configure below two keys in Application Settings:
      
@@ -335,13 +284,10 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
       CHATGPT_DEPLOY_NAME
 
-     The BFC JSON configuration UI is similar to:
-     
-     ![image](https://user-images.githubusercontent.com/8623897/221360271-6ca877b4-ac93-4dea-aa08-5ed0f1126c6d.png)
 
-8. Publish root bot. (If didn't use Bot composer before, refer to [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876) for more details)
+8. Publish PaygateGPT bot. (If didn't use Bot composer before, refer to [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876) for more details)
 
-9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\package\manifest.json](https://github.com/freistli/rootbot/blob/main/Empty/package/manifest.json)
+9. Enalbe Teams Channel, create App Package for teams.
 
 ## Host Bot App in other non-Azure environments 
 

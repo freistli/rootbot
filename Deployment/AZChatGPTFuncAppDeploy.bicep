@@ -1,5 +1,5 @@
 @description('The name of the function app that you wish to create.')
-param appName string = 'FuncApp-${uniqueString(resourceGroup().id)}'
+param appName string = 'FuncApp-PaygateGPT'
 
 @description('Storage Account type')
 @allowed([
@@ -143,7 +143,7 @@ resource functionAppName_web 'Microsoft.Web/sites/sourcecontrols@2018-11-01' = {
   parent: functionApp
   name: 'web'
   properties: {
-    repoUrl: 'https://github.com/freistli/azchatgptfunc.git'
+    repoUrl: 'https://azuredevops.fineksus.local/DataAnalytics/PaygateAI/_git/AzureGPTFunction'
     branch: 'main'
     isManualIntegration: true
   }

@@ -11,7 +11,7 @@ if ($result -match "\d+\.\d+\.\d+")
 
 
 if ( $version -lt $minimumVersion) { 
-    Write-Host "Your Azure CLI version is ${version}. Before run this scirpt, please upgrade to version $($minimumVersion) or later." -ForegroundColor Yellow
+    Write-Host "Your Azure CLI version is ${version}. Before run this script, please upgrade to version $($minimumVersion) or later." -ForegroundColor Yellow
     $response = Read-Host "Do you want to upgrade now? (Y/N)"
     if ($response.ToLower() -eq 'y') { 
         Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile AzureCLI.msi 
