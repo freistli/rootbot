@@ -29,7 +29,7 @@ param(
 
         ## Git repo URL
         [Parameter(HelpMessage="Git repo URL")]
-        [string]$repoURL='https://github.com/freistli/rootbot.git',
+        [string]$repoURL='https://github.com/emrah-ozturk/azurebot.git',
 
         ## Same Subscription for AAD App Registration and Bot App Azure Resource
         [Parameter(HelpMessage="Same Subscription for AAD App Registration and Bot App Azure Resource")]

@@ -8,8 +8,8 @@
 # SendActivity_tRzNOk_attachment_wHREcV()
 
 [HeroCard
-    title = Root Bot V.03102023
+    title = PaygateGPT
     text = Hi ${turn.activity.from.name}, I'm an intelligent bot to interact with users naturally wherever they are. Say Hi to show home menu. Say bye to end a conversation. \r\n  I'm using ChatGPT model, please note that ChatGPT's responses are generated based on its training data and algorithms, and may not always be appropriate, complete, or relevant to your specific situation or needs. Therefore, you should always exercise caution and use your own discretion when applying the information provided by ChatGPT.
-    image = https://fllivesharepoc.azurewebsites.net/greeting.png
-    buttons = ChatGPT  
+    image = https://fineksus.com/wp-content/uploads/2018/11/logo.png
+    buttons = PaygateGPT  
 ]

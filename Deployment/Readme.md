@@ -1,1 +1,1 @@
-Refer to: https://github.com/freistli/rootbot/tree/chatgptonly#express-deployment-as-azure-chatgpt-teams-bot
+Refer to: https://azuredevops.fineksus.local/DataAnalytics/PaygateAI/_git/FineksusGPT

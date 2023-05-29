@@ -5,19 +5,19 @@
     "id": "<<your teams app id>>",
     "packageName": "com.package.name",
     "name": {
-        "short": "rootbot02",
-        "full": "root bot 02"
+        "short": "PaygateGPT",
+        "full": "Fineksus AI-Powered Chatbot"
     },
     "developer": {
-        "name": "Contoso",
+        "name": "Fineksus",
         "mpnId": "",
-        "websiteUrl": "https://www.contoso.com",
-        "privacyUrl": "https://www.contoso.com/privacy",
-        "termsOfUseUrl": "https://www.contoso.com/terms"
+        "websiteUrl": "https://www.fineksus.com/",
+        "privacyUrl": "https://www.fineksus.com/privacy-and-cookie-policy/",
+        "termsOfUseUrl": "https://www.fineksus.com/about-us/"
     },
     "description": {
-        "short": "root bot sample",
-        "full": "root bot sample - CQA, ChatGPT, DALLE"
+        "short": "PaygateGPT",
+        "full": "Fineksus AI-Powered Chatbot"
     },
     "icons": {
         "outline": "outline.png",

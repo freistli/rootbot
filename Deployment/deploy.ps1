@@ -29,7 +29,7 @@ param(
 
         ## Git repo URL
         [Parameter(HelpMessage="Git repo URL")]
-        [string]$repoURL='https://github.com/freistli/rootbot.git',
+        [string]$repoURL='https://github.com/emrah-ozturk/azurebot.git,
 
         ## Same Subscription for AAD App Registration and Bot App Azure Resource
         [Parameter(HelpMessage="Same Subscription for AAD App Registration and Bot App Azure Resource")]
@@ -37,7 +37,7 @@ param(
 
         ## Release package name on github repo
         [Parameter(HelpMessage="Release package name on github repo")]
-        [string]$zipUrl="https://github.com/freistli/rootbot/releases/download/Release/code.zip",
+        [string]$zipUrl="https://github.com/emrah-ozturk/azurebot/blob/2260482264df3f6796ba982279000e290fcafe93/code.zip",
 
         ## Run in Azure Shell
         [Parameter(HelpMessage="Run in Azure Shell")]
