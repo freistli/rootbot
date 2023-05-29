@@ -29,7 +29,7 @@ param(
 
         ## Git repo URL
         [Parameter(HelpMessage="Git repo URL")]
-        [string]$repoURL='https://azuredevops.fineksus.local/DataAnalytics/PaygateAI/_git/FineksusGPT',
+        [string]$repoURL='https://github.com/emrah-ozturk/azurebot.git,
 
         ## Same Subscription for AAD App Registration and Bot App Azure Resource
         [Parameter(HelpMessage="Same Subscription for AAD App Registration and Bot App Azure Resource")]
@@ -37,7 +37,7 @@ param(
 
         ## Release package name on github repo
         [Parameter(HelpMessage="Release package name on github repo")]
-        [string]$zipUrl="https://azuredevops.fineksus.local/DataAnalytics/4ae4ea48-b217-41bc-a756-45efcb6eac41/_apis/git/repositories/8b590ee1-be9c-448d-9309-2dee5e97e34c/items?path=/code.zip&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=dev&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true",
+        [string]$zipUrl="https://github.com/emrah-ozturk/azurebot/blob/2260482264df3f6796ba982279000e290fcafe93/code.zip",
 
         ## Run in Azure Shell
         [Parameter(HelpMessage="Run in Azure Shell")]
