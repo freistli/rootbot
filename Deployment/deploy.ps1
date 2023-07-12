@@ -167,7 +167,7 @@ param(
         } 
         elseif ($response -eq "N") 
         { 
-            PrintMsg"You typed N" 
+            PrintMsg "You typed N" 
             
             $aadSubscription = $null
             PrintMsg "Azure Login for Azure Resource Subscription"
