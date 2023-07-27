@@ -349,6 +349,11 @@ This bot project was created using the Bot Framework Composer using the Empty Bo
 
 8. Publish root bot. (If didn't use Bot composer before, refer to [this blog](https://techcommunity.microsoft.com/t5/modern-work-app-consult-blog/publish-bot-app-to-teams-channel-with-bot-framework-composer-and/ba-p/3341876) for more details)
 
+```
+NOTE: After the bot is published, in the bot Azure Web App, please double check if the AAD password (MicrosoftAppPasssword) is added
+in the c:\home\site\wwwroot\settings\appsettings.json by Bot Composer.
+```
+
 9. Enalbe Teams Channel, create App Package for teams. The Teams App Manifest can refer to [\package\manifest.json](https://github.com/freistli/rootbot/blob/main/Empty/package/manifest.json)
 
 ## Host Bot App in other non-Azure environments 
