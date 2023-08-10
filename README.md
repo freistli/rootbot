@@ -1,4 +1,6 @@
-# Index
+[![Image of pageviews](https://github.com/freistli/pageviews/blob/master/svg/599430290/badge.svg)](https://github.com/freistli/pageviews/blob/master/readme/599430290/week.md)
+
+# Index [<img alt="Image of pageviews" src="https://github.com/freistli/pageviews/blob/master/graph/599430290/small/year.png" height="20">](https://github.com/freistli/pageviews/blob/master/readme/599430290/year.md)
 
 
 This repository contains sample code to integrate AI services into Microsoft Teams as a bot.
