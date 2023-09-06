@@ -34,7 +34,7 @@ But right now, you can use this sample code to experiment, learn and plan for th
 
 <img width="357" alt="image" src="https://user-images.githubusercontent.com/8623897/227429491-1472099a-1006-40ea-b216-21b00331047f.png">
 
-- Preparation is minimal - you need an Azure subscription, access to the Azure OpenAI API, and an endpoint for GPT3.5.
+- Preparation is minimal - you need an Azure subscription, access to the Azure OpenAI API, and an endpoint for **gpt-35-turbo (version 0301)** model.
 
 - The script will help users setup all other Azure resources using a single command.
 - It will create a downloadable Teams App you can side-install.   
@@ -72,7 +72,9 @@ The Azure OpenAI Service Endpoint.  This is a URL that is generated when you set
 The Aure OpenAI Service Access Key.  This also gets generated when you setup the API.
 
 #### chatGPTDeployName
-The **gpt-35-turbo model** deployment name in your Azure OpenAI Service (whatever you called it). In this sample, it is 'chatgpt'
+The **gpt-35-turbo (version 0301)** deployment name in your Azure OpenAI Service (whatever you called it).  
+
+In this sample, it is 'chatgpt'
 
 <img width="503" alt="image" src="https://user-images.githubusercontent.com/8623897/228241161-ea538dd6-c19e-495e-832b-94a2b9f87b30.png">
 
